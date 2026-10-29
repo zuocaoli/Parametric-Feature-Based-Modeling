@@ -1,0 +1,95 @@
+# 表达式引擎与依赖图·第二月第 1 周：建立依赖关系
+
+## 课程核心
+
+把公式中的“引用了谁”转换为属性之间可查询、可更新的依赖图，为后续确定计算顺序和增量重算打基础。
+
+主线是：**遍历 AST 提取变量 → 解析为对象 ID＋属性键 → 去重 → 同步维护前置与下游关系**。例如 `A.width = A.length / 2` 建立 `A.length → A.width`：从 width 能查到它依赖 length，从 length 能查到哪些属性受它影响。
+
+关键是保证关系准确：区分不同对象的同名属性，替换公式时移除旧边，解除公式时只清除该属性的前置关系，保留别人对它的引用。本周只建立和维护关系；循环检测、计算顺序与实际重算由后续课程逐步加入。
+
+## 本周训练
+
+- **承接与前置**：[表达式引擎与依赖图·第一月末](../../month01/week04/README.md)暴露了手动计算的顺序问题；本周从已有 AST 提取关系，先复习集合、映射和邻接表。
+- **目标**：能把变量名解析为对象 ID＋属性键；能维护前置与下游两份一致的关系表。
+- **独立练习**：将 A/B 视为 ID 1/2，给 A.width 的 `length/2`、A.area 的 `length*width` 建图；给 B.width 的 `source_length/2 + source_length*0` 显式映射 source_length→A.length，列出各节点的前置与下游，再解除 B 的公式。
+- **验收**：重复引用只形成一条 A.length→B.width 边，两个对象的 width 不混淆；解除只移除 B.width 的前置，A 的关系保持。此周验证关系，暂不创建和重算完整模型。
+
+## 41. 如何从 AST 提取变量引用？
+
+遍历节点，只收集 Variable 的 Token 文本，再递归访问左右子树。数字和运算符不产生依赖；一元、二元与括号对应的子树都被覆盖。沿用表达式引擎与依赖图·第一月 Parser 的有效 AST，不重新扫描字符串猜测变量。
+
+代码：[collect_variables()/collect()](dependencies.cpp)。
+
+## 42. 同一变量多次出现，如何去重？
+
+变量名放进 set；解析为属性标识后再放进 KeySet。同名多次出现会去重，两个不同别名映射到同一属性也只保留一项。代价是有序集合插入成本，本课换取明确的唯一性和稳定输出。
+
+代码：[collect_variables()/resolve_dependencies()](dependencies.cpp)。
+
+## 43. 如何准确标识属性？
+
+PropertyKey 保存对象 ID 与实际属性键，用默认比较支持有序容器。不同对象的 length 是不同节点；Length 显示标签不是 length 键。未映射变量默认指向公式所属对象，显式 VariableMap 可把 source_width 指向另一个对象。本周只解析标识，不查对象是否存在；对象与类型验证在整合周加入。
+
+代码：[PropertyKey/VariableMap](dependencies.cppm)、[resolve_key()](dependencies.cpp)。
+
+## 44. 如何表示“width 依赖 length”？
+
+边统一为前置到目标：length → width。parents_[width] 存 length，children_[length] 存 width。图只记录数据关系，本周允许录入任意边，下一周加入循环校验；不把保存顺序当作计算顺序。
+
+代码：[DependencyGraph](dependencies.cppm)、[replace_dependencies()](dependencies.cpp)。
+
+## 45. 如何同时查询依赖与使用者？
+
+dependencies(target) 查前置，dependents(source) 查使用者，两份邻接表同步维护。替换前先删旧反向边，再加入新关系；解除公式只清除前置，不删除别人对这个属性的引用。保留孤立节点，常量公式也有目标。代价是两份表与维护一致性的责任。
+
+代码：[查询与 remove_formula()](dependencies.cpp)。
+
+## 单独打开与运行
+
+用 IDE 打开本周目录，以 **Clang + CMake + clangd** 独立构建、运行和导航。在本周目录执行：
+
+```bash
+cmake --preset default
+cmake --build --preset default
+./build/demo
+```
+
+也可执行 `./run.sh` 完成上述三步。依赖版本、Qt 配置及测试入口见[本周工具说明](tools/README.md)；[CMakeLists.txt](CMakeLists.txt) 和 [CMakePresets.json](CMakePresets.json) 均在本周目录，全部产物位于本周 `build/`。
+
+## 代码与运行
+
+Lexer/Parser 是表达式引擎与依赖图·第一月的本周副本；dependencies 模块新增变量提取、属性标识和图。本周独立构建，只 import month03.week01 与 std，不执行公式。
+
+环境：Linux、CMake 4.3.x、Ninja ≥ 1.11、Clang/clang-scan-deps/clangd 22.1.8、C++23；标准库为含 std 模块开发文件的 libstdc++ 16.2.1。依赖与 IDE 设置见[本周工具说明](tools/README.md)。以下命令均从本周目录运行：
+
+```bash
+cmake --preset default
+cmake --build --preset default
+./build/demo
+```
+
+[CMakeLists.txt](CMakeLists.txt) 显式列出源码和 `CXX_MODULES` 接口；CMake 自动扫描依赖、构建 `std` 与本周模块，Ninja 按依赖增量编译。产物均在本周 `build/`，重复构建且源码未变时应显示 `ninja: no work to do.`。`import std` 使用 CMake 4.3 的实验支持，升级 CMake 主次版本时需检查对应启用标识。
+
+`run.sh` 直接依次调用上述两条 CMake 命令，生成 clangd 编译数据库、构建模块，成功后运行 `build/demo`；任一步失败立即停止，脚本参数传给程序。从其他目录调用脚本也会自动切换到本周目录，构建、运行和 clangd 索引均直接使用原生工具。一键运行：
+
+```bash
+./run.sh
+```
+
+需要检查格式或验证 IDE 跳转时，单独执行：
+
+```bash
+clang-format --dry-run --Werror *.cpp *.cppm
+```
+
+CMake 通过 `CMAKE_EXPORT_COMPILE_COMMANDS=ON` 生成本周 `build/compile_commands.json`，原生 clangd 读取它生成后台索引；模块由 CMake 构建。修改接口后重新构建并重启 clangd；搬移课程或切换编译器后，先执行 `cmake --fresh --preset default`。IDE 设置见[本周工具说明](tools/README.md)。本周无自动测试入口，运行演示核对输出并完成验收。
+
+默认输出：
+
+```text
+variables: length source_width
+dependencies 1.width: 1.length 2.width
+dependents 1.width: 1.area
+```
+

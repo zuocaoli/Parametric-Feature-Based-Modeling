@@ -1,0 +1,120 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "配置本课程",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "default"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "构建本课程",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "default"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "dependsOn": "配置本课程",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "运行本课程",
+            "type": "process",
+            "command": "${workspaceFolder}/run.sh",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "检查本课程格式",
+            "type": "process",
+            "command": "clang-format",
+            "args": [
+                "--dry-run",
+                "--Werror",
+                "${workspaceFolder}/benchmark.cpp",
+                "${workspaceFolder}/bridge.cpp",
+                "${workspaceFolder}/bridge.hpp",
+                "${workspaceFolder}/change_signal.cpp",
+                "${workspaceFolder}/console.cpp",
+                "${workspaceFolder}/dependencies.cpp",
+                "${workspaceFolder}/dependencies.cppm",
+                "${workspaceFolder}/document.cpp",
+                "${workspaceFolder}/document.cppm",
+                "${workspaceFolder}/engine.cpp",
+                "${workspaceFolder}/engine.cppm",
+                "${workspaceFolder}/evaluator.cpp",
+                "${workspaceFolder}/evaluator.cppm",
+                "${workspaceFolder}/lexer.cpp",
+                "${workspaceFolder}/lexer.cppm",
+                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/operations.cpp",
+                "${workspaceFolder}/operations.cppm",
+                "${workspaceFolder}/parser.cpp",
+                "${workspaceFolder}/parser.cppm",
+                "${workspaceFolder}/property.cpp",
+                "${workspaceFolder}/property.cppm",
+                "${workspaceFolder}/rectangle.cpp",
+                "${workspaceFolder}/rectangle.cppm",
+                "${workspaceFolder}/storage.cpp",
+                "${workspaceFolder}/storage.cppm",
+                "${workspaceFolder}/ui_tests.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "测试本课程",
+            "type": "process",
+            "command": "ctest",
+            "args": [
+                "--preset",
+                "default",
+                "--no-tests=error"
+            ],
+            "dependsOn": "构建本课程",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "检查本课程 QML",
+            "type": "process",
+            "command": "qmllint",
+            "args": [
+                "--max-warnings",
+                "0",
+                "CanvasView.qml",
+                "Inspector.qml",
+                "Main.qml"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

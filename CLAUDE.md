@@ -1,97 +1,52 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## Project and layout
 
-## Project overview
+CAD courses use one parameterized rectangle case across seven months and 28 weekly courses. Chinese categories have independent month numbering:
 
-A six-month CAD learning course: 24 self-contained weekly courses under `month01/`–`month06/`, `week01`–`week04`. One parametric-rectangle case evolves across the months. The **primary deliverable is each week's `README.md`** (written in Chinese), which answers that week's five questions and explains design trade-offs; code exists to demonstrate those answers. Put course answers in the week's README, not only in chat.
+- 文档与属性系统/month01–month04: objects/properties, commands/documents, QML editor, verification/delivery.
+- 表达式引擎与依赖图/month01–month02: expression parsing/evaluation, dependency graphs/recomputation.
+- 单位系统/month01: four lecture-only weeks with traces and exercises.
+- 几何引擎 is reserved for future courses.
 
-Every week must build, run, and open as a standalone IDE workspace. Weeks do not share source: modules needed from earlier weeks (lexer, property, rectangle, …) are intentionally copied into each week's directory. Do not "deduplicate" them across weeks or add cross-week imports.
+Each month has week01–week04. Every weekly README answers five questions and gives prerequisites, an independent exercise and acceptance criteria. Put course answers in that README. Preserve original question IDs and C++ module names; directory numbering is independent. Follow the cross-category learning order in the root README.
 
-## Commands
+## Independent build, run and IDE
 
-Run from the repository root unless noted.
+All 24 runnable weeks use **Clang + CMake + clangd**. Each week owns its CMakeLists.txt, CMakePresets.json, run.sh, tools/, .clangd, .vscode/ and build/ directory. No root build/run scripts, shared tooling, cross-week source imports or dependencies on another week's generated files.
 
-```bash
-# Build all 24 weeks / one month / one course (loops each week's builder.py)
-./build.sh
-./build.sh month02
-./build.sh month02/week02
-
-# Run a previously built course (does not build)
-./run.sh month02/week02
-```
-
-Numeric aliases (`01`–`04`, `week01`–`week04`) always mean `month01/weekXX`; use `monthNN/weekYY` to avoid ambiguity.
-
-Build + configure clangd + verify navigation + run, all in one step using only the course's own directory:
+From the individual week directory:
 
 ```bash
-cd month02/week02 && ./run.sh
+cmake --preset default
+cmake --build --preset default
+./build/demo
 ```
 
-Each course owns its standalone `builder.py` (`build|configure|run|test|check-format`, default `build`):
+`./run.sh [program arguments...]` performs those three steps and works from other working directories. Qt weeks also provide `./build/console-demo` without Qt dependencies in the core library.
+
+Dependencies: Linux, CMake **4.3.x**, Ninja **>= 1.11**, Clang/clang-scan-deps/clangd **22.1.8**, and libstdc++ **16.2.1** with std module development files. C++ compilation always uses clang++. Qt weeks (文档与属性系统/month03–month04) require Qt **6.11.2**. Setup and exact commands live in each week's tools/README.md.
+
+CMake explicitly lists local sources and CXX_MODULES file sets, scans dependencies, builds import std and exports build/compile_commands.json. Qt AUTOMOC/AUTORCC belong to the UI object library; cad_core and console-demo stay free of Qt. CMake 4.3 import std support is experimental: update the opt-in token if changing CMake major/minor versions.
+
+Use CMake and CTest directly. Do not add Python build, test, navigation or compatibility scripts.
+
+VS Code tasks configure before building. clangd.path selects native clangd from PATH; clangd.arguments and .clangd point at build/. Function definition/declaration requests remain separate. Rebuild after module changes and restart clangd. After relocating a course or changing compilers, first refresh its CMake cache with `cmake --fresh --preset default`.
+
+## Verification
+
+After building a course with automated tests:
 
 ```bash
-python3 month02/week02/tools/builder.py build
-python3 month05/week02/tools/builder.py test
-python3 month02/week02/tools/builder.py check-format
+ctest --preset default --no-tests=error
 ```
 
-- `month01/week01` provides an inline `demo --test`; months 05–06 run Qt `ui-tests` with `QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software` (set automatically by `builder.py`).
-- Weeks other than `month01/week01` and the Qt weeks have no `test` target; build + run them and check their output manually.
-- Failures exit non-zero and report via exceptions (`assert` may be disabled).
+文档与属性系统/month01/week01 registers demo --test. Qt weeks register ui-tests with offscreen/software rendering. Other runnable weeks provide demonstrations and README acceptance exercises; they do not fabricate automatic tests.
 
-clangd / IDE support (per course):
+Use clang-format 22 directly for optional formatting checks, and qmllint for QML. IDE navigation uses native clangd with the completed CMake build database. No Python scripts or navigation wrappers are kept. Known pre-existing whitespace differences in 文档与属性系统/month01/week02 and week03 should not be changed unless asked.
 
-```bash
-python3 month02/week02/tools/builder.py configure   # prebuilt modules + compile_commands.json
-python3 month02/week02/tools/check_navigation.py    # verify definition/declaration targets via LSP
-```
+## Conventions
 
-Both steps also run inside the course `run.sh`. After editing a `.cppm`, adding/removing sources, moving the course directory, or upgrading the toolchain: rerun `builder.py configure` and restart clangd (`clangd: Restart language server`).
+Use C++23, import std and the standard library in core code; Qt belongs in UI adapters/tests. Keep each week self-contained even when it copies earlier modules. Generated files stay in the local gitignored build/ directory. Apply the repository C++ formatting conventions with clang-format 22; Qt format checks also use qmlformat/qmllint.
 
-Headless QML check:
-
-```bash
-QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ./month05/week04/run.sh --screenshot build/editor.png
-```
-
-## Build architecture
-
-There is no CMake and no repository-level tooling: every course is fully self-contained through its own `tools/` directory (`builder.py`, `check_navigation.py`, `clangd_server.py`); nothing is shared between weeks.
-
-1. `builder.py build` compiles the libstdc++ `std` module source with GCC 16 (`-fmodules`) into the course's own `build/gcc/`, so every week owns an independent module cache.
-2. It scans the week's `*.cppm` for `export module` and `import` lines, topologically orders the module interfaces (unknown or cyclic imports are hard errors), compiles each interface, then compiles every `*.cpp` and links `build/demo` (Qt weeks also `console-demo` and `ui-tests`).
-3. Modules are named `monthNN.weekNN.<name>`; a week imports only `std` and its own week's modules.
-4. For Qt weeks (months 05–06) it also runs moc/rcc, archives core objects into `libcad_core.a`, and links against Qt6 via pkg-config.
-5. All generated output stays inside the course's own `build/` directory (gitignored, nothing is shared between weeks). Modules are rebuilt on every command to avoid stale caches.
-
-Weekly layout: `README.md` (deliverable), `.cppm` interfaces, `.cpp` implementations, `main.cpp` (demo entry, plus inline `--test` in month01/week01; Qt weeks use `console.cpp`/`main.cpp`/`ui_tests.cpp`/`bridge.*`), `tools/builder.py`, `tools/check_navigation.py`, `tools/clangd_server.py`, `run.sh`, `.clangd`, and `.vscode/` for standalone use.
-
-clangd is a separate toolchain path: `tools/builder.py configure` precompiles `std` and the week's modules with clang++ 22 into `build/clangd/prebuilt/`, because clangd 22's background indexer cannot build modules on its own. The week's `tools/clangd_server.py` wraps native clangd to add named `import`/`module` → `.cppm` navigation. Every weekly `.vscode/settings.json` points `clangd.path` at this local wrapper; do not switch back to native clangd or introduce fixed `-fmodule-file` mappings. F12 on a function call goes to the `.cpp` definition; "Go to declaration" opens the `.cppm` interface.
-
-## Course progression
-
-- **month01**: plain rectangle → unified Property system → change notification → object/document management.
-- **month02**: lexer → AST and recursive-descent parser → evaluator and property reads → formula binding, manual recalculation, save/load.
-- **month03**: dependency graph → topological order → incremental recalculation → binding maintenance and error recovery.
-- **month04**: commands → transactions and undo/redo → stable object identity → document persistence (`CAD_DOCUMENT 1`).
-- **month05**: Qt6/QML editor: selection, metadata-driven property/formula editing, drag, file operations (`CAD_DOCUMENT 2` only).
-- **month06**: state consistency, differential verification, performance measurement, unified query/preview/apply API.
-
-The root `README.md` indexes each month's questions and links every week. Keep it consistent when course content changes.
-
-## Conventions and gotchas
-
-- C++23, `import std;`, standard library only in the core. Qt6 belongs to the UI adapter and UI tests in months 05–06; console targets must not link Qt.
-- Format with the root `.clang-format` (LLVM base, 4-space indent, 100 columns, `ReflowComments: Never`). `check-format` also runs `qmlformat` and `qmllint --max-warnings 0` for Qt weeks.
-- Known pre-existing format diffs in `month01/week02/demo.cpp`, `month01/week02/property.cpp`, and `month01/week03/property.cppm` make `check-format all` fail; leave them alone unless asked.
-- The root `run.sh` only executes an existing binary (`monthXX/weekYY/build/demo`). Course-level `run.sh` builds, configures clangd, verifies navigation, then runs, working entirely inside the course directory; snapshots resolve from `__FILE__`, so they land in the course's `build/` regardless of the invocation directory.
-- Environment: Linux, GCC 16.2.1 with libstdc++ module sources, Clang/clangd/clang-format 22.1.8, Python 3.14, Qt 6.11.2 for months 05–06. Python tools use only the standard library.
-- Adding a new month/week: copy an existing week's directory (including `builder.py`, `check_navigation.py`, `clangd_server.py`, `run.sh`, `.clangd`, `.vscode/`), change the `COURSE` constant in `tools/builder.py`/`tools/check_navigation.py`, and adjust the case patterns in the root `build.sh`/`run.sh` if a new month is introduced.
-- `workflow.md` describes an optional, user-initiated task-planning workflow. Do not use it unless explicitly requested; never modify it.
-- Long-term project conventions are recorded in `AGENTS.md` and `.memory/`: one directory and one README per week, five answers per week, code only when it helps explain the answer, and each week independently buildable with nothing shared between weeks.
-- There is no commit history yet; use concise imperative commit subjects. Do not commit unless asked.
-
-See `docs/tooling.md` for the full toolchain, IDE navigation, and Qt details.
+Keep READMEs concise and focused on course objectives, five answers and necessary run commands. Tool details belong to the weekly tools/README.md. Do not introduce code solely to make a lecture runnable. workflow.md is an optional user-invoked workflow; do not use or edit it unless explicitly requested. Use focused, imperative commit subjects and do not commit unless asked.

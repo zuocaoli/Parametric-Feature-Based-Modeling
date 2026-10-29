@@ -1,0 +1,69 @@
+# 文档与属性系统·第二月第 1 周：命令与历史
+
+## 本周训练
+
+- **承接与前置**：把[表达式引擎与依赖图·第二月末](../../../表达式引擎与依赖图/month02/week04/README.md)的重算引擎包进 Document，通过命令修改；理解值快照、接口多态和历史游标。
+- **目标**：能预测编辑、撤销、重做后的内容与历史位置；能解释派生写回不单独入历史、跨提交不能保存模型地址。
+- **独立练习**：以 A（120×60，width=`length/2`、area=`length*width`）为初始化基准，将 length 改为 144 后撤销、重做；再撤销并尝试 -1、120，最后提交新值 160。
+- **验收**：第一次编辑为 72/10368，撤销为 60/7200；失败与同值操作不清除重做分支，新值 160 得到 80/12800 并清除旧分支。记录每步历史位置。
+
+## 61. 如何把一次属性修改封装成可以执行和撤销的命令？
+
+SetProperty 保存 PropertyKey 和新值，通过 Document 执行。Document 在候选模型上调用命令，重算后提交；命令保存修改前后的值快照，undo/redo 恢复快照并重算。初始化矩形不进入历史。
+
+## 62. 修改属性的命令需要记录哪些信息才能准确恢复旧状态？
+
+仅保存新旧数值不足以覆盖以后加入的公式和对象操作。内存快照包括对象 ID、带类型的属性值、公式文本与变量映射，以及失败状态和保留的计算缓存。AST、图和内部订阅恢复时重建；ID 分配高水位取当前与快照的最大值，撤销不允许新对象复用旧身份。
+
+## 63. 如何让不同类型的修改通过统一命令接口执行？
+
+Command 提供 execute、undo 和 redo；具体命令只描述候选模型上的修改，Document 负责提交、重算和历史。SetProperty 对所有 Value 类型使用同一入口，不把属性地址留在历史中。后续课程添加组合、公式及对象命令，历史算法不用改变。
+
+## 64. 如何管理历史记录，使撤销和重做按正确顺序执行？
+
+记录序列配一个 position：左侧已执行，右侧可重做。undo 恢复 position−1 的修改前快照，成功后左移；redo 恢复 position 的修改后快照，成功后右移。边界返回无变化；恢复失败不移动位置。计算器写回属于这次操作，不单独生成历史。
+
+## 65. 撤销后执行新的修改时，为什么需要丢弃原来的重做分支？
+
+原重做序列建立在旧路径上，新修改形成另一条路径；线性历史只能保留一条。成功且有变化的新命令清除 position 右侧记录后追加。失败、重复赋同值或空操作不改变历史，也不清除重做分支。
+
+## 单独打开与运行
+
+用 IDE 打开本周目录，以 **Clang + CMake + clangd** 独立构建、运行和导航。在本周目录执行：
+
+```bash
+cmake --preset default
+cmake --build --preset default
+./build/demo
+```
+
+也可执行 `./run.sh` 完成上述三步。依赖版本、Qt 配置及测试入口见[本周工具说明](tools/README.md)；[CMakeLists.txt](CMakeLists.txt) 和 [CMakePresets.json](CMakePresets.json) 均在本周目录，全部产物位于本周 `build/`。
+
+## 代码与运行
+
+自定义命令返回错误或抛出标准/非标准异常时，Document 都返回 EngineError 并丢弃候选，当前模型和历史保持不变，且不通知。标准异常保留 what()；非标准异常给出明确诊断。可用先修改候选再抛错的命令观察失败保护，再执行重做与继续编辑核对恢复。
+
+[命令和文档接口](document.cppm)、[历史实现](document.cpp)、[快照恢复](engine.cpp)。本课自包含地复制表达式引擎与依赖图·第二月的表达式与重算模块，外部只得到 const 模型；文档订阅在候选模型替换后仍有效，事件中的 before/after 是值快照。不要跨操作保存 model() 返回的引用。
+
+快照方案适合小型教学模型，历史内存约为“模型大小 × 历史长度”。普通编辑保留增量重算；撤销/重做恢复全部公式后进行一轮重算，每个目标至多执行一次。单线程，回调只读；观察者异常被隔离，不改变已经提交的操作。本课提前建立候选模型边界，第二周用它解释组合事务。
+
+环境：Linux、CMake 4.3.x、Ninja ≥ 1.11、Clang/clang-scan-deps/clangd 22.1.8、C++23；标准库为含 std 模块开发文件的 libstdc++ 16.2.1。依赖与 IDE 设置见[本周工具说明](tools/README.md)。以下命令均从本周目录运行：
+
+```bash
+cmake --preset default
+cmake --build --preset default
+./run.sh
+clang-format --dry-run --Werror *.cpp *.cppm
+```
+
+预期演示输出：
+
+```text
+initial: length=100, width=50, area=5000, history=0/0
+edit: length=200, width=100, area=20000, history=1/1
+undo: length=100, width=50, area=5000, history=0/1
+redo: length=200, width=100, area=20000, history=1/1
+new branch: length=150, width=75, area=11250, history=1/1
+redo available=false
+```
+

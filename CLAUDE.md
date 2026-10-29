@@ -2,173 +2,96 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Overview
+## Project overview
 
-PipeCAD (`qml-vsg-occt`) — parametric pipeline modeling and stress analysis software for offshore oil/gas platforms. Built with OCCT (geometry) + VSG (Vulkan rendering) + VTK (analysis visualization) + Qt6/QML (UI).
+A six-month CAD learning course: 24 self-contained weekly courses under `month01/`–`month06/`, `week01`–`week04`. One parametric-rectangle case evolves across the months. The **primary deliverable is each week's `README.md`** (written in Chinese), which answers that week's five questions and explains design trade-offs; code exists to demonstrate those answers. Put course answers in the week's README, not only in chat.
 
-## Build & Test Commands
+Every week must build, run, and open as a standalone IDE workspace. Weeks do not share source: modules needed from earlier weeks (lexer, property, rectangle, …) are intentionally copied into each week's directory. Do not "deduplicate" them across weeks or add cross-week imports.
 
-First-time setup (installs pixi, dependencies, runs initial CMake configure):
+## Commands
+
+Run from the repository root unless noted.
+
 ```bash
-bash scripts/setup.sh
+# Build all 24 weeks / one month / one course (loops each week's builder.py)
+./build.sh
+./build.sh month02
+./build.sh month02/week02
+
+# Run a previously built course (does not build)
+./run.sh month02/week02
 ```
 
-Build and test:
+Numeric aliases (`01`–`04`, `week01`–`week04`) always mean `month01/weekXX`; use `monthNN/weekYY` to avoid ambiguity.
+
+Build + configure clangd + verify navigation + run, all in one step using only the course's own directory:
+
 ```bash
-pixi run build-debug          # Configure + compile debug build
-pixi run build-release        # Configure + compile release build
-pixi run test                 # Build debug + run all tests via ctest
-pixi run clean                # Remove build/ directory
+cd month02/week02 && ./run.sh
 ```
 
-When an AI agent compiles, runs, or tests the project, it must redirect output to temporary log files first, wait for the command to finish, and then read the log files to determine success or failure:
+Each course owns its standalone `builder.py` (`build|configure|run|test|check-format`, default `build`):
+
 ```bash
-mkdir -p tmp_build_logs
-pixi run build-debug > tmp_build_logs/build.log 2>&1
-pixi run test > tmp_build_logs/test.log 2>&1
-tail -50 tmp_build_logs/build.log
-tail -50 tmp_build_logs/test.log
-rm -rf tmp_build_logs
+python3 month02/week02/tools/builder.py build
+python3 month05/week02/tools/builder.py test
+python3 month02/week02/tools/builder.py check-format
 ```
 
-The same rule applies to filtered test runs and application launches: do not inspect long-running stdout directly; read the redirected log file after the command exits.
+- `month01/week01` provides an inline `demo --test`; months 05–06 run Qt `ui-tests` with `QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software` (set automatically by `builder.py`).
+- Weeks other than `month01/week01` and the Qt weeks have no `test` target; build + run them and check their output manually.
+- Failures exit non-zero and report via exceptions (`assert` may be disabled).
 
-Run a single test:
+clangd / IDE support (per course):
+
 ```bash
-bash scripts/build.sh test -R <TestName>     # e.g. test -R Engine
-# Or manually:
-pixi shell && cd build/debug
-ctest -R <TestName> --output-on-failure      # Filter by name pattern
-./tests/test_<name>                          # Run directly for gdb debugging
+python3 month02/week02/tools/builder.py configure   # prebuilt modules + compile_commands.json
+python3 month02/week02/tools/check_navigation.py    # verify definition/declaration targets via LSP
 ```
 
-Run the application:
+Both steps also run inside the course `run.sh`. After editing a `.cppm`, adding/removing sources, moving the course directory, or upgrading the toolchain: rerun `builder.py configure` and restart clangd (`clangd: Restart language server`).
+
+Headless QML check:
+
 ```bash
-./build/debug/src/apps/pipecad/pipecad
-# or via build script:
-bash scripts/build.sh run
+QT_QPA_PLATFORM=offscreen QT_QUICK_BACKEND=software ./month05/week04/run.sh --screenshot build/editor.png
 ```
 
-The `scripts/build.sh` wrapper provides subcommands: `debug`, `release`, `test [-R <Filter>]`, `run`, `full` (clean+build+test), `clean`, `configure`, `status`. Verify environment with `bash scripts/setup.sh --verify`.
+## Build architecture
 
-Build concurrency defaults to 6 parallel build jobs and 1 test job. Override with environment variables:
-```bash
-PIPECAD_BUILD_JOBS=4 pixi run build-debug
-PIPECAD_TEST_JOBS=2 pixi run test
-```
+There is no CMake and no repository-level tooling: every course is fully self-contained through its own `tools/` directory (`builder.py`, `check_navigation.py`, `clangd_server.py`); nothing is shared between weeks.
 
-## Architecture
+1. `builder.py build` compiles the libstdc++ `std` module source with GCC 16 (`-fmodules`) into the course's own `build/gcc/`, so every week owns an independent module cache.
+2. It scans the week's `*.cppm` for `export module` and `import` lines, topologically orders the module interfaces (unknown or cyclic imports are hard errors), compiles each interface, then compiles every `*.cpp` and links `build/demo` (Qt weeks also `console-demo` and `ui-tests`).
+3. Modules are named `monthNN.weekNN.<name>`; a week imports only `std` and its own week's modules.
+4. For Qt weeks (months 05–06) it also runs moc/rcc, archives core objects into `libcad_core.a`, and links against Qt6 via pkg-config.
+5. All generated output stays inside the course's own `build/` directory (gitignored, nothing is shared between weeks). Modules are rebuilt on every command to avoid stale caches.
 
-Phase 4 (T50–T77) is complete. The build now uses `src/lib/` + `src/apps/` as the only real CMake entry roots. Legacy directories (`src/foundation/`, `src/geometry/`, etc.) are still present as migration-era source mirrors but are not build entry points.
+Weekly layout: `README.md` (deliverable), `.cppm` interfaces, `.cpp` implementations, `main.cpp` (demo entry, plus inline `--test` in month01/week01; Qt weeks use `console.cpp`/`main.cpp`/`ui_tests.cpp`/`bridge.*`), `tools/builder.py`, `tools/check_navigation.py`, `tools/clangd_server.py`, `run.sh`, `.clangd`, and `.vscode/` for standalone use.
 
-### Current directory structure (post-Phase 4 migration)
+clangd is a separate toolchain path: `tools/builder.py configure` precompiles `std` and the week's modules with clang++ 22 into `build/clangd/prebuilt/`, because clangd 22's background indexer cannot build modules on its own. The week's `tools/clangd_server.py` wraps native clangd to add named `import`/`module` → `.cppm` navigation. Every weekly `.vscode/settings.json` points `clangd.path` at this local wrapper; do not switch back to native clangd or introduce fixed `-fmodule-file` mappings. F12 on a function call goes to the `.cpp` definition; "Go to declaration" opens the `.cppm` interface.
 
-```
-src/
-  lib/                         # Shared libraries
-    base/                      # Header-only: UUID, Variant, Math, Signal, Log
-                               #   + C++20 module interfaces (lib_base_modules)
-    platform/
-      occt/                    # OCCT geometry wrappers + C++20 facade module
-      vsg/                     # VSG Vulkan rendering + C++20 facade module
-      vtk/                     # VTK analysis visualization + C++20 facade module
-    runtime/                   # Document, DependencyGraph, Command system + C++20 modules
-    framework/                 # Application singleton, Workbench system, serialization
-  apps/
-    pipecad/
-      model/                   # Domain objects: PipePoint, Segment, Route, PipeSpec, Load hierarchy
-      engine/                  # Pipeline builders (Bend, Tee, Valve, Beam, Reducer), TopologyManager,
-                               #   ConstraintSolver, RecomputeEngine, ComponentCatalog
-      workbench/               # Workbench definitions: DesignWorkbench, AnalysisWorkbench, etc.
-      ui/                      # QML bridge: VsgQuickItem, VtkViewport, AppController, table/tree models
-      main.cpp                 # Application entry point
-```
+## Course progression
 
-Old directories (`src/foundation/`, `src/geometry/`, `src/model/`, `src/engine/`, `src/visualization/`, `src/vtk-visualization/`, `src/app/`, `src/command/`, `src/ui/`) still exist as migration mirrors. **Do not treat them as build roots; add new implementation under `src/lib/` or `src/apps/`.**
+- **month01**: plain rectangle → unified Property system → change notification → object/document management.
+- **month02**: lexer → AST and recursive-descent parser → evaluator and property reads → formula binding, manual recalculation, save/load.
+- **month03**: dependency graph → topological order → incremental recalculation → binding maintenance and error recovery.
+- **month04**: commands → transactions and undo/redo → stable object identity → document persistence (`CAD_DOCUMENT 1`).
+- **month05**: Qt6/QML editor: selection, metadata-driven property/formula editing, drag, file operations (`CAD_DOCUMENT 2` only).
+- **month06**: state consistency, differential verification, performance measurement, unified query/preview/apply API.
 
-### Dependency chain (new targets)
+The root `README.md` indexes each month's questions and links every week. Keep it consistent when course content changes.
 
-```
-lib_base -> lib_platform_occt
-pipecad_app_model -> pipecad_app_engine
-lib_platform_vtk + vtk_visualization -> lib_platform_vsg
-lib_runtime -> lib_framework -> app(alias) -> pipecad_lib(interface)
-pipecad_lib + pipecad_app_{model,engine,workbench,ui,resources} -> pipecad_app -> pipecad
-```
+## Conventions and gotchas
 
-### Key Domain Concepts
+- C++23, `import std;`, standard library only in the core. Qt6 belongs to the UI adapter and UI tests in months 05–06; console targets must not link Qt.
+- Format with the root `.clang-format` (LLVM base, 4-space indent, 100 columns, `ReflowComments: Never`). `check-format` also runs `qmlformat` and `qmllint --max-warnings 0` for Qt weeks.
+- Known pre-existing format diffs in `month01/week02/demo.cpp`, `month01/week02/property.cpp`, and `month01/week03/property.cppm` make `check-format all` fail; leave them alone unless asked.
+- The root `run.sh` only executes an existing binary (`monthXX/weekYY/build/demo`). Course-level `run.sh` builds, configures clangd, verifies navigation, then runs, working entirely inside the course directory; snapshots resolve from `__FILE__`, so they land in the course's `build/` regardless of the invocation directory.
+- Environment: Linux, GCC 16.2.1 with libstdc++ module sources, Clang/clangd/clang-format 22.1.8, Python 3.14, Qt 6.11.2 for months 05–06. Python tools use only the standard library.
+- Adding a new month/week: copy an existing week's directory (including `builder.py`, `check_navigation.py`, `clangd_server.py`, `run.sh`, `.clangd`, `.vscode/`), change the `COURSE` constant in `tools/builder.py`/`tools/check_navigation.py`, and adjust the case patterns in the root `build.sh`/`run.sh` if a new month is introduced.
+- `workflow.md` describes an optional, user-initiated task-planning workflow. Do not use it unless explicitly requested; never modify it.
+- Long-term project conventions are recorded in `AGENTS.md` and `.memory/`: one directory and one README per week, five answers per week, code only when it helps explain the answer, and each week independently buildable with nothing shared between weeks.
+- There is no commit history yet; use concise imperative commit subjects. Do not commit unless asked.
 
-- **PipePoint**: Core typed document object with coordinates. All pipeline geometry derives from PipePoint sequences and PipeSpec properties.
-- **Application singleton**: `app::Application::init()` creates the central singleton holding Document, DependencyGraph, SelectionManager, WorkbenchManager, CommandStack, and CommandRegistry.
-- **Command system**: CommandStack + CommandRegistry + typed commands (PropertyCommands, StructuralCommands, InsertComponent). TransactionManager was removed in Phase 3 (T10).
-- **Recompute flow**: Command execution → RecomputeEngine → SceneManager callback. Changing a PipePoint triggers recompute of dependent geometry and VSG scene node updates.
-- **Workbench system**: CadWorkbench, DesignWorkbench, SpecWorkbench, AnalysisWorkbench — switchable via WorkbenchManager. Each workbench defines its own toolbar actions, tree structure, and panels.
-- **Dual rendering**: VSG (Vulkan) for 3D design view via `VsgQuickItem` + VTK for stress analysis via `VtkViewport`. Both are QML-exposed types registered as `PipeCAD` module.
-- **Component templates**: `src/apps/pipecad/engine/templates/` contains per-component headers (Elbow, GateValve, Pipe, Reducer, etc.) used by ComponentCatalog.
-- **C++20 modules**: Being introduced alongside traditional headers. Module interfaces exist for `base`, `platform/occt`, `platform/vsg`, `platform/vtk`, `runtime`, and `framework`.
-
-### Test Organization
-
-Tests in `tests/` follow a per-task naming pattern (`test_<name>.cpp` linked to specific library layer(s) via `tests/CMakeLists.txt`). Tests link to old ALIAS target names which resolve to new targets. Current test baseline: **46 tests, all passing**. Tests using Qt depend on `Qt6::Test`; all others use `GTest::Main`.
-
-### UI Structure
-
-QML files in `ui/`: `main.qml` entry, `components/` (reusable widgets), `panels/` (workbench-specific panels), `dialogs/`, `style/Theme.qml`. Panels switch based on active workbench — e.g., AnalysisTree/LoadTable/LoadCaseTable are visible in the Analysis workbench.
-
-## C++ Coding Conventions
-
-- C++17 (std::optional, std::variant, structured bindings), with C++20 modules being introduced
-- Class names PascalCase, functions camelCase, member variables prefixed `m_`, private members may also use `_` suffix
-- Constants: `kPascalCase` or `UPPER_SNAKE_CASE`
-- File headers: `// Copyright 2024-2026 PipeCAD Contributors` + `// SPDX-License-Identifier: Apache-2.0`
-- OCCT objects managed via `Handle<T>` (never raw pointers to Transient objects)
-- VSG objects managed via `vsg::ref_ptr<T>`
-- Signal/slot: use `foundation::Signal<T>` (lightweight, no Qt dependency)
-- Public APIs require Doxygen comments
-- OCCT exceptions caught via `Standard_Failure`, not `std::exception`
-- OCCT is NOT thread-safe — multi-threaded access requires synchronization
-- Geometry algorithms must handle numerical precision using OCCT constants (`Precision::Confusion()`)
-
-## Task Workflow
-
-The project uses a task-driven workflow tracked in `docs/tasks/`. When asked to "完成任务 TXX":
-1. Read `docs/tasks/current.md` for handoff context
-2. Check `docs/tasks/status.md` status table (before "完成记录索引" section) for task status
-3. Read task details from `docs/archive/task-specs/phase4-lib-app-refactor/` (Phase 4, archived), `docs/archive/task-specs/development-plan.md` (Phase 1-2), or `docs/archive/task-specs/command-pattern-design.md` (Phase 3)
-4. Implement, then verify by redirecting build/test output into temporary files, waiting for the commands to finish, and reading the log files to determine whether they succeeded
-5. Update status.md, archived log file (`docs/archive/task-logs/`), current.md, and commit with `feat: TXX — description`
-
-Recommended verification pattern:
-```bash
-mkdir -p tmp_build_logs
-pixi run build-debug > tmp_build_logs/build.log 2>&1
-pixi run test > tmp_build_logs/test.log 2>&1
-tail -50 tmp_build_logs/build.log
-tail -50 tmp_build_logs/test.log
-rm -rf tmp_build_logs
-```
-
-Commit message format: `feat: TXX — 中文描述` / `fix: TXX — 中文描述` / `docs: 中文描述`
-
-## Dependencies
-
-| Library | Version | Source |
-|---------|---------|--------|
-| OCCT | 8.0.0 | Pre-built in `lib/occt/` |
-| VSG | 1.1.13 | Pre-built in `lib/vsg/` |
-| VTK | 9.6.0 | pixi (conda-forge) |
-| Qt6 | ≥6.5 | pixi (conda-forge) |
-| GTest | * | pixi (conda-forge) |
-| nlohmann_json | * | pixi (conda-forge) |
-
-Build toolchain: pixi + CMake >=3.24 + Ninja, Clang, C++17.
-
-## Reference Documents
-
-- `docs/architecture.md` — Full architecture design (data model, layering, UI design)
-- `docs/tasks/status.md` — Task status tracking with completion history
-- `docs/tasks/current.md` — Current task handoff (AI-maintained, read this first)
-- `docs/archive/task-specs/development-plan.md` — Phase 1-2 task specs
-- `docs/archive/task-specs/command-pattern-design.md` — Phase 3 command pattern specification
-- `docs/archive/task-specs/phase4-lib-app-refactor/` — Phase 4 task cards (archived)
-- `lib/occt/AGENTS.md`, `lib/vsg/AGENTS.md`, `lib/vtk/AGENTS.md` — Library-specific API guides
+See `docs/tooling.md` for the full toolchain, IDE navigation, and Qt details.

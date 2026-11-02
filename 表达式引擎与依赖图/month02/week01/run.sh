@@ -6,4 +6,7 @@ cd -- "$course_dir"
 
 cmake --preset default
 cmake --build --preset default
+
+echo
+echo "------------------- build ok, running demo -------------------"
 exec "$course_dir/build/demo" "$@"

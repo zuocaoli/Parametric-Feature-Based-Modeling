@@ -1,0 +1,157 @@
+{
+  "version": "1.0.0",
+  "created": "2026-10-29T12:48:53Z",
+  "last_updated": "2026-11-02T06:15:35.680Z",
+  "memories": [
+    {
+      "id": "readme-explicit-request-only-20261102",
+      "type": "PREFERENCE",
+      "timestamp": "2026-11-02T06:15:35.680Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "readme",
+        "documentation",
+        "code-explanation",
+        "explicit-request"
+      ],
+      "content": "用户明确要求不要修改 README。代码讲解、课程问题及语法问答默认仅在聊天中回答；只有用户明确要求修改 README 时才编辑。此约定覆盖此前“讨论课程问题默认更新对应 README”的约定。",
+      "file": ".memory/preferences/readme-explicit-request-only.md"
+    },
+    {
+      "id": "units-readme-purpose-20261101",
+      "type": "PREFERENCE",
+      "timestamp": "2026-11-01T14:00:35Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "units",
+        "readme",
+        "learning-objectives",
+        "course-docs"
+      ],
+      "content": "单位系统分类及各周README只说明核心目标与学完能够掌握什么；详细安排放课程安排.md，五题详解、练习和验收放各周课程讲义.md。",
+      "file": ".memory/preferences/units-readme-purpose.md"
+    },
+    {
+      "id": "units-review-regressions-20261101",
+      "type": "PROCEDURE",
+      "timestamp": "2026-11-01T00:00:00Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "units",
+        "testing",
+        "regression",
+        "persistence",
+        "occt"
+      ],
+      "content": "单位系统审查修复：内部取负与函数名分离、保存集合上限对称、schema基础长度输入、面积显示冻结及公式移除事件；week02–04共22项CTest通过。OCCT固定提交安装命令已补齐并核验配置。",
+      "file": ".memory/procedures/units-review-boundaries.md"
+    },
+    {
+      "id": "units-course-scope-20261030",
+      "type": "PREFERENCE",
+      "timestamp": "2026-10-30T13:44:37.212Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "units",
+        "course-scope",
+        "no-legacy-compatibility"
+      ],
+      "content": "用户明确这是学习课程，不要自行引入课程/文件新旧版本、历史兼容和迁移；只讲当前模型。多加的版本兼容系统已移除。",
+      "file": ".memory/preferences/units-course-scope.md"
+    },
+    {
+      "id": "units-freecad-courses-20261030",
+      "type": "CONTEXT",
+      "timestamp": "2026-10-30T13:28:24.147Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "units",
+        "freecad",
+        "courses",
+        "month01",
+        "eight-dimensions",
+        "mm-deg",
+        "implemented"
+      ],
+      "content": "单位系统四周已按FreeCAD思想实现：八维Unit、毫米/度内部值、schema、属性/表达式、应用/文档及当前模型保存加载；人为文件版本和历史兼容已按用户要求删除。",
+      "file": ".memory/decisions/units-freecad-courses.md"
+    },
+    {
+      "id": "units-freecad-curriculum-20261030",
+      "type": "DECISION",
+      "timestamp": "2026-10-30T10:33:56.121Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "units",
+        "freecad",
+        "curriculum",
+        "month01",
+        "eight-dimensions",
+        "design-only"
+      ],
+      "content": "单位系统以FreeCAD八维量纲和毫米/度设计思想组织一个月四周121–140题，课程及代码已交付；按用户纠正仅围绕当前模型，不增加历史兼容/迁移。",
+      "file": ".memory/decisions/units-freecad-curriculum.md",
+      "updated_at": "2026-10-30T13:30:52.467Z"
+    },
+    {
+      "id": "geometry-month01-courses-20261029",
+      "type": "CONTEXT",
+      "timestamp": "2026-10-29T14:56:10Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "geometry",
+        "occt",
+        "month01",
+        "independent-weeks",
+        "courses"
+      ],
+      "content": "几何引擎 month01 四周完整代码、五题讲义及独立工具已实现：变换顺序、几何采样、拓扑共享、边界/pcurve。每周 default 6项、headless 5项测试及真实视窗1x/2x通过；源模板保持不变。",
+      "file": ".memory/decisions/geometry-month01-courses.md"
+    },
+    {
+      "id": "clangd-import-std-order-20261029",
+      "type": "PROCEDURE",
+      "timestamp": "2026-10-29T13:12:33Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "clangd",
+        "cpp23",
+        "import-std",
+        "libstdc++",
+        "testing"
+      ],
+      "content": "Clang/clangd 22.1.8与libstdc++16：先包含标准库/第三方头文件再import std可能令clangd报std::__format::_Sink_iter定义冲突，而编译通过。将import std放在实现文件开头、早于所有include，可消除此诊断，保持原生clangd和同一编译数据库，不屏蔽诊断。",
+      "file": ".memory/procedures/clangd-import-std-order.md"
+    },
+    {
+      "id": "geometry-week-template-20261029",
+      "type": "DECISION",
+      "timestamp": "2026-10-29T12:48:53Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "geometry",
+        "occt",
+        "framework",
+        "independent-weeks",
+        "cpp23"
+      ],
+      "content": "几何引擎六个月课程使用相同框架设计，每周复制完整源码独立构建和演进。共用几何引擎/occt第三方安装，工具链Clang+CMake+Ninja+clangd。项目语言允许C++20及以上，模板选C++23与import std。Qt Widgets+OCCT视窗、参数面板和无窗口命令行；算法逐周添加，先交付设计与可运行模板。",
+      "file": ".memory/decisions/geometry-week-template.md"
+    },
+    {
+      "id": "occt-native-window-resize-20261029",
+      "type": "PROCEDURE",
+      "timestamp": "2026-10-29T12:48:53Z",
+      "project": "Parametric-Feature-Based-Modeling",
+      "tags": [
+        "occt",
+        "qt",
+        "x11",
+        "resize",
+        "testing"
+      ],
+      "content": "Qt resize事件可能早于原生X11尺寸更新；OCCT Xw_Window需在paint阶段再次DoResize并MustBeResized，避免只在初始320x240区域渲染。真实视窗回归需验证输出尺寸与设备像素一致，并执行1x/2x选面。虚拟X11测试需要可连接其socket的执行环境，离屏Qt测试不能代替GLX验收。",
+      "file": ".memory/procedures/occt-native-window-resize.md"
+    }
+  ]
+}

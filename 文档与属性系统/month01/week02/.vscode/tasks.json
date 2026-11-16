@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "配置本课程",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--preset",
+                "default"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "构建本课程",
+            "type": "process",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "--preset",
+                "default"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "dependsOn": "配置本课程",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "运行本课程",
+            "type": "process",
+            "command": "${workspaceFolder}/run.sh",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "检查本课程格式",
+            "type": "process",
+            "command": "clang-format",
+            "args": [
+                "--dry-run",
+                "--Werror",
+                "${workspaceFolder}/demo.cpp",
+                "${workspaceFolder}/demo.cppm",
+                "${workspaceFolder}/main.cpp",
+                "${workspaceFolder}/property.cpp",
+                "${workspaceFolder}/property.cppm",
+                "${workspaceFolder}/rectangle.cpp",
+                "${workspaceFolder}/rectangle.cppm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

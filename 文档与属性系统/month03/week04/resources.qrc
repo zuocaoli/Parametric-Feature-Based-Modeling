@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/ui">
+    <file>Main.qml</file>
+    <file>CanvasView.qml</file>
+    <file>Inspector.qml</file>
+  </qresource>
+</RCC>

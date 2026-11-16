@@ -1,0 +1,6 @@
+[submodule "几何表达"]
+	path = 几何表达
+	url = git@github.com:zuocaoli/learn-BRap.git
+[submodule "几何引擎"]
+	path = 几何引擎
+	url = git@github.com:zuocaoli/learn-occt.git

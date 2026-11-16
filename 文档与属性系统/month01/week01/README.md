@@ -1,0 +1,71 @@
+# 第一周：普通对象
+
+## 本周训练
+
+- **承接与前置**：从普通矩形类开始；会使用类、const、引用、异常和有限浮点数判断，先完成[开课准备](../../../README.md)。
+- **目标**：能通过唯一修改入口拒绝非法尺寸；能区分改变、未变和失败，并解释面积按需计算的理由。
+- **独立练习**：创建 A（120×60），预测依次设置 length 为 144、144、-1 后的结果与面积，再通过本周 setter 验证。
+- **验收**：三个结果依次为 Changed、Unchanged、InvalidValue，面积依次为 8640、8640、8640；解释为什么精确赋值比较与几何容差用途不同。
+
+## 1. 如何表示具有长度、宽度和面积的矩形？
+
+用类保存长、宽，用 `area() const` 计算面积。`const` 成员函数不修改普通成员，所以只读矩形也能调用它。
+
+代码位置：[Rectangle 类](main.cpp#L10)。
+
+## 2. 面积应该保存还是每次计算？
+
+选择按需计算：一次乘法成本低，避免长宽改变后忘记同步面积。代价是每次读取都计算；昂贵且频繁读取的结果才值得考虑缓存。
+
+代码位置：[area()](main.cpp#L28)。
+
+## 3. 公开长宽可以随意修改，有什么问题？
+
+外部可能写入负数或 NaN，绕过校验、通知和缓存更新。按需计算只能避免面积过期，不能保证尺寸合法。
+
+代码位置：[私有尺寸成员](main.cpp#L57)。
+
+## 4. 如何通过统一入口保证尺寸合法？
+
+长宽设为私有，构造函数与 setter 共用“有限且大于零”的规则。构造时非法则抛异常；修改时非法则返回错误并保持原值。所有赋值都经过校验，代价是增加访问接口。
+
+代码位置：[构造校验](main.cpp#L12)、[setter](main.cpp#L32)、[尺寸校验](main.cpp#L40)。
+
+## 5. 如何判断赋值是否真正改变尺寸？
+
+先校验，再与旧值比较；返回 `Changed`、`Unchanged` 或 `InvalidValue`。这里判断是否保存了不同数值，用精确相等；几何上的“足够接近”是另一种容差判断。
+
+代码位置：[SetResult](main.cpp#L4)、[assign_size()](main.cpp#L46)。
+
+## 单独打开与运行
+
+用 IDE 打开本周目录，以 **Clang + CMake + clangd** 独立构建、运行和导航。在本周目录执行：
+
+```bash
+cmake --preset default
+cmake --build --preset default
+./build/demo
+```
+
+也可执行 `./run.sh` 完成上述三步。依赖版本、Qt 配置及测试入口见[本周工具说明](tools/README.md)；[CMakeLists.txt](CMakeLists.txt) 和 [CMakePresets.json](CMakePresets.json) 均在本周目录，全部产物位于本周 `build/`。
+
+## 代码与运行
+
+[main.cpp](main.cpp) 是本周结束时的封装版本，保留最初示例和 const 注释；尺寸以同一单位计，面积为平方单位。本课只校验尺寸，极大尺寸相乘仍可能浮点溢出。
+
+环境与编辑器设置见[公共工具说明](tools/README.md)。在本课程目录执行：
+
+```bash
+./run.sh
+ctest --preset default --no-tests=error
+```
+
+演示输出：
+
+```text
+length=5, width=3, area=15
+length=2.5, width=4, area=10
+invalid rejected; repeated value unchanged; new area=30
+```
+
+验证成功输出 `week01 tests passed`，覆盖构造和修改时的零、负数、无穷大、NaN、重复赋值、小数尺寸及面积更新。

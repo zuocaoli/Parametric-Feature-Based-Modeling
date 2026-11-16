@@ -56,13 +56,16 @@ std::size_t ChangeSignal::emit(const ChangeEvent &event) {
 
     //
     for (const auto &slot : snapshot) {
+
+        //
         if (!slot->active) {
             // 该订阅无效，可能是已退订或被销毁；跳过它。
             continue;
         }
 
         try {
-            // 调用回调，传入事件；回调可能抛异常，不能阻断其他订阅者。
+            // 调用回调：这个回调是在 RecomputeEngine::create_rectangle() 中注册的，
+            // 回调函数是 RecomputeEngine::collect_changes()，它会把需要重算的属性（属性表达式）添加到 dirty_，等待重算。
             slot->callback(event);
         } catch (...) {
             // 一个观察者失败不能阻止其他观察者，也不回滚已提交的数据。

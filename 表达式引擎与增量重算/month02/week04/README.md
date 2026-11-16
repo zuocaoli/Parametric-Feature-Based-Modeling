@@ -3,7 +3,7 @@
 ## 本周训练
 
 - **承接与前置**：[上周](../week03/README.md)已有增量重算，本周为失败与删除加入有效状态和恢复；区分正式输入、最近缓存与安全读取。
-- **目标**：能推导 Failed、Blocked、MissingReference 的传播；能在保留无关分支计算的同时修复失败链。
+- **目标**：能推导 Failed、Blocked、MissingReference 的传播；能在保留无关分支计算的同时修复失败链。  
 - **独立练习**：将 A.length 设为 144、width 绑定为 `length/(segments-1)`、area 绑定为 `length*width`，保留独立 B；先令 segments=1 再改为 3，逐步记录状态、安全读取和执行次数。
 - **验收**：除零时 width Failed、area Blocked，安全读取都不可用，B 仍有效；修复后 A 为 72/10368，各目标本轮最多执行一次，缓存碰巧相同也恢复 Valid。
 

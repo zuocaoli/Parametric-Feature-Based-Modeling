@@ -159,7 +159,8 @@ SetResult PropertyObject::set_many(const std::vector<Update> &updates) {
 
     } guard{notifying_}; // 创建一个 NotifyGuard 对象，传入 notifying_ 的引用
 
-    // 触发修改事件
+    // 触发修改事件：执行回调，这个回调是在 create_rectangle 中注册的，
+    // 回调函数是 collect_changes()，这个回调将需要重算的属性（属性表达式）添加到 dirty_，等待重算。
     notification_errors_ += changed_.emit(event);
     return SetResult::Changed;
 }

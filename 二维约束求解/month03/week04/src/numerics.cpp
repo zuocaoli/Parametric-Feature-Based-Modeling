@@ -1,0 +1,132 @@
+module;
+#include <Eigen/Dense>
+module mini_gcs.numerics;
+import std;
+namespace gcs {
+Matrix::Matrix(std::size_t r, std::size_t c) : rows(r), cols(c), values(r * c) {}
+double &Matrix::operator()(std::size_t r, std::size_t c) {
+    return values.at(r * cols + c);
+}
+double Matrix::operator()(std::size_t r, std::size_t c) const {
+    return values.at(r * cols + c);
+}
+Matrix jacobian(const Sketch &sketch, double scale, double step, double geometryTolerance) {
+    if (scale == 0)
+        scale = sketch.characteristicLength();
+    if (!std::isfinite(step) || step <= 0 || !std::isfinite(scale) || scale <= 0)
+        throw std::invalid_argument("invalid finite-difference settings");
+    const auto initial = sketch.parameters();
+    auto baseline = evaluate(sketch, scale, geometryTolerance);
+    Matrix j(baseline.rows.size(), initial.size());
+    for (std::size_t col = 0; col < initial.size(); ++col) {
+        double delta = step * std::max(scale, std::abs(initial[col]));
+        using Probe = std::pair<Residual, double>;
+        std::optional<Probe> forward, backward;
+        auto sample = [&](double position) -> std::optional<Probe> {
+            if (!std::isfinite(position) || position == initial[col])
+                return std::nullopt;
+            auto candidate = sketch;
+            auto values = initial;
+            values[col] = position;
+            candidate.setParameters(std::move(values));
+            try {
+                return Probe{evaluate(candidate, scale, geometryTolerance), position};
+            } catch (const std::domain_error &) {
+                return std::nullopt;
+            }
+        };
+        for (int attempt = 0; attempt < 32; ++attempt) {
+            auto plus = sample(initial[col] + delta);
+            auto minus = sample(initial[col] - delta);
+            if (plus && minus) {
+                forward = std::move(plus);
+                backward = std::move(minus);
+                break;
+            }
+            if (plus) {
+                forward = std::move(plus);
+                backward.reset();
+            } else if (minus) {
+                backward = std::move(minus);
+                forward.reset();
+            }
+            delta *= 0.5;
+        }
+        if (!forward && !backward)
+            throw std::domain_error("no valid finite-difference probe");
+        const auto &fp = forward ? forward->first : baseline;
+        const auto &fm = backward ? backward->first : baseline;
+        double separation = ((forward ? forward->second : initial[col]) -
+                             (backward ? backward->second : initial[col])) /
+                            scale;
+        if (!std::isfinite(separation) || separation <= 0)
+            throw std::domain_error("invalid finite-difference separation");
+        for (std::size_t row = 0; row < j.rows; ++row) {
+            double difference = fp.rows[row].value - fm.rows[row].value;
+            if (fp.rows[row].constraint &&
+                sketch.constraint(fp.rows[row].constraint).type == ConstraintType::Angle)
+                difference = std::remainder(difference, 2 * std::numbers::pi);
+            j(row, col) = difference / separation;
+            if (!std::isfinite(j(row, col)))
+                throw std::domain_error("non-finite Jacobian entry");
+        }
+    }
+    return j;
+}
+namespace {
+Eigen::MatrixXd eigenMatrix(const Matrix &m) {
+    Eigen::MatrixXd result(m.rows, m.cols);
+    for (std::size_t r = 0; r < m.rows; ++r)
+        for (std::size_t c = 0; c < m.cols; ++c)
+            result(r, c) = m(r, c);
+    if (!result.allFinite())
+        throw std::invalid_argument("non-finite matrix input");
+    return result;
+}
+}
+std::vector<double> leastSquares(const Matrix &m, const std::vector<double> &rhs,
+                                 double tolerance) {
+    if (rhs.size() != m.rows || !std::isfinite(tolerance) || tolerance <= 0)
+        throw std::invalid_argument("invalid linear system");
+    for (double value : rhs)
+        if (!std::isfinite(value))
+            throw std::invalid_argument("non-finite right-hand side");
+    if (m.rows == 0)
+        return std::vector<double>(m.cols, 0);
+    if (m.cols == 0)
+        return {};
+    Eigen::CompleteOrthogonalDecomposition<Eigen::MatrixXd> qr(eigenMatrix(m));
+    qr.setThreshold(tolerance);
+    Eigen::VectorXd b(m.rows);
+    for (std::size_t i = 0; i < rhs.size(); ++i)
+        b[i] = rhs[i];
+    Eigen::VectorXd step = qr.solve(b);
+    if (!step.allFinite())
+        throw std::domain_error("non-finite linear step");
+    return {step.data(), step.data() + step.size()};
+}
+RankAnalysis analyzeRank(const Matrix &m, double tolerance) {
+    if (!std::isfinite(tolerance) || tolerance <= 0)
+        throw std::invalid_argument("invalid rank tolerance");
+    RankAnalysis out;
+    if (m.cols == 0)
+        return out;
+    Eigen::MatrixXd basis;
+    if (m.rows == 0)
+        basis = Eigen::MatrixXd::Identity(m.cols, m.cols);
+    else {
+        Eigen::JacobiSVD<Eigen::MatrixXd> svd(eigenMatrix(m), Eigen::ComputeFullV);
+        svd.setThreshold(tolerance);
+        out.rank = static_cast<int>(svd.rank());
+        basis = svd.matrixV().rightCols(m.cols - out.rank);
+    }
+    out.nullspace = Matrix(basis.rows(), basis.cols());
+    for (Eigen::Index r = 0; r < basis.rows(); ++r) {
+        for (Eigen::Index c = 0; c < basis.cols(); ++c)
+            out.nullspace(r, c) = basis(r, c);
+        if (basis.row(r).norm() > 1e-6)
+            out.movableParameters.push_back(r);
+    }
+    return out;
+}
+}

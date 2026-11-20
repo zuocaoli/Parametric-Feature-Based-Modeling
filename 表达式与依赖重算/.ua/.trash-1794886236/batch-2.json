@@ -1,0 +1,157 @@
+{
+  "nodes": [
+    {
+      "id": "config:month01/week02/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month01/week02/CMakeLists.txt",
+      "summary": "week02 语法分析课程的构建定义：声明 CMake 4.3 与 C++23 import std 实验开关，强制 Clang 22 以上并校验 libstdc++ 标准库模块开发文件可用，把 lexer.cpp、main.cpp、parser.cpp 三个翻译单元连同 lexer.cppm、parser.cppm 两个 CXX_MODULES 模块文件编译为 demo 可执行文件。",
+      "tags": ["configuration", "build-system", "cxx-modules", "clang"],
+      "complexity": "simple",
+      "languageNotes": "CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌是 CMake 4.3 启用 import std 的必要开关，升级 CMake 大小版本时必须同步更新；FILE_SET CXX_MODULES 用于声明 C++20 具名模块单元，与普通 .cpp 翻译单元分列。"
+    },
+    {
+      "id": "config:month01/week02/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month01/week02/CMakePresets.json",
+      "summary": "为 week02 定义 default 配置、构建、测试三个 preset，固定 Ninja 生成器与二进制目录，使 ./run.sh 和 IDE 能用同一条命令完成课程的配置、编译与 CTest 流程。",
+      "tags": ["configuration", "build-system", "cmake-presets", "clang"],
+      "complexity": "simple",
+      "languageNotes": "configurePresets / buildPresets / testPresets 三段式结构是 CMake 预设的标准布局，preset 名称 default 被本周 run.sh 与课程文档约定引用。"
+    },
+    {
+      "id": "document:month01/week02/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month01/week02/README.md",
+      "summary": "week02《语法分析》课程讲义，围绕问题 26–30 讲解 AST 节点设计、用递归下降表达运算符优先级与左结合、括号与一元符号处理、不完整或多余输入的错误恢复，并布置手工推导表达式树与缺右括号修复的独立练习。",
+      "tags": ["documentation", "entry-point", "curriculum", "ast", "parser"],
+      "complexity": "moderate",
+      "languageNotes": "讲义沿用本仓库固定的五问结构（训练目标、五个编号问题、独立练习、构建运行说明），每个问题附 parser.cpp / parser.cppm 的代码锚点链接。"
+    },
+    {
+      "id": "file:month01/week02/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month01/week02/run.sh",
+      "summary": "week02 的一键构建运行脚本：切到本周目录后依次执行 cmake --preset default 配置与构建，最后 exec 启动 build/demo 并透传命令行参数，便于练习时反复修改表达式后快速看到结果。",
+      "tags": ["build-system", "script", "automation", "entry-point"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:month01/week02/CMakeLists.txt",
+      "target": "file:month01/week02/lexer.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week02/CMakeLists.txt",
+      "target": "file:month01/week02/lexer.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week02/CMakeLists.txt",
+      "target": "file:month01/week02/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week02/CMakeLists.txt",
+      "target": "file:month01/week02/parser.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week02/CMakeLists.txt",
+      "target": "file:month01/week02/parser.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week02/CMakePresets.json",
+      "target": "config:month01/week02/CMakeLists.txt",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month01/week02/run.sh",
+      "target": "config:month01/week02/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month01/week02/run.sh",
+      "target": "config:month01/week02/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "file:month01/week02/parser.cppm",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "file:month01/week02/parser.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "file:month01/week02/main.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "config:month01/week02/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "config:month01/week02/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "file:month01/week02/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "document:month01/week02/tools/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week02/README.md",
+      "target": "document:month01/week01/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

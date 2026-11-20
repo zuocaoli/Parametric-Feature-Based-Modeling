@@ -1,0 +1,3 @@
+Loaded 136 files (95 code).
+Info: compute-batches: merged 104 small batches (104 files) into 5 misc batches — singletons and orphans consolidated
+Wrote 13 batches (sizes: max=25, min=4) to /home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算/.ua/intermediate/batches.json

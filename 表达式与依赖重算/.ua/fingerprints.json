@@ -1,0 +1,4618 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "d149615e96b123ff7b90dc61573b1ebd7ac87f8b",
+  "generatedAt": "2026-11-17T03:30:25.470Z",
+  "files": {
+    ".ua/.understandignore": {
+      "filePath": ".ua/.understandignore",
+      "contentHash": "b1208a652eec1a818d583731474583ed91fa5e6b99213996fe7a8af0a31519a1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 60,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week01/.clangd": {
+      "filePath": "month01/week01/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week01/lexer.cpp": {
+      "filePath": "month01/week01/lexer.cpp",
+      "contentHash": "8336744df71d25d5209ae3343a00a5633eb7e99a92fdbfcc7e1852de07626196",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week01/lexer.cppm": {
+      "filePath": "month01/week01/lexer.cppm",
+      "contentHash": "6daa8b3eee7e63de04086517ea8c505a15ddf3d429257f27b1a2c45c8cb35518",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week01/main.cpp": {
+      "filePath": "month01/week01/main.cpp",
+      "contentHash": "33860868f76c55b651b5c11b0e0b78724a341bc522ad9de40cb6d95c29ccb19b",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "argc",
+            "argv"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week02/.clangd": {
+      "filePath": "month01/week02/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week02/lexer.cpp": {
+      "filePath": "month01/week02/lexer.cpp",
+      "contentHash": "9ac782e183463ae757e6ff46948af1350b867454d7e378b4f7979545cbbb3270",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week02/lexer.cppm": {
+      "filePath": "month01/week02/lexer.cppm",
+      "contentHash": "c7732ae2d95a03e6f031da8a6a0390b35dc7f6c7b0bddc8237d48289c1a54ff4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week02/main.cpp": {
+      "filePath": "month01/week02/main.cpp",
+      "contentHash": "b8ae79263e201c07b9701d9047b09d668f1b8aa49fc3609cef67277b20dfe504",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week02/parser.cpp": {
+      "filePath": "month01/week02/parser.cpp",
+      "contentHash": "47b39824be4276ba286d3f5b58cd8bdb5696b0e6782b1b6d4f9ecbdcf86ca92f",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 264,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week02/parser.cppm": {
+      "filePath": "month01/week02/parser.cppm",
+      "contentHash": "8a1fdb179941e2cefdc20fc0fc2a2eb161fc451ff9f79e032376af543c9674a9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/.clangd": {
+      "filePath": "month01/week03/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/change_signal.cpp": {
+      "filePath": "month01/week03/change_signal.cpp",
+      "contentHash": "d0a2ac821d35c8380cd173508052c338efcb8a114d351c45a31602ee8e3b1b57",
+      "functions": [
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "other"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Connection::~Connection",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Connection::disconnect",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "slot"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "connect",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "emit",
+          "params": [
+            "event"
+          ],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Connection::Connection",
+        "Connection::~Connection",
+        "Connection::disconnect",
+        "Connection::Connection",
+        "connect",
+        "emit"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/evaluator.cpp": {
+      "filePath": "month01/week03/evaluator.cpp",
+      "contentHash": "0da935f804fcdf37f8e9b85ea0b9ef995a48998b590dc0071fd9f97826b2f62f",
+      "functions": [
+        {
+          "name": "finite",
+          "params": [
+            "value",
+            "position"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            "node",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 102
+        },
+        {
+          "name": "calculate",
+          "params": [
+            "source",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "finite",
+        "evaluate",
+        "calculate"
+      ],
+      "totalLines": 155,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/evaluator.cppm": {
+      "filePath": "month01/week03/evaluator.cppm",
+      "contentHash": "43ddb1fe2b68710554a3a607816a91559d87ba1c6b404d49082d0a1884ce944e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/lexer.cpp": {
+      "filePath": "month01/week03/lexer.cpp",
+      "contentHash": "ea9ecccb95bfa0d1f04bcb5f63bf3b880d5b23db05da1efcc9e2edeed68e3900",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/lexer.cppm": {
+      "filePath": "month01/week03/lexer.cppm",
+      "contentHash": "0d50301c01a40f923b1bbe77d41ad197587b707fd62a5a9c3d48fa13693c44da",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/main.cpp": {
+      "filePath": "month01/week03/main.cpp",
+      "contentHash": "7ccc616391b2263bd860af23cb3b2a87a21633b6dc1b651f447dd98e87eeed85",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/parser.cpp": {
+      "filePath": "month01/week03/parser.cpp",
+      "contentHash": "95dbf4fcd2e6947b80ebb0bcf1c96c29c1d0f212eec80c36c2ed252b46831b60",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/parser.cppm": {
+      "filePath": "month01/week03/parser.cppm",
+      "contentHash": "49789a196bed9a3f9ad890072961fdb821c23c3ccfe0b6477f159d925c77465d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/property.cpp": {
+      "filePath": "month01/week03/property.cpp",
+      "contentHash": "0a927f3ca7ba5f63fe744e418201b10392765c8c47424a8d8dcd488c30fccf19",
+      "functions": [
+        {
+          "name": "result_name",
+          "params": [
+            "result"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "type_name",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "value_text",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "PropertyObject",
+          "params": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "id",
+          "params": [],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "properties",
+          "params": [],
+          "returnType": "std::vector<PropertyView>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "get",
+          "params": [
+            "name"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "notification_errors",
+          "params": [],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set",
+          "params": [
+            "name",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 54
+        },
+        {
+          "name": "add",
+          "params": [
+            "name",
+            "label",
+            "unit",
+            "value",
+            "validate",
+            "compute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "read",
+          "params": [
+            "property"
+          ],
+          "returnType": "Value",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "result_name",
+        "type_name",
+        "value_text",
+        "PropertyObject",
+        "id",
+        "properties",
+        "get",
+        "observe",
+        "notification_errors",
+        "set",
+        "set_many",
+        "add",
+        "read"
+      ],
+      "totalLines": 150,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/property.cppm": {
+      "filePath": "month01/week03/property.cppm",
+      "contentHash": "5ab418d46200dda441956f115746f45c7b93520441e04530ff21a3e043c698f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 128,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week03/rectangle.cpp": {
+      "filePath": "month01/week03/rectangle.cpp",
+      "contentHash": "43a4a7c6db212723e76c6722f8c78983b0706ac4ef25795f2ef26cff1fda6ecf",
+      "functions": [
+        {
+          "name": "positive_size",
+          "params": [
+            "value"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Rectangle",
+          "params": [
+            "length",
+            "width",
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "positive_size",
+        "Rectangle"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week03/rectangle.cppm": {
+      "filePath": "month01/week03/rectangle.cppm",
+      "contentHash": "0f0e18e2102917ae46d0d1158fc5d21fdd4742fbe15465b423c0fa8bcca6fcb8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/.clangd": {
+      "filePath": "month01/week04/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/change_signal.cpp": {
+      "filePath": "month01/week04/change_signal.cpp",
+      "contentHash": "a9580d2c8f642ca1ddf0aca7ceafa0d7ddd5a889d56e3e012b7208b68bc7b181",
+      "functions": [
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "other"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Connection::~Connection",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Connection::disconnect",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "slot"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "connect",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "emit",
+          "params": [
+            "event"
+          ],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Connection::Connection",
+        "Connection::~Connection",
+        "Connection::disconnect",
+        "Connection::Connection",
+        "connect",
+        "emit"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/evaluator.cpp": {
+      "filePath": "month01/week04/evaluator.cpp",
+      "contentHash": "4e6948dc3e53abb299b989da49f37bdd8ede629340c2b8172ed6a34d60f0bc5b",
+      "functions": [
+        {
+          "name": "finite",
+          "params": [
+            "value",
+            "position"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            "node",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 90
+        },
+        {
+          "name": "calculate",
+          "params": [
+            "source",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "finite",
+        "evaluate",
+        "calculate"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/evaluator.cppm": {
+      "filePath": "month01/week04/evaluator.cppm",
+      "contentHash": "9fac7ef8a9b6714aa08b052ea360f8151f19170732152f7a50e175ce143d6586",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/formulas.cpp": {
+      "filePath": "month01/week04/formulas.cpp",
+      "contentHash": "511e8f075371763373430286f0ffb469d6a8107f91d03d3580780825239afbf3",
+      "functions": [
+        {
+          "name": "FormulaEngine",
+          "params": [
+            "object"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "bind",
+          "params": [
+            "target",
+            "source"
+          ],
+          "returnType": "std::expected<void, Error>",
+          "exported": true,
+          "lineCount": 46
+        },
+        {
+          "name": "unbind",
+          "params": [
+            "target"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "std::optional<std::string>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "formulas",
+          "params": [],
+          "returnType": "std::vector<std::pair<std::string, std::string>>",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "compute",
+          "params": [
+            "target"
+          ],
+          "returnType": "std::expected<SetResult, Error>",
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "FormulaEngine",
+        "bind",
+        "unbind",
+        "formula",
+        "formulas",
+        "compute"
+      ],
+      "totalLines": 117,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/formulas.cppm": {
+      "filePath": "month01/week04/formulas.cppm",
+      "contentHash": "e1361460904afa517ca05b43f5f88299682a28a6f6d55333f4f11fc96fe2df76",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 53,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/lexer.cpp": {
+      "filePath": "month01/week04/lexer.cpp",
+      "contentHash": "3f0f035263ad7564e0f1de09c4c3be25a8b5c2e26bbbc437d6fd7d0608066c66",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/lexer.cppm": {
+      "filePath": "month01/week04/lexer.cppm",
+      "contentHash": "4a05c5d440f385d07310e2b95baff634def2f3a76ab0330b59a630d5b4e5bd03",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/main.cpp": {
+      "filePath": "month01/week04/main.cpp",
+      "contentHash": "6085c3c893f1fd59db7213f1a1b0b3a07f3f37944bdc741c5c42193335962554",
+      "functions": [
+        {
+          "name": "require",
+          "params": [
+            "condition",
+            "message"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "number",
+          "params": [
+            "object",
+            "name"
+          ],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "show",
+          "params": [
+            "model"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "compute_in_order",
+          "params": [
+            "model"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 111
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "require",
+        "number",
+        "show",
+        "compute_in_order",
+        "main"
+      ],
+      "totalLines": 154,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/parser.cpp": {
+      "filePath": "month01/week04/parser.cpp",
+      "contentHash": "b1dcc5b35cd4b7148a0f85b08a59f24578472e726a7fb3264f3d4636d86ae83e",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/parser.cppm": {
+      "filePath": "month01/week04/parser.cppm",
+      "contentHash": "b47c80de5663631e58e0b5aa9844dc3d5555cdfe042e099ecd6fbb5445c25e20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/property.cpp": {
+      "filePath": "month01/week04/property.cpp",
+      "contentHash": "40354249267ae362a3ca3de3cc43b9a19cdbb1ad389882125360d5e601ef77fb",
+      "functions": [
+        {
+          "name": "result_name",
+          "params": [
+            "result"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "type_name",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "value_text",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "PropertyObject",
+          "params": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "id",
+          "params": [],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "properties",
+          "params": [],
+          "returnType": "std::vector<PropertyView>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "get",
+          "params": [
+            "name"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "notification_errors",
+          "params": [],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set",
+          "params": [
+            "name",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 54
+        },
+        {
+          "name": "add",
+          "params": [
+            "name",
+            "label",
+            "unit",
+            "value",
+            "validate",
+            "compute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "read",
+          "params": [
+            "property"
+          ],
+          "returnType": "Value",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "result_name",
+        "type_name",
+        "value_text",
+        "PropertyObject",
+        "id",
+        "properties",
+        "get",
+        "observe",
+        "notification_errors",
+        "set",
+        "set_many",
+        "add",
+        "read"
+      ],
+      "totalLines": 150,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/property.cppm": {
+      "filePath": "month01/week04/property.cppm",
+      "contentHash": "c26e0e83dc508b006363cd740da0e111ef2bcf36d4dd01ab2fb3b17187296311",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 128,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/rectangle.cpp": {
+      "filePath": "month01/week04/rectangle.cpp",
+      "contentHash": "8b128268523ae8420dd4d67672a0e7040628909cb2677bf3fcdc94811420820d",
+      "functions": [
+        {
+          "name": "positive_size",
+          "params": [
+            "value"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Rectangle",
+          "params": [
+            "length",
+            "width",
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "positive_size",
+        "Rectangle"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/rectangle.cppm": {
+      "filePath": "month01/week04/rectangle.cppm",
+      "contentHash": "ab1218c0e783509ea006872b08368ac2e377e3dadefe35a148772efc5f107373",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "month01/week04/storage.cpp": {
+      "filePath": "month01/week04/storage.cpp",
+      "contentHash": "999e2218b76f20c18363c99ba2ff2fec7d9548b387471b70d9121939e58f9a0b",
+      "functions": [
+        {
+          "name": "storage_error",
+          "params": [
+            "message"
+          ],
+          "returnType": "Error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "read_value",
+          "params": [
+            "input",
+            "type"
+          ],
+          "returnType": "std::expected<Value, Error>",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "RectangleModel",
+          "params": [
+            "length",
+            "width"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "save_model",
+          "params": [
+            "model",
+            "output"
+          ],
+          "returnType": "std::expected<void, Error>",
+          "exported": true,
+          "lineCount": 100
+        },
+        {
+          "name": "load_model",
+          "params": [
+            "input"
+          ],
+          "returnType": "std::expected<std::unique_ptr<RectangleModel>, Error>",
+          "exported": true,
+          "lineCount": 132
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "storage_error",
+        "read_value",
+        "RectangleModel",
+        "save_model",
+        "load_model"
+      ],
+      "totalLines": 274,
+      "hasStructuralAnalysis": true
+    },
+    "month01/week04/storage.cppm": {
+      "filePath": "month01/week04/storage.cppm",
+      "contentHash": "187d8944f0c15ccae703c78bdb315e85be5c94ac0b1a7f03b036f1c730af7f2f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week01/.clang-format": {
+      "filePath": "month02/week01/.clang-format",
+      "contentHash": "36589621e221eb8eef8cf4f70cda29c95f5094df364a1fa77168f7f39b02781f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week01/.clangd": {
+      "filePath": "month02/week01/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week01/dependencies.cpp": {
+      "filePath": "month02/week01/dependencies.cpp",
+      "contentHash": "17cf4e84237bef1302a0a28bcb2a5505f8b7fe2bc4780f6a6f06cd76d36bffa4",
+      "functions": [
+        {
+          "name": "collect",
+          "params": [
+            "node",
+            "names"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "key_text",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "collect_variables",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::set<std::string>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_key",
+          "params": [
+            "owner",
+            "variable",
+            "aliases"
+          ],
+          "returnType": "PropertyKey",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "resolve_dependencies",
+          "params": [
+            "node",
+            "owner",
+            "aliases"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 33
+        },
+        {
+          "name": "remove_formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nodes",
+          "params": [],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "collect",
+        "key_text",
+        "collect_variables",
+        "resolve_key",
+        "resolve_dependencies",
+        "replace_dependencies",
+        "remove_formula",
+        "nodes"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week01/dependencies.cppm": {
+      "filePath": "month02/week01/dependencies.cppm",
+      "contentHash": "887bdff72120b5ac3f234b5f3ec5722519610a7397609a70f60ef0cbc2b8ce2e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 95,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week01/lexer.cpp": {
+      "filePath": "month02/week01/lexer.cpp",
+      "contentHash": "a929e999499719fb6a431e683c7e479bb9112fed459b3c155fb67a0000155516",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week01/lexer.cppm": {
+      "filePath": "month02/week01/lexer.cppm",
+      "contentHash": "6deb3e267d5a92a4f4f60b9d04d5efa600abea21eeab92b94a22c27688f80d01",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week01/main.cpp": {
+      "filePath": "month02/week01/main.cpp",
+      "contentHash": "f4a89e0f49ce9e645499ac7d4a2847dba8c4e312047497c064a1f8fcc14f556f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "argc"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 67
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week01/parser.cpp": {
+      "filePath": "month02/week01/parser.cpp",
+      "contentHash": "b1c1747ba64b7cf7da77eefbfd827fd78784031c1b2438e40a11533a97eecf5d",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week01/parser.cppm": {
+      "filePath": "month02/week01/parser.cppm",
+      "contentHash": "325b414d66097ac10e479bcbf025ddb2f00bb6c53892b354c247cd668a653046",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week02/.clang-format": {
+      "filePath": "month02/week02/.clang-format",
+      "contentHash": "36589621e221eb8eef8cf4f70cda29c95f5094df364a1fa77168f7f39b02781f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week02/.clangd": {
+      "filePath": "month02/week02/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week02/dependencies.cpp": {
+      "filePath": "month02/week02/dependencies.cpp",
+      "contentHash": "acd7bebe6e742fe121d229d16024c4f60ef352490ed52e5399af3964c9d80d0c",
+      "functions": [
+        {
+          "name": "collect",
+          "params": [
+            "node",
+            "names"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "key_text",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "collect_variables",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::set<std::string>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_key",
+          "params": [
+            "owner",
+            "variable",
+            "aliases"
+          ],
+          "returnType": "PropertyKey",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "resolve_dependencies",
+          "params": [
+            "node",
+            "owner",
+            "aliases"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "remove_formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nodes",
+          "params": [],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "topological_order",
+          "params": [],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "topological_order",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "find_cycle",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::vector<PropertyKey>",
+          "exported": true,
+          "lineCount": 127
+        },
+        {
+          "name": "try_replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "std::expected<void, GraphError>",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "collect",
+        "key_text",
+        "collect_variables",
+        "resolve_key",
+        "resolve_dependencies",
+        "replace_dependencies",
+        "remove_formula",
+        "nodes",
+        "topological_order",
+        "topological_order",
+        "find_cycle",
+        "try_replace_dependencies"
+      ],
+      "totalLines": 370,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week02/dependencies.cppm": {
+      "filePath": "month02/week02/dependencies.cppm",
+      "contentHash": "a6bc4b24542d5f783599a7775b9e638e53784e963492cdca0c64a5b98080907a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 108,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week02/lexer.cpp": {
+      "filePath": "month02/week02/lexer.cpp",
+      "contentHash": "4111e1d10b25be7dba8f2a5fd7299b0939753de952d1e99567b686b7874d9642",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week02/lexer.cppm": {
+      "filePath": "month02/week02/lexer.cppm",
+      "contentHash": "6f3134ac25bab1c71695576440fe1e4fecfeaf83f0e533a35298e81a00c9c415",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week02/main.cpp": {
+      "filePath": "month02/week02/main.cpp",
+      "contentHash": "81ccdc692d5985c6f8af4e170526242f07d486f203d0e6eefc1acfe011f39cbc",
+      "functions": [
+        {
+          "name": "main",
+          "params": [
+            "argc"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 83
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 87,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week02/parser.cpp": {
+      "filePath": "month02/week02/parser.cpp",
+      "contentHash": "7b1adb9126aec004b28a8709133e72a480562cd492523238de73e50be1fdb1b6",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week02/parser.cppm": {
+      "filePath": "month02/week02/parser.cppm",
+      "contentHash": "0ce2469d6bd389e0c5ef0e37d57a4acede707dd42f1ed41618deb8dce184a59f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/.clang-format": {
+      "filePath": "month02/week03/.clang-format",
+      "contentHash": "1b6100e870bc659439279f51bbc583ed754d6e9996caf960ecb1c4d282ac8ee4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/.clangd": {
+      "filePath": "month02/week03/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/change_signal.cpp": {
+      "filePath": "month02/week03/change_signal.cpp",
+      "contentHash": "d197423f790d7517d2ece9becf29e56b72367b10c30cb8310239331b70f666e0",
+      "functions": [
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "other"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Connection::~Connection",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Connection::disconnect",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "slot"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "connect",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "emit",
+          "params": [
+            "event"
+          ],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Connection::Connection",
+        "Connection::~Connection",
+        "Connection::disconnect",
+        "Connection::Connection",
+        "connect",
+        "emit"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/dependencies.cpp": {
+      "filePath": "month02/week03/dependencies.cpp",
+      "contentHash": "d45e485fa7f0ce6b8f98fb48b216cd4756024999724d0ee2105c7d82b633455a",
+      "functions": [
+        {
+          "name": "collect",
+          "params": [
+            "node",
+            "names"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "key_text",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "collect_variables",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::set<std::string>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_key",
+          "params": [
+            "owner",
+            "variable",
+            "aliases"
+          ],
+          "returnType": "PropertyKey",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_dependencies",
+          "params": [
+            "node",
+            "owner",
+            "aliases"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "remove_formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nodes",
+          "params": [],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "topological_order",
+          "params": [],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "affected",
+          "params": [
+            "sources"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "topological_order",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 67
+        },
+        {
+          "name": "find_cycle",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::vector<PropertyKey>",
+          "exported": true,
+          "lineCount": 124
+        },
+        {
+          "name": "try_replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "std::expected<void, GraphError>",
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "collect",
+        "key_text",
+        "collect_variables",
+        "resolve_key",
+        "resolve_dependencies",
+        "replace_dependencies",
+        "remove_formula",
+        "nodes",
+        "topological_order",
+        "affected",
+        "topological_order",
+        "find_cycle",
+        "try_replace_dependencies"
+      ],
+      "totalLines": 392,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/dependencies.cppm": {
+      "filePath": "month02/week03/dependencies.cppm",
+      "contentHash": "e0ec7134a3c20c7554b590d1198e122e908aa26924e0f1077b310976492d7504",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 98,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/engine.cpp": {
+      "filePath": "month02/week03/engine.cpp",
+      "contentHash": "ec6e69baed08314bd6d68238a85c6223e88b02660bb9d3f1bbb2c0edbb5be452",
+      "functions": [
+        {
+          "name": "FlagGuard",
+          "params": [
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "~FlagGuard",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "engine_error",
+          "params": [
+            "message"
+          ],
+          "returnType": "EngineError",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "expression_error",
+          "params": [
+            "error"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "busy",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "create_rectangle",
+          "params": [
+            "length",
+            "width"
+          ],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "stored_value",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "set",
+          "params": [
+            "key",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "id",
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 47
+        },
+        {
+          "name": "bind",
+          "params": [
+            "target",
+            "source",
+            "aliases"
+          ],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 83
+        },
+        {
+          "name": "formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "std::optional<std::string>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "begin_batch",
+          "params": [],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "end_batch",
+          "params": [],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "id",
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "mark_downstream",
+          "params": [
+            "source"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "collect_changes",
+          "params": [
+            "event"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "flush_if_ready",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 68
+        }
+      ],
+      "classes": [
+        {
+          "name": "FlagGuard",
+          "methods": [
+            "FlagGuard",
+            "~FlagGuard"
+          ],
+          "properties": [
+            "flag"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "FlagGuard",
+        "~FlagGuard",
+        "FlagGuard",
+        "engine_error",
+        "expression_error",
+        "busy",
+        "create_rectangle",
+        "stored_value",
+        "set",
+        "set_many",
+        "bind",
+        "formula",
+        "begin_batch",
+        "end_batch",
+        "observe",
+        "mark_downstream",
+        "collect_changes",
+        "flush_if_ready"
+      ],
+      "totalLines": 364,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/engine.cppm": {
+      "filePath": "month02/week03/engine.cppm",
+      "contentHash": "866e3633cac80e0ed0910486ab58f0372499a59192032bd97cada088c1d683b1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 162,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/evaluator.cpp": {
+      "filePath": "month02/week03/evaluator.cpp",
+      "contentHash": "9d1c1ae94d3a9e2502b27d0e6fa0f75d23e1a9a0bc8521b851276316e00fbfbd",
+      "functions": [
+        {
+          "name": "finite",
+          "params": [
+            "value",
+            "position"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            "node",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 90
+        },
+        {
+          "name": "calculate",
+          "params": [
+            "source",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "finite",
+        "evaluate",
+        "calculate"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/evaluator.cppm": {
+      "filePath": "month02/week03/evaluator.cppm",
+      "contentHash": "5c2c861132708e613163109a9286fa886f3c42bfd3f5b345159c3c6808ff922c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/lexer.cpp": {
+      "filePath": "month02/week03/lexer.cpp",
+      "contentHash": "21a07a865586db48a39204fdedea2528c48ce606efb778095378af930fa278fe",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/lexer.cppm": {
+      "filePath": "month02/week03/lexer.cppm",
+      "contentHash": "7a52b1d9abcc72947fe000b0018716a32fb959918db8b7ba65b3f25d0be3f402",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/main.cpp": {
+      "filePath": "month02/week03/main.cpp",
+      "contentHash": "a3de47bb8483382be71b9976c2d72b8fe67732cd5d8f55f96d1b94f346d70f67",
+      "functions": [
+        {
+          "name": "show",
+          "params": [
+            "engine",
+            "id"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "report",
+          "params": [
+            "engine"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "main",
+          "params": [
+            "argc"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 120
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "show",
+        "report",
+        "main"
+      ],
+      "totalLines": 142,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/parser.cpp": {
+      "filePath": "month02/week03/parser.cpp",
+      "contentHash": "79021b2820893b640e6fe0fa5c539c20a6b0a0cef3c6470f72e6e1d4a65cd40e",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/parser.cppm": {
+      "filePath": "month02/week03/parser.cppm",
+      "contentHash": "643dfaaced04de7c76b1ff239fdef6a64322bda44b92e71d2718a3ea0d52c8d9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/property.cpp": {
+      "filePath": "month02/week03/property.cpp",
+      "contentHash": "ab84c08e823e18e72fba2e5ae2919b15a06c75140e12b605e38bc1e0f26336e8",
+      "functions": [
+        {
+          "name": "result_name",
+          "params": [
+            "result"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "type_name",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "value_text",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "PropertyObject",
+          "params": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "id",
+          "params": [],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "properties",
+          "params": [],
+          "returnType": "std::vector<PropertyView>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "get",
+          "params": [
+            "name"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "notification_errors",
+          "params": [],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "set",
+          "params": [
+            "name",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 86
+        },
+        {
+          "name": "add",
+          "params": [
+            "name",
+            "label",
+            "unit",
+            "value",
+            "validate",
+            "compute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "read",
+          "params": [
+            "property"
+          ],
+          "returnType": "Value",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "result_name",
+        "type_name",
+        "value_text",
+        "PropertyObject",
+        "id",
+        "properties",
+        "get",
+        "observe",
+        "notification_errors",
+        "set",
+        "set_many",
+        "add",
+        "read"
+      ],
+      "totalLines": 168,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/property.cppm": {
+      "filePath": "month02/week03/property.cppm",
+      "contentHash": "a1175a28044b3a9f56c6068dba371ed70bb4ee2543c51d675ea118e6aab526fd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 193,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week03/rectangle.cpp": {
+      "filePath": "month02/week03/rectangle.cpp",
+      "contentHash": "fadeabe4791d1375f9e5ec0e025bc8d46d11db4cde7321516ed3384952b75994",
+      "functions": [
+        {
+          "name": "positive_size",
+          "params": [
+            "value"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Rectangle",
+          "params": [
+            "length",
+            "width",
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "positive_size",
+        "Rectangle"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week03/rectangle.cppm": {
+      "filePath": "month02/week03/rectangle.cppm",
+      "contentHash": "2751b6f25b7e2ee088acda6ba3e2293d9e99ee70ce543c1eadac95c114129479",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/.clang-format": {
+      "filePath": "month02/week04/.clang-format",
+      "contentHash": "b7e707eb15722d477e4c8851a6bd966bfce457fea9440fada84ea8c61b792209",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/.clangd": {
+      "filePath": "month02/week04/.clangd",
+      "contentHash": "823ed6df186436a8b2c51d8134710c6d69714c78c2a2c5e8b555294ea586714c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/change_signal.cpp": {
+      "filePath": "month02/week04/change_signal.cpp",
+      "contentHash": "27aadbaeca464ff5a645bc61d55bb5a352b819250cd005ef794089f3ed85b0df",
+      "functions": [
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "other"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Connection::~Connection",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Connection::disconnect",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Connection::Connection",
+          "params": [
+            "slot"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "connect",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "emit",
+          "params": [
+            "event"
+          ],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Connection::Connection",
+        "Connection::~Connection",
+        "Connection::disconnect",
+        "Connection::Connection",
+        "connect",
+        "emit"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/dependencies.cpp": {
+      "filePath": "month02/week04/dependencies.cpp",
+      "contentHash": "b6d2d7502cd825a0485798b8d197673e5894b7f3127abe29a9fafc6e22b6724d",
+      "functions": [
+        {
+          "name": "collect",
+          "params": [
+            "node",
+            "names"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "key_text",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "collect_variables",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::set<std::string>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_key",
+          "params": [
+            "owner",
+            "variable",
+            "aliases"
+          ],
+          "returnType": "PropertyKey",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "resolve_dependencies",
+          "params": [
+            "node",
+            "owner",
+            "aliases"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "remove_formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "nodes",
+          "params": [],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "topological_order",
+          "params": [],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "affected",
+          "params": [
+            "sources"
+          ],
+          "returnType": "KeySet",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "topological_order",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::expected<std::vector<PropertyKey>, GraphError>",
+          "exported": true,
+          "lineCount": 68
+        },
+        {
+          "name": "find_cycle",
+          "params": [
+            "selected"
+          ],
+          "returnType": "std::vector<PropertyKey>",
+          "exported": true,
+          "lineCount": 124
+        },
+        {
+          "name": "try_replace_dependencies",
+          "params": [
+            "target",
+            "dependencies"
+          ],
+          "returnType": "std::expected<void, GraphError>",
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "collect",
+        "key_text",
+        "collect_variables",
+        "resolve_key",
+        "resolve_dependencies",
+        "replace_dependencies",
+        "remove_formula",
+        "nodes",
+        "topological_order",
+        "affected",
+        "topological_order",
+        "find_cycle",
+        "try_replace_dependencies"
+      ],
+      "totalLines": 398,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/dependencies.cppm": {
+      "filePath": "month02/week04/dependencies.cppm",
+      "contentHash": "e7106f3de3e1f26f85e92df6bc9fdc6823afe95bdc70758612e3224d62f1db8b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 99,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/engine.cpp": {
+      "filePath": "month02/week04/engine.cpp",
+      "contentHash": "1a4e963b209c6c0c26b6b00b78ac12736f50d6dc24947ffdace38a634d518ec2",
+      "functions": [
+        {
+          "name": "FlagGuard",
+          "params": [
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "~FlagGuard",
+          "params": [],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "engine_error",
+          "params": [
+            "message"
+          ],
+          "returnType": "EngineError",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "expression_error",
+          "params": [
+            "error"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "state_name",
+          "params": [
+            "state"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "busy",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "create_rectangle",
+          "params": [
+            "length",
+            "width"
+          ],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "stored_value",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "status",
+          "params": [
+            "key"
+          ],
+          "returnType": "PropertyStatus",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "value",
+          "params": [
+            "key"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set",
+          "params": [
+            "key",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "id",
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 46
+        },
+        {
+          "name": "bind",
+          "params": [
+            "target",
+            "source",
+            "aliases"
+          ],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 82
+        },
+        {
+          "name": "formula",
+          "params": [
+            "target"
+          ],
+          "returnType": "std::optional<std::string>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "unbind",
+          "params": [
+            "target"
+          ],
+          "returnType": "std::expected<bool, EngineError>",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "erase",
+          "params": [
+            "id"
+          ],
+          "returnType": "std::expected<bool, EngineError>",
+          "exported": true,
+          "lineCount": 73
+        },
+        {
+          "name": "begin_batch",
+          "params": [],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "end_batch",
+          "params": [],
+          "returnType": "std::expected<void, EngineError>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "id",
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "mark_downstream",
+          "params": [
+            "source"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "mark_dirty",
+          "params": [
+            "target"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "collect_changes",
+          "params": [
+            "event"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "flush_if_ready",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 107
+        }
+      ],
+      "classes": [
+        {
+          "name": "FlagGuard",
+          "methods": [
+            "FlagGuard",
+            "~FlagGuard"
+          ],
+          "properties": [
+            "flag"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "FlagGuard",
+        "~FlagGuard",
+        "FlagGuard",
+        "engine_error",
+        "expression_error",
+        "state_name",
+        "busy",
+        "create_rectangle",
+        "stored_value",
+        "status",
+        "value",
+        "set",
+        "set_many",
+        "bind",
+        "formula",
+        "unbind",
+        "erase",
+        "begin_batch",
+        "end_batch",
+        "observe",
+        "mark_downstream",
+        "mark_dirty",
+        "collect_changes",
+        "flush_if_ready"
+      ],
+      "totalLines": 523,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/engine.cppm": {
+      "filePath": "month02/week04/engine.cppm",
+      "contentHash": "751099ba271571b8cfb440f51846658f14fbf9e3de9f07ec753ed41f8887d63c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 200,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/evaluator.cpp": {
+      "filePath": "month02/week04/evaluator.cpp",
+      "contentHash": "c99274001d5aee0f72ce314355fe3e45e68fea717a7c888e3085a6ed3f6d588d",
+      "functions": [
+        {
+          "name": "finite",
+          "params": [
+            "value",
+            "position"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "evaluate",
+          "params": [
+            "node",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 90
+        },
+        {
+          "name": "calculate",
+          "params": [
+            "source",
+            "resolve"
+          ],
+          "returnType": "std::expected<double, Error>",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "finite",
+        "evaluate",
+        "calculate"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/evaluator.cppm": {
+      "filePath": "month02/week04/evaluator.cppm",
+      "contentHash": "012a8c732b9eff1482f107a60fdaf1dc032fd487e74a0dc953a704753cd1337b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/lexer.cpp": {
+      "filePath": "month02/week04/lexer.cpp",
+      "contentHash": "92b1bddeb64a66cac01fb0355ecfc38cab9520613e9f0298562dc1702281c86b",
+      "functions": [
+        {
+          "name": "digit",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "identifier_start",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "whitespace",
+          "params": [
+            "c"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "stage_name",
+          "params": [
+            "stage"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "token_name",
+          "params": [
+            "kind"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "lex",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<std::vector<Token>, Error>",
+          "exported": true,
+          "lineCount": 139
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "digit",
+        "identifier_start",
+        "whitespace",
+        "stage_name",
+        "token_name",
+        "lex"
+      ],
+      "totalLines": 211,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/lexer.cppm": {
+      "filePath": "month02/week04/lexer.cppm",
+      "contentHash": "da97fc5528acf30f67ade7147f5bd370d630422a17e24babbfd15423763fca78",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/main.cpp": {
+      "filePath": "month02/week04/main.cpp",
+      "contentHash": "8df615820616ca5c073ad759efb2fcf9a7d7a4bba7ec92109ac3d81f1c5c4d25",
+      "functions": [
+        {
+          "name": "number",
+          "params": [
+            "engine",
+            "key"
+          ],
+          "returnType": "double",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "report",
+          "params": [
+            "engine"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "act",
+          "params": [
+            "title"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "rectangle_example",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 60
+        },
+        {
+          "name": "failure_example",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 162
+        },
+        {
+          "name": "main",
+          "params": [
+            "argc"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "number",
+        "report",
+        "act",
+        "rectangle_example",
+        "failure_example",
+        "main"
+      ],
+      "totalLines": 268,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/parser.cpp": {
+      "filePath": "month02/week04/parser.cpp",
+      "contentHash": "d3bd7fdd3566a0b680ce0fea0a4ffa0d786eff7c1edf036e1e59f5d48dee436a",
+      "functions": [
+        {
+          "name": "Parser",
+          "params": [
+            "tokens"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "parse_complete_expression",
+          "params": [],
+          "returnType": "Tree",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "advance",
+          "params": [],
+          "returnType": "Token",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "fail",
+          "params": [
+            "message"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "make",
+          "params": [
+            "kind",
+            "token"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "make_binary",
+          "params": [
+            "op",
+            "left",
+            "right"
+          ],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "parse_additive",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "parse_multiplicative",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 38
+        },
+        {
+          "name": "parse_unary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 42
+        },
+        {
+          "name": "parse_primary",
+          "params": [],
+          "returnType": "Tree",
+          "exported": false,
+          "lineCount": 36
+        },
+        {
+          "name": "parse",
+          "params": [
+            "source"
+          ],
+          "returnType": "std::expected<Tree, Error>",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "describe",
+          "params": [
+            "node"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "methods": [],
+          "properties": [
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Parser",
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ],
+          "exported": true,
+          "lineCount": 211
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ParseFailure",
+        "Parser",
+        "parse_complete_expression",
+        "Parser",
+        "parse",
+        "describe"
+      ],
+      "totalLines": 276,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/parser.cppm": {
+      "filePath": "month02/week04/parser.cppm",
+      "contentHash": "0997afc815eb1950c62405185125b4b9922f703454e1aa05cfb5c9ae2e12f957",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/property.cpp": {
+      "filePath": "month02/week04/property.cpp",
+      "contentHash": "62beb44beaecae34713d29db994b13727511faadfade4ceb6eaeee09bb37f0ba",
+      "functions": [
+        {
+          "name": "result_name",
+          "params": [
+            "result"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "type_name",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string_view",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "value_text",
+          "params": [
+            "value"
+          ],
+          "returnType": "std::string",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "PropertyObject",
+          "params": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "id",
+          "params": [],
+          "returnType": "ObjectId",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "properties",
+          "params": [],
+          "returnType": "std::vector<PropertyView>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "get",
+          "params": [
+            "name"
+          ],
+          "returnType": "std::optional<Value>",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "observe",
+          "params": [
+            "callback"
+          ],
+          "returnType": "ChangeSignal::Connection",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "notification_errors",
+          "params": [],
+          "returnType": "std::size_t",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set",
+          "params": [
+            "name",
+            "value"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set_many",
+          "params": [
+            "updates"
+          ],
+          "returnType": "SetResult",
+          "exported": true,
+          "lineCount": 89
+        },
+        {
+          "name": "add",
+          "params": [
+            "name",
+            "label",
+            "unit",
+            "value",
+            "validate",
+            "compute"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "read",
+          "params": [
+            "property"
+          ],
+          "returnType": "Value",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "result_name",
+        "type_name",
+        "value_text",
+        "PropertyObject",
+        "id",
+        "properties",
+        "get",
+        "observe",
+        "notification_errors",
+        "set",
+        "set_many",
+        "add",
+        "read"
+      ],
+      "totalLines": 185,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/property.cppm": {
+      "filePath": "month02/week04/property.cppm",
+      "contentHash": "b00750526f67be39f174b1dde205eca854d192533562f7c822ec3eb0f6f368da",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 193,
+      "hasStructuralAnalysis": false
+    },
+    "month02/week04/rectangle.cpp": {
+      "filePath": "month02/week04/rectangle.cpp",
+      "contentHash": "98eb1801aefaa1a2e92249dee4249dbad9326e7f42b091b42a94e86178facce4",
+      "functions": [
+        {
+          "name": "positive_size",
+          "params": [
+            "value"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Rectangle",
+          "params": [
+            "length",
+            "width",
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "positive_size",
+        "Rectangle"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "month02/week04/rectangle.cppm": {
+      "filePath": "month02/week04/rectangle.cppm",
+      "contentHash": "169c93e310f8158876f89cdbe853b3f74fc668c360ea3d7a50fcf49a706f2aa5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

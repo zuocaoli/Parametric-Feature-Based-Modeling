@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "config:month01/week01/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month01/week01/CMakeLists.txt",
+      "summary": "week01 词法分析课程的 CMake 构建脚本：启用 C++23 import std 实验令牌与 CXX_MODULES 文件集，把 lexer.cpp、lexer.cppm、main.cpp 编译为 demo 可执行文件，并强制校验 Clang ≥ 22 与标准库模块可用。",
+      "tags": ["build-system", "configuration", "cmake", "cxx-modules", "clang"],
+      "complexity": "simple",
+      "languageNotes": "通过 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌开启 CMake 4.3 的 import std 支持（升级 CMake 时需同步更新令牌），并以 FILE_SET CXX_MODULES 声明模块单元 lexer.cppm；构建前用 CMAKE_CXX_COMPILER_IMPORT_STD 列表探测 C++23 标准库模块是否可用。"
+    },
+    {
+      "id": "config:month01/week01/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month01/week01/CMakePresets.json",
+      "summary": "定义名为 default 的 CMake 预设（Ninja 生成器 + clang++ + Debug，导出 compile_commands.json），并配套同名 build 与 test 预设，支撑 cmake --preset default 一键配置、构建与测试。",
+      "tags": ["configuration", "build-system", "cmake", "presets", "clangd"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:month01/week01/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month01/week01/README.md",
+      "summary": "第一月第 1 周『词法分析』的课程讲义：围绕 5 个编号问题（21–25）讲解 Token 拆分、整数与小数边界识别、名字与符号区分、错误定位及验证方法，并给出独立练习、验收标准与构建运行命令。",
+      "tags": ["documentation", "course-material", "lexer", "tutorial", "acceptance-criteria"],
+      "complexity": "moderate",
+      "languageNotes": "讲义用引用链接把每个问题锚定到具体实现位置（lexer.cppm 的 Token/Error 类型、lexer.cpp 的 lex()、main.cpp 的命令行错误输出），并承接『文档与属性系统』月末课程作为前置。"
+    },
+    {
+      "id": "file:month01/week01/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month01/week01/run.sh",
+      "summary": "本周一键构建运行脚本：先切换到脚本所在周目录，依次执行 cmake --preset default 配置与构建，最后 exec 运行 build/demo 并透传全部命令行参数。",
+      "tags": ["build-system", "automation", "shell-script", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "set -euo pipefail 严格模式下用 BASH_SOURCE 解析脚本真实目录（保证可从任意工作目录调用），末尾 exec 让 demo 直接替换 shell 进程。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:month01/week01/CMakeLists.txt",
+      "target": "file:month01/week01/lexer.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week01/CMakeLists.txt",
+      "target": "file:month01/week01/lexer.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week01/CMakeLists.txt",
+      "target": "file:month01/week01/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week01/CMakePresets.json",
+      "target": "config:month01/week01/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month01/week01/README.md",
+      "target": "file:month01/week01/lexer.cppm",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week01/README.md",
+      "target": "file:month01/week01/lexer.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week01/README.md",
+      "target": "file:month01/week01/main.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week01/README.md",
+      "target": "config:month01/week01/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week01/README.md",
+      "target": "config:month01/week01/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month01/week01/run.sh",
+      "target": "config:month01/week01/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month01/week01/run.sh",
+      "target": "config:month01/week01/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

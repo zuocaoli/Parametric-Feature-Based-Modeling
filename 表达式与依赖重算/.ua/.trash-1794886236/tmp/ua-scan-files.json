@@ -1,0 +1,843 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "303975e1bdf05ee880e3b5d84effd0f6f45d8625e81bdb9c10e678e39f73b2fc",
+  "files": [
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 74,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 36,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week01/README.md",
+      "language": "markdown",
+      "sizeLines": 64,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/main.cpp",
+      "language": "cpp",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week01/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 38,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week02/README.md",
+      "language": "markdown",
+      "sizeLines": 152,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/main.cpp",
+      "language": "cpp",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 263,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week02/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 45,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week03/README.md",
+      "language": "markdown",
+      "sizeLines": 82,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/change_signal.cpp",
+      "language": "cpp",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/evaluator.cpp",
+      "language": "cpp",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/evaluator.cppm",
+      "language": "cppm",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/main.cpp",
+      "language": "cpp",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/property.cpp",
+      "language": "cpp",
+      "sizeLines": 149,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/property.cppm",
+      "language": "cppm",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/rectangle.cpp",
+      "language": "cpp",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/rectangle.cppm",
+      "language": "cppm",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week03/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week04/README.md",
+      "language": "markdown",
+      "sizeLines": 121,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/change_signal.cpp",
+      "language": "cpp",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/evaluator.cpp",
+      "language": "cpp",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/evaluator.cppm",
+      "language": "cppm",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/formulas.cpp",
+      "language": "cpp",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/formulas.cppm",
+      "language": "cppm",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/main.cpp",
+      "language": "cpp",
+      "sizeLines": 153,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/property.cpp",
+      "language": "cpp",
+      "sizeLines": 149,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/property.cppm",
+      "language": "cppm",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/rectangle.cpp",
+      "language": "cpp",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/rectangle.cppm",
+      "language": "cppm",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week04/storage.cpp",
+      "language": "cpp",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/storage.cppm",
+      "language": "cppm",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/.clang-format",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 40,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week01/README.md",
+      "language": "markdown",
+      "sizeLines": 95,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/dependencies.cpp",
+      "language": "cpp",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/dependencies.cppm",
+      "language": "cppm",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/main.cpp",
+      "language": "cpp",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/run.sh",
+      "language": "shell",
+      "sizeLines": 12,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week02/.clang-format",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 40,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week02/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week02/README.md",
+      "language": "markdown",
+      "sizeLines": 107,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week02/dependencies.cpp",
+      "language": "cpp",
+      "sizeLines": 369,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/dependencies.cppm",
+      "language": "cppm",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/main.cpp",
+      "language": "cpp",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week02/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/.clang-format",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week03/README.md",
+      "language": "markdown",
+      "sizeLines": 216,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/change_signal.cpp",
+      "language": "cpp",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/dependencies.cpp",
+      "language": "cpp",
+      "sizeLines": 391,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/dependencies.cppm",
+      "language": "cppm",
+      "sizeLines": 97,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/engine.cpp",
+      "language": "cpp",
+      "sizeLines": 363,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/engine.cppm",
+      "language": "cppm",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/evaluator.cpp",
+      "language": "cpp",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/evaluator.cppm",
+      "language": "cppm",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/main.cpp",
+      "language": "cpp",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/property.cpp",
+      "language": "cpp",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/property.cppm",
+      "language": "cppm",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/rectangle.cpp",
+      "language": "cpp",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/rectangle.cppm",
+      "language": "cppm",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/run.sh",
+      "language": "shell",
+      "sizeLines": 9,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week03/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/.clang-format",
+      "language": "unknown",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/.clangd",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/CMakeLists.txt",
+      "language": "txt",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/CMakePresets.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week04/README.md",
+      "language": "markdown",
+      "sizeLines": 101,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/change_signal.cpp",
+      "language": "cpp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/dependencies.cpp",
+      "language": "cpp",
+      "sizeLines": 397,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/dependencies.cppm",
+      "language": "cppm",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/engine.cpp",
+      "language": "cpp",
+      "sizeLines": 522,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/engine.cppm",
+      "language": "cppm",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/evaluator.cpp",
+      "language": "cpp",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/evaluator.cppm",
+      "language": "cppm",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/lexer.cpp",
+      "language": "cpp",
+      "sizeLines": 210,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/lexer.cppm",
+      "language": "cppm",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/main.cpp",
+      "language": "cpp",
+      "sizeLines": 267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/parser.cpp",
+      "language": "cpp",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/parser.cppm",
+      "language": "cppm",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/property.cpp",
+      "language": "cpp",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/property.cppm",
+      "language": "cppm",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/rectangle.cpp",
+      "language": "cpp",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/rectangle.cppm",
+      "language": "cppm",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/run.sh",
+      "language": "shell",
+      "sizeLines": 18,
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week04/tools/README.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    }
+  ],
+  "totalFiles": 136,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "moderate",
+  "stats": {
+    "filesScanned": 136,
+    "byCategory": {
+      "code": 95,
+      "config": 9,
+      "docs": 24,
+      "script": 8
+    },
+    "byLanguage": {
+      "unknown": 13,
+      "json": 9,
+      "markdown": 16,
+      "txt": 8,
+      "cpp": 47,
+      "cppm": 35,
+      "shell": 8
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算",
+  "batchFiles": [
+    {"path": "month02/week04/property.cppm", "language": "cppm", "sizeLines": 192, "fileCategory": "code"},
+    {"path": "month02/week04/rectangle.cpp", "language": "cpp", "sizeLines": 26, "fileCategory": "code"},
+    {"path": "month02/week04/rectangle.cppm", "language": "cppm", "sizeLines": 11, "fileCategory": "code"},
+    {"path": "month02/week04/tools/README.md", "language": "markdown", "sizeLines": 44, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "month02/week04/property.cppm": [],
+    "month02/week04/rectangle.cpp": [],
+    "month02/week04/rectangle.cppm": [],
+    "month02/week04/tools/README.md": []
+  }
+}

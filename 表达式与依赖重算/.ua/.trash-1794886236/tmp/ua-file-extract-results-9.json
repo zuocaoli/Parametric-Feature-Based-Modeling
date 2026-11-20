@@ -1,0 +1,2759 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    ".ua/.understandignore",
+    "month01/week01/.clangd",
+    "month01/week01/lexer.cppm",
+    "month01/week02/.clangd",
+    "month01/week02/lexer.cppm",
+    "month01/week02/parser.cppm",
+    "month01/week03/.clangd",
+    "month01/week03/evaluator.cppm",
+    "month01/week03/lexer.cppm",
+    "month01/week03/parser.cppm"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 74,
+      "nonEmptyLines": 61,
+      "sections": [
+        {
+          "heading": "表达式引擎与依赖图",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "第一月：表达式引擎基础",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "第二月：依赖图与增量重算",
+          "level": 2,
+          "line": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "month01/week01/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 210,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "digit",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "identifier_start",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "whitespace",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "stage_name",
+          "startLine": 23,
+          "endLine": 37,
+          "params": [
+            "stage"
+          ]
+        },
+        {
+          "name": "token_name",
+          "startLine": 39,
+          "endLine": 61,
+          "params": [
+            "kind"
+          ]
+        },
+        {
+          "name": "lex",
+          "startLine": 71,
+          "endLine": 209,
+          "params": [
+            "source"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "digit",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "identifier_start",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "whitespace",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "stage_name",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "token_name",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "lex",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lex",
+          "callee": "whitespace",
+          "lineNumber": 84
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 95
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 105
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 117
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 130
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 131
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 132
+        },
+        {
+          "caller": "lex",
+          "callee": "std::from_chars",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::isfinite",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 159
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 167
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 169
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 174
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 175
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 203
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "std::string",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 207
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week01/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 4,
+          "endLine": 38,
+          "params": [
+            "argc",
+            "argv"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "std::invalid_argument",
+          "lineNumber": 11
+        },
+        {
+          "caller": "main",
+          "callee": "lex",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "error",
+          "lineNumber": 17
+        },
+        {
+          "caller": "main",
+          "callee": "stage_name",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "token_name",
+          "lineNumber": 25
+        },
+        {
+          "caller": "main",
+          "callee": "what",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week01/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 44,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "本周构建、运行与 clangd",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "环境准备",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "构建与运行",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "IDE 与原生 clangd",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "格式与测试",
+          "level": 2,
+          "line": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month01/week02/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 210,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "digit",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "identifier_start",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "whitespace",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "stage_name",
+          "startLine": 23,
+          "endLine": 37,
+          "params": [
+            "stage"
+          ]
+        },
+        {
+          "name": "token_name",
+          "startLine": 39,
+          "endLine": 61,
+          "params": [
+            "kind"
+          ]
+        },
+        {
+          "name": "lex",
+          "startLine": 71,
+          "endLine": 209,
+          "params": [
+            "source"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "digit",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "identifier_start",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "whitespace",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "stage_name",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "token_name",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "lex",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lex",
+          "callee": "whitespace",
+          "lineNumber": 84
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 95
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 105
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 117
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 130
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 131
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 132
+        },
+        {
+          "caller": "lex",
+          "callee": "std::from_chars",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::isfinite",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 159
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 167
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 169
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 174
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 175
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 203
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "std::string",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 207
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week02/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 4,
+          "endLine": 24,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "parse",
+          "lineNumber": 10
+        },
+        {
+          "caller": "main",
+          "callee": "error",
+          "lineNumber": 13
+        },
+        {
+          "caller": "main",
+          "callee": "stage_name",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "describe",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "what",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week02/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 263,
+      "nonEmptyLines": 211,
+      "functions": [
+        {
+          "name": "Parser",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "tokens"
+          ]
+        },
+        {
+          "name": "parse_complete_expression",
+          "startLine": 18,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "advance",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "fail",
+          "startLine": 48,
+          "endLine": 50,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "make",
+          "startLine": 56,
+          "endLine": 68,
+          "params": [
+            "kind",
+            "token"
+          ]
+        },
+        {
+          "name": "make_binary",
+          "startLine": 71,
+          "endLine": 73,
+          "params": [
+            "op",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "parse_additive",
+          "startLine": 76,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "parse_multiplicative",
+          "startLine": 101,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "parse_unary",
+          "startLine": 141,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "parse_primary",
+          "startLine": 185,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "parse",
+          "startLine": 224,
+          "endLine": 251,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "describe",
+          "startLine": 253,
+          "endLine": 262,
+          "params": [
+            "node"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "startLine": 7,
+          "endLine": 9,
+          "methods": [],
+          "properties": [
+            "error"
+          ]
+        },
+        {
+          "name": "Parser",
+          "startLine": 11,
+          "endLine": 221,
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParseFailure",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "Parser",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "parse_complete_expression",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Parser",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 224,
+          "isDefault": false
+        },
+        {
+          "name": "describe",
+          "line": 253,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Parser",
+          "callee": "std::move",
+          "lineNumber": 13
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "parse_additive",
+          "lineNumber": 19
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "current",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "fail",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fail",
+          "callee": "current",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fail",
+          "callee": "std::move",
+          "lineNumber": 49
+        },
+        {
+          "caller": "make",
+          "callee": "std::max",
+          "lineNumber": 58
+        },
+        {
+          "caller": "make",
+          "callee": "std::make_unique<Node>",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make_binary",
+          "callee": "make",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "parse_multiplicative",
+          "lineNumber": 82
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "current",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "current",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "advance",
+          "lineNumber": 88
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "parse_multiplicative",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "make_binary",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "parse_unary",
+          "lineNumber": 104
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "current",
+          "lineNumber": 107
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "current",
+          "lineNumber": 107
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "advance",
+          "lineNumber": 109
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "parse_unary",
+          "lineNumber": 111
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "make_binary",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "fail",
+          "lineNumber": 145
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "current",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "current",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "advance",
+          "lineNumber": 165
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "parse_unary",
+          "lineNumber": 170
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "make",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "std::move",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "std::move",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "parse_primary",
+          "lineNumber": 181
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 188
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 188
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 189
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "make",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "std::move",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 207
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 208
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "parse_additive",
+          "lineNumber": 211
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 213
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "fail",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 216
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "fail",
+          "lineNumber": 219
+        },
+        {
+          "caller": "parse",
+          "callee": "lex",
+          "lineNumber": 227
+        },
+        {
+          "caller": "parse",
+          "callee": "std::unexpected",
+          "lineNumber": 230
+        },
+        {
+          "caller": "parse",
+          "callee": "error",
+          "lineNumber": 230
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_complete_expression",
+          "lineNumber": 244
+        },
+        {
+          "caller": "parse",
+          "callee": "std::move",
+          "lineNumber": 244
+        },
+        {
+          "caller": "parse",
+          "callee": "std::unexpected",
+          "lineNumber": 249
+        },
+        {
+          "caller": "describe",
+          "callee": "describe",
+          "lineNumber": 257
+        },
+        {
+          "caller": "describe",
+          "callee": "describe",
+          "lineNumber": 261
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 12,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "month01/week02/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 44,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "本周构建、运行与 clangd",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "环境准备",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "构建与运行",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "IDE 与原生 clangd",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "格式与测试",
+          "level": 2,
+          "line": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month01/week03/change_signal.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "Connection::Connection",
+          "startLine": 6,
+          "endLine": 6,
+          "params": [
+            "other"
+          ]
+        },
+        {
+          "name": "Connection::~Connection",
+          "startLine": 16,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "Connection::disconnect",
+          "startLine": 20,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "Connection::Connection",
+          "startLine": 27,
+          "endLine": 27,
+          "params": [
+            "slot"
+          ]
+        },
+        {
+          "name": "connect",
+          "startLine": 29,
+          "endLine": 37,
+          "params": [
+            "callback"
+          ]
+        },
+        {
+          "name": "emit",
+          "startLine": 39,
+          "endLine": 55,
+          "params": [
+            "event"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Connection::Connection",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "Connection::~Connection",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Connection::disconnect",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "Connection::Connection",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "connect",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "emit",
+          "line": 39,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Connection::Connection",
+          "callee": "std::move",
+          "lineNumber": 6
+        },
+        {
+          "caller": "Connection::~Connection",
+          "callee": "disconnect",
+          "lineNumber": 17
+        },
+        {
+          "caller": "Connection::disconnect",
+          "callee": "lock",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Connection::disconnect",
+          "callee": "reset",
+          "lineNumber": 24
+        },
+        {
+          "caller": "connect",
+          "callee": "std::invalid_argument",
+          "lineNumber": 31
+        },
+        {
+          "caller": "connect",
+          "callee": "std::erase_if",
+          "lineNumber": 33
+        },
+        {
+          "caller": "connect",
+          "callee": "std::make_shared<Slot>",
+          "lineNumber": 34
+        },
+        {
+          "caller": "connect",
+          "callee": "std::move",
+          "lineNumber": 34
+        },
+        {
+          "caller": "connect",
+          "callee": "push_back",
+          "lineNumber": 35
+        },
+        {
+          "caller": "emit",
+          "callee": "callback",
+          "lineNumber": 48
+        },
+        {
+          "caller": "emit",
+          "callee": "std::erase_if",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week03/evaluator.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 154,
+      "nonEmptyLines": 130,
+      "functions": [
+        {
+          "name": "finite",
+          "startLine": 9,
+          "endLine": 15,
+          "params": [
+            "value",
+            "position"
+          ]
+        },
+        {
+          "name": "evaluate",
+          "startLine": 35,
+          "endLine": 136,
+          "params": [
+            "node",
+            "resolve"
+          ]
+        },
+        {
+          "name": "calculate",
+          "startLine": 138,
+          "endLine": 153,
+          "params": [
+            "source",
+            "resolve"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "finite",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "evaluate",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "calculate",
+          "line": 138,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "finite",
+          "callee": "std::isfinite",
+          "lineNumber": 10
+        },
+        {
+          "caller": "finite",
+          "callee": "std::unexpected",
+          "lineNumber": 11
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 50
+        },
+        {
+          "caller": "evaluate",
+          "callee": "resolve",
+          "lineNumber": 57
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 60
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::get_if<double>",
+          "lineNumber": 65
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 66
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::get_if<std::int64_t>",
+          "lineNumber": 70
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 71
+        },
+        {
+          "caller": "evaluate",
+          "callee": "static_cast<double>",
+          "lineNumber": 71
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 75
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 87
+        },
+        {
+          "caller": "evaluate",
+          "callee": "evaluate",
+          "lineNumber": 91
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 102
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 107
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 111
+        },
+        {
+          "caller": "evaluate",
+          "callee": "evaluate",
+          "lineNumber": 115
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 123
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 125
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 127
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 130
+        },
+        {
+          "caller": "evaluate",
+          "callee": "finite",
+          "lineNumber": 132
+        },
+        {
+          "caller": "evaluate",
+          "callee": "std::unexpected",
+          "lineNumber": 134
+        },
+        {
+          "caller": "calculate",
+          "callee": "parse",
+          "lineNumber": 141
+        },
+        {
+          "caller": "calculate",
+          "callee": "std::unexpected",
+          "lineNumber": 143
+        },
+        {
+          "caller": "calculate",
+          "callee": "error",
+          "lineNumber": 143
+        },
+        {
+          "caller": "calculate",
+          "callee": "evaluate",
+          "lineNumber": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week03/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 210,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "digit",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "identifier_start",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "whitespace",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "stage_name",
+          "startLine": 23,
+          "endLine": 37,
+          "params": [
+            "stage"
+          ]
+        },
+        {
+          "name": "token_name",
+          "startLine": 39,
+          "endLine": 61,
+          "params": [
+            "kind"
+          ]
+        },
+        {
+          "name": "lex",
+          "startLine": 71,
+          "endLine": 209,
+          "params": [
+            "source"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "digit",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "identifier_start",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "whitespace",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "stage_name",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "token_name",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "lex",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 78
+        },
+        {
+          "caller": "lex",
+          "callee": "whitespace",
+          "lineNumber": 84
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 95
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 99
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 105
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 109
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 117
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 130
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 131
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 132
+        },
+        {
+          "caller": "lex",
+          "callee": "std::from_chars",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 151
+        },
+        {
+          "caller": "lex",
+          "callee": "data",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::isfinite",
+          "lineNumber": 158
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 159
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 161
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 167
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 169
+        },
+        {
+          "caller": "lex",
+          "callee": "identifier_start",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "digit",
+          "lineNumber": 170
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 174
+        },
+        {
+          "caller": "lex",
+          "callee": "substr",
+          "lineNumber": 175
+        },
+        {
+          "caller": "lex",
+          "callee": "std::unexpected",
+          "lineNumber": 203
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "std::string",
+          "lineNumber": 205
+        },
+        {
+          "caller": "lex",
+          "callee": "push_back",
+          "lineNumber": 207
+        },
+        {
+          "caller": "lex",
+          "callee": "size",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week03/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 5,
+          "endLine": 29,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "main",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "calculate",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "error",
+          "lineNumber": 18
+        },
+        {
+          "caller": "main",
+          "callee": "stage_name",
+          "lineNumber": 19
+        },
+        {
+          "caller": "main",
+          "callee": "what",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month01/week03/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 275,
+      "nonEmptyLines": 223,
+      "functions": [
+        {
+          "name": "Parser",
+          "startLine": 13,
+          "endLine": 13,
+          "params": [
+            "tokens"
+          ]
+        },
+        {
+          "name": "parse_complete_expression",
+          "startLine": 18,
+          "endLine": 25,
+          "params": []
+        },
+        {
+          "name": "advance",
+          "startLine": 44,
+          "endLine": 46,
+          "params": []
+        },
+        {
+          "name": "fail",
+          "startLine": 48,
+          "endLine": 50,
+          "params": [
+            "message"
+          ]
+        },
+        {
+          "name": "make",
+          "startLine": 56,
+          "endLine": 68,
+          "params": [
+            "kind",
+            "token"
+          ]
+        },
+        {
+          "name": "make_binary",
+          "startLine": 71,
+          "endLine": 73,
+          "params": [
+            "op",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "parse_additive",
+          "startLine": 76,
+          "endLine": 98,
+          "params": []
+        },
+        {
+          "name": "parse_multiplicative",
+          "startLine": 101,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "parse_unary",
+          "startLine": 141,
+          "endLine": 182,
+          "params": []
+        },
+        {
+          "name": "parse_primary",
+          "startLine": 185,
+          "endLine": 220,
+          "params": []
+        },
+        {
+          "name": "parse",
+          "startLine": 236,
+          "endLine": 263,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "describe",
+          "startLine": 265,
+          "endLine": 274,
+          "params": [
+            "node"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParseFailure",
+          "startLine": 7,
+          "endLine": 9,
+          "methods": [],
+          "properties": [
+            "error"
+          ]
+        },
+        {
+          "name": "Parser",
+          "startLine": 11,
+          "endLine": 221,
+          "methods": [
+            "Parser",
+            "parse_complete_expression",
+            "advance",
+            "fail",
+            "make",
+            "make_binary",
+            "parse_additive",
+            "parse_multiplicative",
+            "parse_unary",
+            "parse_primary"
+          ],
+          "properties": [
+            "maximum_depth",
+            "tokens_",
+            "cursor_",
+            "nesting_"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParseFailure",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "Parser",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "parse_complete_expression",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Parser",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "parse",
+          "line": 236,
+          "isDefault": false
+        },
+        {
+          "name": "describe",
+          "line": 265,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Parser",
+          "callee": "std::move",
+          "lineNumber": 13
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "parse_additive",
+          "lineNumber": 19
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "current",
+          "lineNumber": 21
+        },
+        {
+          "caller": "parse_complete_expression",
+          "callee": "fail",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fail",
+          "callee": "current",
+          "lineNumber": 49
+        },
+        {
+          "caller": "fail",
+          "callee": "std::move",
+          "lineNumber": 49
+        },
+        {
+          "caller": "make",
+          "callee": "std::max",
+          "lineNumber": 58
+        },
+        {
+          "caller": "make",
+          "callee": "std::make_unique<Node>",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make",
+          "callee": "std::move",
+          "lineNumber": 66
+        },
+        {
+          "caller": "make_binary",
+          "callee": "make",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "make_binary",
+          "callee": "std::move",
+          "lineNumber": 72
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "parse_multiplicative",
+          "lineNumber": 82
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "current",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "current",
+          "lineNumber": 85
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "advance",
+          "lineNumber": 88
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "parse_multiplicative",
+          "lineNumber": 91
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "make_binary",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_additive",
+          "callee": "std::move",
+          "lineNumber": 92
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "parse_unary",
+          "lineNumber": 104
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "current",
+          "lineNumber": 107
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "current",
+          "lineNumber": 107
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "advance",
+          "lineNumber": 109
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "parse_unary",
+          "lineNumber": 111
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "make_binary",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_multiplicative",
+          "callee": "std::move",
+          "lineNumber": 115
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "fail",
+          "lineNumber": 145
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "current",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "current",
+          "lineNumber": 162
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "advance",
+          "lineNumber": 165
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "parse_unary",
+          "lineNumber": 170
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "make",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "std::move",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "std::move",
+          "lineNumber": 173
+        },
+        {
+          "caller": "parse_unary",
+          "callee": "parse_primary",
+          "lineNumber": 181
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 188
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 188
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 189
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "make",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "std::move",
+          "lineNumber": 194
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 207
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 208
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "parse_additive",
+          "lineNumber": 211
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "current",
+          "lineNumber": 213
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "fail",
+          "lineNumber": 214
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "advance",
+          "lineNumber": 216
+        },
+        {
+          "caller": "parse_primary",
+          "callee": "fail",
+          "lineNumber": 219
+        },
+        {
+          "caller": "parse",
+          "callee": "lex",
+          "lineNumber": 239
+        },
+        {
+          "caller": "parse",
+          "callee": "std::unexpected",
+          "lineNumber": 242
+        },
+        {
+          "caller": "parse",
+          "callee": "error",
+          "lineNumber": 242
+        },
+        {
+          "caller": "parse",
+          "callee": "parse_complete_expression",
+          "lineNumber": 256
+        },
+        {
+          "caller": "parse",
+          "callee": "std::move",
+          "lineNumber": 256
+        },
+        {
+          "caller": "parse",
+          "callee": "std::unexpected",
+          "lineNumber": 261
+        },
+        {
+          "caller": "describe",
+          "callee": "describe",
+          "lineNumber": 269
+        },
+        {
+          "caller": "describe",
+          "callee": "describe",
+          "lineNumber": 273
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 12,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "month01/week03/property.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 149,
+      "nonEmptyLines": 135,
+      "functions": [
+        {
+          "name": "result_name",
+          "startLine": 6,
+          "endLine": 24,
+          "params": [
+            "result"
+          ]
+        },
+        {
+          "name": "type_name",
+          "startLine": 26,
+          "endLine": 29,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "value_text",
+          "startLine": 31,
+          "endLine": 39,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "PropertyObject",
+          "startLine": 41,
+          "endLine": 41,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "id",
+          "startLine": 43,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "properties",
+          "startLine": 47,
+          "endLine": 54,
+          "params": []
+        },
+        {
+          "name": "get",
+          "startLine": 56,
+          "endLine": 63,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "observe",
+          "startLine": 65,
+          "endLine": 68,
+          "params": [
+            "callback"
+          ]
+        },
+        {
+          "name": "notification_errors",
+          "startLine": 70,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "set",
+          "startLine": 74,
+          "endLine": 76,
+          "params": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "set_many",
+          "startLine": 78,
+          "endLine": 131,
+          "params": [
+            "updates"
+          ]
+        },
+        {
+          "name": "add",
+          "startLine": 133,
+          "endLine": 144,
+          "params": [
+            "name",
+            "label",
+            "unit",
+            "value",
+            "validate",
+            "compute"
+          ]
+        },
+        {
+          "name": "read",
+          "startLine": 146,
+          "endLine": 148,
+          "params": [
+            "property"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "result_name",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "type_name",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "value_text",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "PropertyObject",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "id",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "properties",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "get",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "observe",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "notification_errors",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "set",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "set_many",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "add",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "read",
+          "line": 146,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "type_name",
+          "callee": "index",
+          "lineNumber": 28
+        },
+        {
+          "caller": "value_text",
+          "callee": "std::visit",
+          "lineNumber": 32
+        },
+        {
+          "caller": "value_text",
+          "callee": "str",
+          "lineNumber": 36
+        },
+        {
+          "caller": "properties",
+          "callee": "push_back",
+          "lineNumber": 50
+        },
+        {
+          "caller": "properties",
+          "callee": "read",
+          "lineNumber": 51
+        },
+        {
+          "caller": "get",
+          "callee": "read",
+          "lineNumber": 59
+        },
+        {
+          "caller": "observe",
+          "callee": "connect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "observe",
+          "callee": "std::move",
+          "lineNumber": 67
+        },
+        {
+          "caller": "set",
+          "callee": "set_many",
+          "lineNumber": 75
+        },
+        {
+          "caller": "set_many",
+          "callee": "insert",
+          "lineNumber": 90
+        },
+        {
+          "caller": "set_many",
+          "callee": "std::find_if",
+          "lineNumber": 93
+        },
+        {
+          "caller": "set_many",
+          "callee": "begin",
+          "lineNumber": 93
+        },
+        {
+          "caller": "set_many",
+          "callee": "end",
+          "lineNumber": 93
+        },
+        {
+          "caller": "set_many",
+          "callee": "end",
+          "lineNumber": 95
+        },
+        {
+          "caller": "set_many",
+          "callee": "index",
+          "lineNumber": 101
+        },
+        {
+          "caller": "set_many",
+          "callee": "index",
+          "lineNumber": 101
+        },
+        {
+          "caller": "set_many",
+          "callee": "validate",
+          "lineNumber": 104
+        },
+        {
+          "caller": "set_many",
+          "callee": "push_back",
+          "lineNumber": 108
+        },
+        {
+          "caller": "set_many",
+          "callee": "push_back",
+          "lineNumber": 109
+        },
+        {
+          "caller": "set_many",
+          "callee": "empty",
+          "lineNumber": 112
+        },
+        {
+          "caller": "set_many",
+          "callee": "swap",
+          "lineNumber": 118
+        },
+        {
+          "caller": "set_many",
+          "callee": "emit",
+          "lineNumber": 129
+        },
+        {
+          "caller": "add",
+          "callee": "get",
+          "lineNumber": 135
+        },
+        {
+          "caller": "add",
+          "callee": "std::invalid_argument",
+          "lineNumber": 136
+        },
+        {
+          "caller": "add",
+          "callee": "validate",
+          "lineNumber": 138
+        },
+        {
+          "caller": "add",
+          "callee": "std::invalid_argument",
+          "lineNumber": 139
+        },
+        {
+          "caller": "add",
+          "callee": "static_cast<bool>",
+          "lineNumber": 141
+        },
+        {
+          "caller": "add",
+          "callee": "push_back",
+          "lineNumber": 142
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 142
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 142
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 142
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 142
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 143
+        },
+        {
+          "caller": "add",
+          "callee": "std::move",
+          "lineNumber": 143
+        },
+        {
+          "caller": "read",
+          "callee": "compute",
+          "lineNumber": 147
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 13,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    }
+  ]
+}

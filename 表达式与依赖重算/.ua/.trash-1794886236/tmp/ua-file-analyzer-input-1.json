@@ -1,0 +1,10 @@
+{
+  "projectRoot": "/home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算",
+  "batchFiles": [
+    {"path": "month01/week01/CMakeLists.txt", "language": "txt", "sizeLines": 36, "fileCategory": "docs"},
+    {"path": "month01/week01/CMakePresets.json", "language": "json", "sizeLines": 36, "fileCategory": "config"},
+    {"path": "month01/week01/README.md", "language": "markdown", "sizeLines": 64, "fileCategory": "docs"},
+    {"path": "month01/week01/run.sh", "language": "shell", "sizeLines": 9, "fileCategory": "script"}
+  ],
+  "batchImportData": {"month01/week01/CMakeLists.txt": [], "month01/week01/CMakePresets.json": [], "month01/week01/README.md": [], "month01/week01/run.sh": []}
+}

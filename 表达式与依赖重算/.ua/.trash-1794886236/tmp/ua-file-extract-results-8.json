@@ -1,0 +1,148 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [
+    "month02/week04/CMakeLists.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "month02/week04/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "cmakeMinimumRequired",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "configurePresets",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "buildPresets",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "testPresets",
+          "level": 1,
+          "line": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month02/week04/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 101,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "表达式引擎与依赖图·第二月第 4 周：维护与错误恢复",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "本周训练",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "月末综合验收与衔接",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "56. 如何替换或解除公式依赖？",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "57. 循环或无效引用如何保留原状态？",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "58. 对象删除后如何标识引用失效？",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "59. 如何阻止使用失败旧值，又继续无关分支？",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "60. 修复后如何恢复正常计算？",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "单独打开与运行",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "代码与运行",
+          "level": 2,
+          "line": 58
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "month02/week04/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 18,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "quiet",
+          "startLine": 7,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

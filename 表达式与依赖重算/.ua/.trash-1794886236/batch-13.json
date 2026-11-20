@@ -1,0 +1,200 @@
+{
+  "nodes": [
+    {
+      "id": "file:month02/week04/property.cppm",
+      "type": "file",
+      "name": "property.cppm",
+      "filePath": "month02/week04/property.cppm",
+      "summary": "week04 的属性系统模块接口单元：以 std::variant 定义 Value 值模型，声明 PropertyObject 属性对象基类、ChangeSignal 变化通知管理器及其 RAII 订阅连接 Connection，并定义 PropertyView/Change/ChangeEvent/Update 等数据结构与 SetResult 修改结果枚举。",
+      "tags": ["data-model", "type-definition", "observable", "module-interface", "validation"],
+      "complexity": "complex",
+      "languageNotes": "命名模块声明为 month03.week04.property，虽文件位于 month02/week04，但按仓库约定模块名保留原有月份前缀、与目录编号无关；仅 import std，无任何 #include。通知设计用 shared_ptr 强持有订阅槽位、Connection 仅持 weak_ptr，发布者先销毁时仍可安全退订。"
+    },
+    {
+      "id": "file:month02/week04/rectangle.cpp",
+      "type": "file",
+      "name": "rectangle.cpp",
+      "filePath": "month02/week04/rectangle.cpp",
+      "summary": "Rectangle 构造函数的实现单元：向 PropertyObject 基类注册 length、width、area、segments、visible、name 六个属性，length/width 用 positive_size 校验必须为正的有限值，area 本周以存储型属性演示公式写回。",
+      "tags": ["data-model", "implementation-unit", "validation", "factory"],
+      "complexity": "simple",
+      "languageNotes": "module 实现单元与同名 .cppm 接口单元共同构成一个逻辑模块；positive_size 位于匿名命名空间，仅在本编译单元内作为属性 Validator 使用。"
+    },
+    {
+      "id": "file:month02/week04/rectangle.cppm",
+      "type": "file",
+      "name": "rectangle.cppm",
+      "filePath": "month02/week04/rectangle.cppm",
+      "summary": "Rectangle 类的模块接口单元：声明继承 PropertyObject 的参数化矩形模型，构造函数默认 5.0×3.0；通过 export import month03.week04.property 转发导出属性系统的全部符号。",
+      "tags": ["data-model", "module-interface", "entry-point", "rectangle-case"],
+      "complexity": "simple",
+      "languageNotes": "export import 使包含 rectangle 模块的消费者无需单独导入 property 模块即可使用 PropertyObject 与 ChangeSignal；模块名 month03.week04.rectangle 同样保留了旧月份前缀。"
+    },
+    {
+      "id": "document:month02/week04/tools/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week04/tools/README.md",
+      "summary": "week04 的工具说明文档，分环境准备、构建与运行、IDE 与原生 clangd、格式与测试五节，给出 CMake preset 构建命令、run.sh 用法，并说明本周只有演示与 README 练习、没有自动测试入口。",
+      "tags": ["documentation", "build-system", "toolchain", "clangd"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:month02/week04/property.cppm:PropertyObject",
+      "type": "class",
+      "name": "PropertyObject",
+      "filePath": "month02/week04/property.cppm",
+      "lineRange": [121, 191],
+      "summary": "属性对象基类：内部以 Property 记录保存名称、标签、单位、值及可选的校验与派生计算函数，提供 get/properties 快照读取、set/set_many 单项与批量修改（先全部校验再一次性提交并发送一次 ChangeEvent），并通过内嵌 ChangeSignal 支持订阅通知，通知期间再次修改返回 Reentrant。",
+      "tags": ["data-model", "base-class", "observable", "validation", "batch-update"],
+      "complexity": "complex",
+      "languageNotes": "派生属性的 Reader 捕获 this，因此拷贝与移动均被删除；单项 set() 复用 set_many() 的校验、提交与通知流程，避免两条代码路径。"
+    },
+    {
+      "id": "class:month02/week04/property.cppm:ChangeSignal",
+      "type": "class",
+      "name": "ChangeSignal",
+      "filePath": "month02/week04/property.cppm",
+      "lineRange": [69, 119],
+      "summary": "属性变化通知管理器：connect() 注册回调并返回退订凭证 Connection，emit() 按注册顺序通知所有有效订阅者并返回回调抛出异常的次数，单个回调失败不阻断其他回调。",
+      "tags": ["event-handler", "observer-pattern", "signal", "error-handling"],
+      "complexity": "moderate",
+      "languageNotes": "槽位以 shared_ptr<Slot> 强持有、Connection 仅持 weak_ptr，形成发布者与订阅凭证解耦的 observer 实现；与属性对象共用同一模块，事件来源可直接使用 PropertyObject 指针而不产生循环依赖。"
+    },
+    {
+      "id": "class:month02/week04/property.cppm:Connection",
+      "type": "class",
+      "name": "Connection",
+      "filePath": "month02/week04/property.cppm",
+      "lineRange": [81, 107],
+      "summary": "ChangeSignal::Connection 是一项订阅的 RAII 退订凭证：禁止复制、可移动，移动时转移退订责任，析构或显式 disconnect() 时自动退订，可重复调用且不抛异常。",
+      "tags": ["raii", "lifetime-management", "observer-pattern", "move-semantics"],
+      "complexity": "simple",
+      "languageNotes": "典型 RAII 句柄写法：private 构造函数加 friend class ChangeSignal，只有发布者能创建已关联订阅的连接；weak_ptr<Slot> 保证订阅状态先销毁时 disconnect 仍安全。"
+    },
+    {
+      "id": "class:month02/week04/rectangle.cppm:Rectangle",
+      "type": "class",
+      "name": "Rectangle",
+      "filePath": "month02/week04/rectangle.cppm",
+      "lineRange": [7, 10],
+      "summary": "贯穿本课程的参数化矩形模型：继承 PropertyObject，在构造函数中注册带毫米单位的 length/width、存储型 area、segments、visible 与 name 属性，作为公式绑定与增量重算演示的载体对象。",
+      "tags": ["data-model", "rectangle-case", "inheritance", "parameters"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:PropertyObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:ChangeSignal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:Connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:PropertyObject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:ChangeSignal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "class:month02/week04/property.cppm:Connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week04/rectangle.cppm",
+      "target": "class:month02/week04/rectangle.cppm:Rectangle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week04/rectangle.cppm",
+      "target": "class:month02/week04/rectangle.cppm:Rectangle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:month02/week04/rectangle.cppm:Rectangle",
+      "target": "class:month02/week04/property.cppm:PropertyObject",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:month02/week04/rectangle.cpp",
+      "target": "file:month02/week04/rectangle.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week04/rectangle.cppm",
+      "target": "file:month02/week04/property.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week04/rectangle.cpp",
+      "target": "file:month02/week04/property.cpp",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week04/property.cppm",
+      "target": "file:month02/week04/property.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week04/main.cpp",
+      "target": "file:month02/week04/rectangle.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month02/week04/tools/README.md",
+      "target": "config:month02/week04/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week04/tools/README.md",
+      "target": "file:month02/week04/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

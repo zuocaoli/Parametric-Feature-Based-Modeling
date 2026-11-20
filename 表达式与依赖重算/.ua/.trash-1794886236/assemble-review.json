@@ -1,0 +1,19 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 2,
+  "crossBatchEdgesAdded": 51,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Merge report contained no 'Fixed' section, i.e. zero mechanical fixes were needed; verified independently: all 292 node IDs use valid prefixes (file/function/class/config/document), all types and complexity values are in the canonical sets, 0 duplicate node IDs, 0 duplicate edges, 0 dangling edges before and after review.",
+    "File-level node census (98 file + 22 config + 16 document = 136) exactly matches the 136 scanned project files; all nodes carry non-empty Chinese summaries and tags.",
+    "Dropped edge 1 restored with corrected target: document:month02/week02/tools/README.md -> config:month02/week02/CMakeLists.txt (documents, forward, 0.5); the source batch (batch-11-part-2) had used the wrong 'file:' prefix for a node the project conventionally types as 'config:'.",
+    "Dropped edge 2 restored with corrected target: function:month02/week04/engine.cpp:create_rectangle -> class:month02/week04/rectangle.cppm:Rectangle (calls, forward, 0.8); verified in source that create_rectangle constructs a Rectangle via the constructor declared in rectangle.cppm and that month02/week04/rectangle.cpp contains only Rectangle:: member implementations, so no function-typed Rectangle node exists for week04.",
+    "Cross-batch meta->source recovery: batches 3 (month01/week03), 4 (month01/week04) and 5 (month02/week01) each skipped their week CMakeLists->source 'configures' edges; added 35 such edges (12+16+7) exactly matching each week's on-disk CMakeLists source list, all targets verified as existing nodes.",
+    "Dispatch context inaccuracy: it listed batch 4 among the emitting batches, but batch-4.json contains 0 configures edges; month01/week04 was therefore recovered too. Batches 1, 2, 6, 7, 8 were verified complete against their CMake source lists (3/5/7/16/16) and were not modified.",
+    "Cross-batch README->source 'documents' recovery: added 16 edges backed by actual markdown links in each README (month01/week03: 5 targets evaluator.cpp/.cppm, main.cpp, property.cpp, lexer.cppm; month01/week04: 9 targets formulas.cpp/.cppm, main.cpp, property.cpp/.cppm, rectangle.cpp, change_signal.cpp, storage.cpp/.cppm; month02/week01: 2 targets dependencies.cpp/.cppm). compile_commands.json (month02/week01 README) and rectangle.txt (month01/week04 README) were skipped: build/data artifacts with no graph nodes.",
+    "Imports edge verification: scan-result.json importMap has 136 entries, all with empty arrays (zero #include / cross-file import statements), so the merge script's 'Recovered 0 imports edges' is correct; project cross-file relations are by-convention edges (configures/documents/depends_on/related/similar_to), now complete for all 8 weeks.",
+    "Final graph: 292 nodes, 620 edges (was 567), re-validated: 0 dangling endpoints, 0 duplicate edges, 0 duplicate node IDs; every week CMakeLists now has configures coverage equal to its on-disk source count (3/5/12/16/7/7/16/16)."
+  ]
+}

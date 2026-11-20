@@ -1,0 +1,1229 @@
+{
+  "scriptCompleted": true,
+  "entryPointCandidates": [
+    {
+      "id": "document:README.md",
+      "score": 5,
+      "name": "README.md",
+      "summary": "表达式引擎与依赖图分类的总 README，给出两月八周课程导航表、每周五题（问题 21–60）的任务清单，并说明跨分类学习顺序与最终矩形重算演示的预期输出。"
+    },
+    {
+      "id": "file:month01/week01/main.cpp",
+      "score": 3,
+      "name": "main.cpp",
+      "summary": "week01 的演示入口：从命令行参数（默认 length / 2 + 5）取表达式调用 lex，逐行打印每个 Token 的类别、文本、位置与数字值，并演示错误输出路径。"
+    },
+    {
+      "id": "file:month01/week02/main.cpp",
+      "score": 3,
+      "name": "main.cpp",
+      "summary": "week02 的演示入口：对内置表达式 -(2 + 3) * 4 调用 parse 构建 AST，并用 describe 打印树结构，展示括号、一元负号与乘除优先级的解析结果。"
+    },
+    {
+      "id": "file:month01/week03/main.cpp",
+      "score": 3,
+      "name": "main.cpp",
+      "summary": "week03 的演示入口：构造 Rectangle{100, 1}，对表达式 length / 2 + 5 调用 calculate，并用 lambda 把 rectangle.get 作为 Resolver 传入，最终打印 55，展示词法-解析-求值-属性读取的完整连接。"
+    },
+    {
+      "id": "file:month01/week04/main.cpp",
+      "score": 3,
+      "name": "main.cpp",
+      "summary": "week04 演示入口：依次演示公式绑定与按序计算、修改 length 后重算、重复 compute 不触发通知、非法表达式的错误处理，最后把模型保存到 build/rectangle.txt 再完整恢复并重算验证公式仍然生效。"
+    }
+  ],
+  "fanInRanking": [
+    {
+      "id": "config:month02/week04/CMakeLists.txt",
+      "fanIn": 5,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "file:month01/week03/lexer.cppm",
+      "fanIn": 5,
+      "name": "lexer.cppm"
+    },
+    {
+      "id": "file:month02/week03/lexer.cppm",
+      "fanIn": 5,
+      "name": "lexer.cppm"
+    },
+    {
+      "id": "file:month02/week03/main.cpp",
+      "fanIn": 5,
+      "name": "main.cpp"
+    },
+    {
+      "id": "file:month02/week03/parser.cppm",
+      "fanIn": 5,
+      "name": "parser.cppm"
+    },
+    {
+      "id": "file:month02/week03/property.cppm",
+      "fanIn": 5,
+      "name": "property.cppm"
+    },
+    {
+      "id": "file:month02/week04/property.cppm",
+      "fanIn": 5,
+      "name": "property.cppm"
+    },
+    {
+      "id": "config:month02/week02/CMakeLists.txt",
+      "fanIn": 4,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "config:month02/week03/CMakeLists.txt",
+      "fanIn": 4,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "file:month01/week01/main.cpp",
+      "fanIn": 4,
+      "name": "main.cpp"
+    },
+    {
+      "id": "file:month01/week02/main.cpp",
+      "fanIn": 4,
+      "name": "main.cpp"
+    },
+    {
+      "id": "file:month01/week03/lexer.cpp",
+      "fanIn": 4,
+      "name": "lexer.cpp"
+    },
+    {
+      "id": "file:month01/week03/main.cpp",
+      "fanIn": 4,
+      "name": "main.cpp"
+    },
+    {
+      "id": "file:month01/week03/parser.cpp",
+      "fanIn": 4,
+      "name": "parser.cpp"
+    },
+    {
+      "id": "file:month01/week03/parser.cppm",
+      "fanIn": 4,
+      "name": "parser.cppm"
+    },
+    {
+      "id": "file:month01/week03/property.cppm",
+      "fanIn": 4,
+      "name": "property.cppm"
+    },
+    {
+      "id": "file:month01/week04/main.cpp",
+      "fanIn": 4,
+      "name": "main.cpp"
+    },
+    {
+      "id": "file:month01/week04/property.cppm",
+      "fanIn": 4,
+      "name": "property.cppm"
+    },
+    {
+      "id": "file:month02/week01/dependencies.cpp",
+      "fanIn": 4,
+      "name": "dependencies.cpp"
+    },
+    {
+      "id": "file:month02/week01/dependencies.cppm",
+      "fanIn": 4,
+      "name": "dependencies.cppm"
+    }
+  ],
+  "fanOutRanking": [
+    {
+      "id": "config:month01/week04/CMakeLists.txt",
+      "fanOut": 16,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "config:month02/week03/CMakeLists.txt",
+      "fanOut": 16,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "config:month02/week04/CMakeLists.txt",
+      "fanOut": 16,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "config:month01/week03/CMakeLists.txt",
+      "fanOut": 12,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "document:month01/week04/README.md",
+      "fanOut": 12,
+      "name": "README.md"
+    },
+    {
+      "id": "document:month02/week04/README.md",
+      "fanOut": 10,
+      "name": "README.md"
+    },
+    {
+      "id": "document:month02/week03/README.md",
+      "fanOut": 9,
+      "name": "README.md"
+    },
+    {
+      "id": "document:month01/week02/README.md",
+      "fanOut": 8,
+      "name": "README.md"
+    },
+    {
+      "id": "document:month01/week03/README.md",
+      "fanOut": 8,
+      "name": "README.md"
+    },
+    {
+      "id": "document:README.md",
+      "fanOut": 8,
+      "name": "README.md"
+    },
+    {
+      "id": "config:month02/week01/CMakeLists.txt",
+      "fanOut": 7,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "config:month02/week02/CMakeLists.txt",
+      "fanOut": 7,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "document:month02/week02/README.md",
+      "fanOut": 7,
+      "name": "README.md"
+    },
+    {
+      "id": "document:month01/week01/README.md",
+      "fanOut": 5,
+      "name": "README.md"
+    },
+    {
+      "id": "config:month01/week02/CMakeLists.txt",
+      "fanOut": 5,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "document:month02/week01/README.md",
+      "fanOut": 5,
+      "name": "README.md"
+    },
+    {
+      "id": "file:month02/week03/engine.cppm",
+      "fanOut": 4,
+      "name": "engine.cppm"
+    },
+    {
+      "id": "config:month01/week01/CMakeLists.txt",
+      "fanOut": 3,
+      "name": "CMakeLists.txt"
+    },
+    {
+      "id": "file:month01/week02/parser.cppm",
+      "fanOut": 3,
+      "name": "parser.cppm"
+    },
+    {
+      "id": "file:month01/week03/evaluator.cppm",
+      "fanOut": 3,
+      "name": "evaluator.cppm"
+    }
+  ],
+  "bfsTraversal": {
+    "startNode": "file:month01/week01/main.cpp",
+    "order": [
+      "file:month01/week01/main.cpp",
+      "file:month01/week01/lexer.cppm"
+    ],
+    "depthMap": {
+      "file:month01/week01/main.cpp": 0,
+      "file:month01/week01/lexer.cppm": 1
+    },
+    "byDepth": {
+      "0": [
+        "file:month01/week01/main.cpp"
+      ],
+      "1": [
+        "file:month01/week01/lexer.cppm"
+      ]
+    }
+  },
+  "nonCodeFiles": {
+    "documentation": [
+      {
+        "id": "document:month01/week01/README.md",
+        "name": "README.md",
+        "filePath": "month01/week01/README.md",
+        "summary": "第一月第 1 周『词法分析』的课程讲义：围绕 5 个编号问题（21–25）讲解 Token 拆分、整数与小数边界识别、名字与符号区分、错误定位及验证方法，并给出独立练习、验收标准与构建运行命令。"
+      },
+      {
+        "id": "document:month01/week02/README.md",
+        "name": "README.md",
+        "filePath": "month01/week02/README.md",
+        "summary": "week02《语法分析》课程讲义，围绕问题 26–30 讲解 AST 节点设计、用递归下降表达运算符优先级与左结合、括号与一元符号处理、不完整或多余输入的错误恢复，并布置手工推导表达式树与缺右括号修复的独立练习。"
+      },
+      {
+        "id": "document:month01/week03/README.md",
+        "name": "README.md",
+        "filePath": "month01/week03/README.md",
+        "summary": "第一月第 3 周《求值与属性读取》课程讲义：以五个编号问题（31–35）讲解 AST 递归求值、Resolver 属性读取回调、未知属性与非数值类型错误、除零及非有限值处理，以及 calculate() 串联 parse 与 evaluate 的验证方式，并给出独立练习、验收标准与构建运行命令。"
+      },
+      {
+        "id": "document:month01/week04/README.md",
+        "name": "README.md",
+        "filePath": "month01/week04/README.md",
+        "summary": "第一月第 4 周『绑定与整合』课程讲义：以参数化矩形为主线回答问题 36–40，讲解 FormulaEngine 公式绑定、显式按序计算与写回、解析/求值失败的旧值保护，以及 save_model/load_model 持久化，并给出月末综合验收与构建运行说明。"
+      },
+      {
+        "id": "document:month02/week01/README.md",
+        "name": "README.md",
+        "filePath": "month02/week01/README.md",
+        "summary": "第二月第 1 周「建立依赖关系」的课程讲义，围绕问题 41–45 讲解如何遍历 AST 提取变量、解析为对象 ID＋属性键、去重并维护前置/下游两份邻接表，附独立练习、验收标准与构建运行命令。"
+      },
+      {
+        "id": "document:month02/week02/README.md",
+        "name": "README.md",
+        "filePath": "month02/week02/README.md",
+        "summary": "第二月第 2 周《确定计算顺序》课程讲义：以问题 46–50 讲解创建顺序与依赖顺序的差异、Kahn 拓扑排序的入度与 ready 集合、菱形汇聚节点只计算一次、直接自引用识别，以及用 DFS 着色报告多属性闭环并通过 try_replace_dependencies 的“先验证后提交”保护正式图，附独立练习、验收标准与构建运行说明。"
+      },
+      {
+        "id": "document:month02/week03/README.md",
+        "name": "README.md",
+        "filePath": "month02/week03/README.md",
+        "summary": "第二月第 3 周「增量重算」课程讲义：讲解 RecomputeEngine 如何以 Managed/objects_ 登记对象与变化订阅、以 Binding/bindings_ 保存公式定义，并用问题 51–55 解答下游闭包、脏标记、按依赖序重算、批次合并修改与通知重入防护，附独立练习、验收标准与构建运行说明。"
+      },
+      {
+        "id": "document:month02/week04/README.md",
+        "name": "README.md",
+        "filePath": "month02/week04/README.md",
+        "summary": "第二月第 4 周“维护与错误恢复”课程讲义，回答第 56–60 题：替换/解绑公式依赖、循环与无效引用保留原状态、删除对象后的 MissingReference 标识、Failed/Blocked 状态传播与无关分支继续计算、修复后恢复正常重算，并给出构建命令与两场景演示输出。"
+      },
+      {
+        "id": "document:README.md",
+        "name": "README.md",
+        "filePath": "README.md",
+        "summary": "表达式引擎与依赖图分类的总 README，给出两月八周课程导航表、每周五题（问题 21–60）的任务清单，并说明跨分类学习顺序与最终矩形重算演示的预期输出。"
+      },
+      {
+        "id": "document:month01/week01/tools/README.md",
+        "name": "README.md",
+        "filePath": "month01/week01/tools/README.md",
+        "summary": "week01 的构建与工具说明：介绍 Clang 22/CMake 4.3/Ninja 环境准备、cmake --preset 与 run.sh 的构建运行步骤、clangd 与 VS Code 配置以及 clang-format 格式检查。"
+      },
+      {
+        "id": "document:month01/week02/tools/README.md",
+        "name": "README.md",
+        "filePath": "month01/week02/tools/README.md",
+        "summary": "week02 的构建与工具说明，章节与 week01 相同：环境准备、preset 构建运行、clangd 与 VS Code 配置、clang-format 检查。"
+      },
+      {
+        "id": "document:month01/week03/tools/README.md",
+        "name": "README.md",
+        "filePath": "month01/week03/tools/README.md",
+        "summary": "week03 构建与工具说明，五个小节覆盖环境准备、cmake --preset 构建运行、原生 clangd 配置以及格式检查与测试命令。"
+      },
+      {
+        "id": "document:month01/week04/tools/README.md",
+        "name": "README.md",
+        "filePath": "month01/week04/tools/README.md",
+        "summary": "week04 构建与工具说明，五个小节覆盖环境准备、preset 构建运行、原生 clangd 配置以及格式检查与测试命令。"
+      },
+      {
+        "id": "document:month02/week02/tools/README.md",
+        "name": "README.md",
+        "filePath": "month02/week02/tools/README.md",
+        "summary": "week02 的工具说明文档：分环境准备、CMake preset 构建运行、IDE 与原生 clangd、格式与测试四节，给出本周从零跑起来的具体命令。"
+      },
+      {
+        "id": "document:month02/week03/tools/README.md",
+        "name": "README.md",
+        "filePath": "month02/week03/tools/README.md",
+        "summary": "week03 构建与工具说明：环境依赖（Clang/CMake/Ninja/libstdc++ 模块）、cmake --preset 构建与 ./build/demo 运行、原生 clangd 指向 build/ 的 IDE 配置，以及格式与测试命令。"
+      },
+      {
+        "id": "document:month02/week04/tools/README.md",
+        "name": "README.md",
+        "filePath": "month02/week04/tools/README.md",
+        "summary": "week04 的工具说明文档，分环境准备、构建与运行、IDE 与原生 clangd、格式与测试五节，给出 CMake preset 构建命令、run.sh 用法，并说明本周只有演示与 README 练习、没有自动测试入口。"
+      }
+    ],
+    "infrastructure": [],
+    "data": [],
+    "config": [
+      {
+        "id": "config:month01/week01/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month01/week01/CMakeLists.txt",
+        "summary": "week01 词法分析课程的 CMake 构建脚本：启用 C++23 import std 实验令牌与 CXX_MODULES 文件集，把 lexer.cpp、lexer.cppm、main.cpp 编译为 demo 可执行文件，并强制校验 Clang ≥ 22 与标准库模块可用。"
+      },
+      {
+        "id": "config:month01/week01/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month01/week01/CMakePresets.json",
+        "summary": "定义名为 default 的 CMake 预设（Ninja 生成器 + clang++ + Debug，导出 compile_commands.json），并配套同名 build 与 test 预设，支撑 cmake --preset default 一键配置、构建与测试。"
+      },
+      {
+        "id": "config:month01/week02/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month01/week02/CMakeLists.txt",
+        "summary": "week02 语法分析课程的构建定义：声明 CMake 4.3 与 C++23 import std 实验开关，强制 Clang 22 以上并校验 libstdc++ 标准库模块开发文件可用，把 lexer.cpp、main.cpp、parser.cpp 三个翻译单元连同 lexer.cppm、parser.cppm 两个 CXX_MODULES 模块文件编译为 demo 可执行文件。"
+      },
+      {
+        "id": "config:month01/week02/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month01/week02/CMakePresets.json",
+        "summary": "为 week02 定义 default 配置、构建、测试三个 preset，固定 Ninja 生成器与二进制目录，使 ./run.sh 和 IDE 能用同一条命令完成课程的配置、编译与 CTest 流程。"
+      },
+      {
+        "id": "config:month01/week03/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month01/week03/CMakeLists.txt",
+        "summary": "week03 的独立构建脚本：强制 Clang 22+ 并校验 C++23 import std 可用，将 lexer/parser/evaluator/property/rectangle 的实现文件与 CXX_MODULES 模块文件一起编译为单一 demo 可执行目标，并启用 CTest。"
+      },
+      {
+        "id": "config:month01/week03/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month01/week03/CMakePresets.json",
+        "summary": "定义名为 default 的配置/构建/测试三组 CMake 预设：Ninja 生成器、clang++ 编译、Debug 类型，构建目录固定为本周 build/，测试失败时输出日志。"
+      },
+      {
+        "id": "config:month01/week04/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month01/week04/CMakeLists.txt",
+        "summary": "定义 expression_month01_week04 周课程的 CMake 构建：强制 Clang 22+ 并启用 C++23 import std（含 CMake 4.3 实验性令牌），把 9 个 .cpp 实现文件与 7 个 .cppm 命名模块接口编入单个 demo 可执行目标，同时开启 CTest 与 -Wall/-Wextra/-Wpedantic 告警。"
+      },
+      {
+        "id": "config:month01/week04/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month01/week04/CMakePresets.json",
+        "summary": "为本周提供统一名为 default 的 CMake 预设：Ninja 生成器加 clang++ 的 Debug 配置，配套构建预设与失败时输出详情的测试预设，产物统一落在本周 build/ 目录并导出 compile_commands.json。"
+      },
+      {
+        "id": "config:month02/week01/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month02/week01/CMakeLists.txt",
+        "summary": "month02/week01 的构建定义：显式列出 demo 可执行文件的四个源文件（dependencies/lexer/main/parser.cpp）与三个 CXX_MODULES 接口（dependencies/lexer/parser.cppm），强制 Clang 22+ 并启用 C++23 import std 实验支持。"
+      },
+      {
+        "id": "config:month02/week01/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month02/week01/CMakePresets.json",
+        "summary": "定义本周统一的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建类型，并导出 compile_commands.json 供 clangd 使用，配套同名 build 与 test 预设。"
+      },
+      {
+        "id": "config:month02/week02/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month02/week02/CMakeLists.txt",
+        "summary": "expression_month02_week02 的 CMake 构建配置：强制 Clang 22+ 并启用 C++23 import std，把 dependencies/lexer/parser 的实现文件与 .cppm 具名模块接口一起编译进 demo 可执行文件，同时开启 CTest 和 -Wall/-Wextra/-Wpedantic 警告。"
+      },
+      {
+        "id": "config:month02/week02/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month02/week02/CMakePresets.json",
+        "summary": "定义统一的 default 预设组：Ninja + clang++ 的 configure 预设（Debug、导出 compile_commands.json）以及挂接其上的 build 与 test 预设，test 失败时输出日志；是本周 cmake --preset default 系列命令的来源。"
+      },
+      {
+        "id": "config:month02/week03/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month02/week03/CMakeLists.txt",
+        "summary": "month02/week03「增量重算」的构建配置：强制 Clang 22+ 与 C++23 import std（CMake 4.3 实验令牌），定义 demo 目标的 9 个实现文件与 7 个 CXX_MODULES 模块接口，启用编译警告并包含 CTest。"
+      },
+      {
+        "id": "config:month02/week03/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month02/week03/CMakePresets.json",
+        "summary": "定义本周的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建与 build/ 输出目录，并配套 build 与 test 预设（失败时输出），供 cmake --preset 系列命令和 run.sh 复用。"
+      },
+      {
+        "id": "config:month02/week04/CMakeLists.txt",
+        "name": "CMakeLists.txt",
+        "filePath": "month02/week04/CMakeLists.txt",
+        "summary": "第二月第 4 周的 CMake 构建脚本：为 expression_month02_week04 定义 demo 可执行目标，显式列出 9 个实现源文件与 7 个 CXX_MODULES 模块接口文件，并在配置期强制 Clang 22+ 与 C++23 import std 可用。"
+      },
+      {
+        "id": "config:month02/week04/CMakePresets.json",
+        "name": "CMakePresets.json",
+        "filePath": "month02/week04/CMakePresets.json",
+        "summary": "CMake 预设文件，定义同名 default 的配置、构建与测试三组预设：Ninja 生成器、clang++ 编译器、Debug 构建类型、build/ 输出目录以及失败时打印测试输出。"
+      },
+      {
+        "id": "config:.ua/config.json",
+        "name": "config.json",
+        "filePath": ".ua/config.json",
+        "summary": "understand-anything 知识图谱分析的配置文件，仅声明 outputLanguage 为 zh，指定图谱的摘要等文本内容以中文输出。"
+      },
+      {
+        "id": "config:month01/week04/.clangd",
+        "name": ".clangd",
+        "filePath": "month01/week04/.clangd",
+        "summary": "week04 的 clangd 配置，指向 build/ 目录的编译数据库并开启后台索引，为具名模块代码提供准确的补全与跳转。"
+      },
+      {
+        "id": "config:month02/week01/.clang-format",
+        "name": ".clang-format",
+        "filePath": "month02/week01/.clang-format",
+        "summary": "month02/week01 的 clang-format 配置：基于 LLVM 风格，列宽放宽到 500、缩进 4 空格，适配课程中带讲解注释的长行代码。"
+      },
+      {
+        "id": "config:month02/week01/.clangd",
+        "name": ".clangd",
+        "filePath": "month02/week01/.clangd",
+        "summary": "month02/week01 的 clangd 配置，指向 build/ 目录的编译数据库并开启后台索引，支持具名模块的语义分析。"
+      },
+      {
+        "id": "config:month02/week04/.clang-format",
+        "name": ".clang-format",
+        "filePath": "month02/week04/.clang-format",
+        "summary": "week04 的 clang-format 配置：基于 LLVM 风格，列宽 150、缩进 4 空格，控制本周全部 C++ 源码的排版。"
+      },
+      {
+        "id": "config:month02/week04/.clangd",
+        "name": ".clangd",
+        "filePath": "month02/week04/.clangd",
+        "summary": "week04 的 clangd 配置：指定 CompilationDatabase 位于 build/ 目录并开启后台索引，使 IDE 能解析 C++23 模块单元。"
+      }
+    ]
+  },
+  "clusters": [],
+  "layers": {
+    "count": 9,
+    "list": [
+      {
+        "id": "layer:entry-demo",
+        "name": "演示入口层",
+        "description": "每周的 main.cpp：把该周的 lexer→parser→求值/依赖图/重算模块组装成可运行流水线，以控制台演示呈现当周课程目标与验收场景。"
+      },
+      {
+        "id": "layer:dependency-recompute",
+        "name": "依赖图与增量重算层",
+        "description": "month02 的核心模块 dependencies 与 engine：从公式抽取属性依赖、用拓扑排序确定计算顺序并检测循环依赖，engine 协调脏标记传播实现增量重算与错误恢复。"
+      },
+      {
+        "id": "layer:formula-binding",
+        "name": "公式绑定与持久化层",
+        "description": "month01/week04 引入的 formulas 与 storage 模块：把表达式绑定到属性通道形成公式引擎，并负责参数化矩形模型连同公式的保存与加载。"
+      },
+      {
+        "id": "layer:evaluator",
+        "name": "表达式求值层",
+        "description": "evaluator.cpp/.cppm 遍历 AST 求出表达式数值并统一错误处理，month01/week03 引入后成为公式求值与 month02 增量重算的执行核心。"
+      },
+      {
+        "id": "layer:domain-model",
+        "name": "属性与领域模型层",
+        "description": "property、rectangle 与 change_signal 模块：以事务和观察者机制维护属性通道、变更通知与参数化矩形案例的派生属性，是表达式绑定的领域载体。"
+      },
+      {
+        "id": "layer:parser",
+        "name": "语法分析与 AST 层",
+        "description": "parser.cpp/.cppm 以递归下降法把 Token 流解析为 AST，month01/week02 引入并被后续各周原样复用，供求值器与依赖抽取共同消费。"
+      },
+      {
+        "id": "layer:lexer",
+        "name": "词法分析层",
+        "description": "各周自带的 lexer.cpp/.cppm：把表达式文本切分为数字、标识符与运算符 Token，是整个表达式引擎流水线的最底层入口。"
+      },
+      {
+        "id": "layer:build-tooling",
+        "name": "构建与工具链配置层",
+        "description": "每周自包含的 CMakeLists.txt、CMakePresets.json、run.sh、.clangd 与 .clang-format，加上 .ua 分析工具配置：支撑 Clang 22 + CMake 4.3 import std 的一键构建与 IDE 体验。"
+      },
+      {
+        "id": "layer:documentation",
+        "name": "课程文档层",
+        "description": "根 README 课程导航、每周课程讲义 README 与 tools/README 构建说明：覆盖五问答案、练习与验收标准，并把各周串成 month01→month02 的学习路径。"
+      }
+    ]
+  },
+  "nodeSummaryIndex": {
+    "config:month01/week01/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "week01 词法分析课程的 CMake 构建脚本：启用 C++23 import std 实验令牌与 CXX_MODULES 文件集，把 lexer.cpp、lexer.cppm、main.cpp 编译为 demo 可执行文件，并强制校验 Clang ≥ 22 与标准库模块可用。"
+    },
+    "config:month01/week01/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "定义名为 default 的 CMake 预设（Ninja 生成器 + clang++ + Debug，导出 compile_commands.json），并配套同名 build 与 test 预设，支撑 cmake --preset default 一键配置、构建与测试。"
+    },
+    "document:month01/week01/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第一月第 1 周『词法分析』的课程讲义：围绕 5 个编号问题（21–25）讲解 Token 拆分、整数与小数边界识别、名字与符号区分、错误定位及验证方法，并给出独立练习、验收标准与构建运行命令。"
+    },
+    "file:month01/week01/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "本周一键构建运行脚本：先切换到脚本所在周目录，依次执行 cmake --preset default 配置与构建，最后 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "config:month01/week02/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "week02 语法分析课程的构建定义：声明 CMake 4.3 与 C++23 import std 实验开关，强制 Clang 22 以上并校验 libstdc++ 标准库模块开发文件可用，把 lexer.cpp、main.cpp、parser.cpp 三个翻译单元连同 lexer.cppm、parser.cppm 两个 CXX_MODULES 模块文件编译为 demo 可执行文件。"
+    },
+    "config:month01/week02/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "为 week02 定义 default 配置、构建、测试三个 preset，固定 Ninja 生成器与二进制目录，使 ./run.sh 和 IDE 能用同一条命令完成课程的配置、编译与 CTest 流程。"
+    },
+    "document:month01/week02/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week02《语法分析》课程讲义，围绕问题 26–30 讲解 AST 节点设计、用递归下降表达运算符优先级与左结合、括号与一元符号处理、不完整或多余输入的错误恢复，并布置手工推导表达式树与缺右括号修复的独立练习。"
+    },
+    "file:month01/week02/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "week02 的一键构建运行脚本：切到本周目录后依次执行 cmake --preset default 配置与构建，最后 exec 启动 build/demo 并透传命令行参数，便于练习时反复修改表达式后快速看到结果。"
+    },
+    "config:month01/week03/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "week03 的独立构建脚本：强制 Clang 22+ 并校验 C++23 import std 可用，将 lexer/parser/evaluator/property/rectangle 的实现文件与 CXX_MODULES 模块文件一起编译为单一 demo 可执行目标，并启用 CTest。"
+    },
+    "config:month01/week03/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "定义名为 default 的配置/构建/测试三组 CMake 预设：Ninja 生成器、clang++ 编译、Debug 类型，构建目录固定为本周 build/，测试失败时输出日志。"
+    },
+    "document:month01/week03/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第一月第 3 周《求值与属性读取》课程讲义：以五个编号问题（31–35）讲解 AST 递归求值、Resolver 属性读取回调、未知属性与非数值类型错误、除零及非有限值处理，以及 calculate() 串联 parse 与 evaluate 的验证方式，并给出独立练习、验收标准与构建运行命令。"
+    },
+    "file:month01/week03/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "一键构建运行脚本：解析自身所在目录后切换过去，依次执行 cmake --preset default 配置与构建，最后 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "config:month01/week04/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "定义 expression_month01_week04 周课程的 CMake 构建：强制 Clang 22+ 并启用 C++23 import std（含 CMake 4.3 实验性令牌），把 9 个 .cpp 实现文件与 7 个 .cppm 命名模块接口编入单个 demo 可执行目标，同时开启 CTest 与 -Wall/-Wextra/-Wpedantic 告警。"
+    },
+    "config:month01/week04/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "为本周提供统一名为 default 的 CMake 预设：Ninja 生成器加 clang++ 的 Debug 配置，配套构建预设与失败时输出详情的测试预设，产物统一落在本周 build/ 目录并导出 compile_commands.json。"
+    },
+    "document:month01/week04/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第一月第 4 周『绑定与整合』课程讲义：以参数化矩形为主线回答问题 36–40，讲解 FormulaEngine 公式绑定、显式按序计算与写回、解析/求值失败的旧值保护，以及 save_model/load_model 持久化，并给出月末综合验收与构建运行说明。"
+    },
+    "file:month01/week04/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "本周一键构建运行脚本：以 BASH_SOURCE 定位周目录并切换进去，依次执行 cmake --preset default 配置与构建，最后 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "config:month02/week01/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "month02/week01 的构建定义：显式列出 demo 可执行文件的四个源文件（dependencies/lexer/main/parser.cpp）与三个 CXX_MODULES 接口（dependencies/lexer/parser.cppm），强制 Clang 22+ 并启用 C++23 import std 实验支持。"
+    },
+    "config:month02/week01/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "定义本周统一的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建类型，并导出 compile_commands.json 供 clangd 使用，配套同名 build 与 test 预设。"
+    },
+    "document:month02/week01/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第二月第 1 周「建立依赖关系」的课程讲义，围绕问题 41–45 讲解如何遍历 AST 提取变量、解析为对象 ID＋属性键、去重并维护前置/下游两份邻接表，附独立练习、验收标准与构建运行命令。"
+    },
+    "file:month02/week01/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "一键构建运行脚本：切到本周目录后依次执行 cmake --preset default 配置与构建，成功后 exec 运行 build/demo 并透传命令行参数，任一步失败立即中止。"
+    },
+    "config:month02/week02/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "expression_month02_week02 的 CMake 构建配置：强制 Clang 22+ 并启用 C++23 import std，把 dependencies/lexer/parser 的实现文件与 .cppm 具名模块接口一起编译进 demo 可执行文件，同时开启 CTest 和 -Wall/-Wextra/-Wpedantic 警告。"
+    },
+    "config:month02/week02/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "定义统一的 default 预设组：Ninja + clang++ 的 configure 预设（Debug、导出 compile_commands.json）以及挂接其上的 build 与 test 预设，test 失败时输出日志；是本周 cmake --preset default 系列命令的来源。"
+    },
+    "document:month02/week02/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第二月第 2 周《确定计算顺序》课程讲义：以问题 46–50 讲解创建顺序与依赖顺序的差异、Kahn 拓扑排序的入度与 ready 集合、菱形汇聚节点只计算一次、直接自引用识别，以及用 DFS 着色报告多属性闭环并通过 try_replace_dependencies 的“先验证后提交”保护正式图，附独立练习、验收标准与构建运行说明。"
+    },
+    "file:month02/week02/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "本周一键构建运行脚本：从 BASH_SOURCE 解析并切换到课程目录，依次执行 cmake 的 default configure 与 build 预设，最后 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "config:month02/week03/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "month02/week03「增量重算」的构建配置：强制 Clang 22+ 与 C++23 import std（CMake 4.3 实验令牌），定义 demo 目标的 9 个实现文件与 7 个 CXX_MODULES 模块接口，启用编译警告并包含 CTest。"
+    },
+    "config:month02/week03/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "定义本周的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建与 build/ 输出目录，并配套 build 与 test 预设（失败时输出），供 cmake --preset 系列命令和 run.sh 复用。"
+    },
+    "document:month02/week03/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第二月第 3 周「增量重算」课程讲义：讲解 RecomputeEngine 如何以 Managed/objects_ 登记对象与变化订阅、以 Binding/bindings_ 保存公式定义，并用问题 51–55 解答下游闭包、脏标记、按依赖序重算、批次合并修改与通知重入防护，附独立练习、验收标准与构建运行说明。"
+    },
+    "file:month02/week03/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "一键构建并运行本周课程：定位脚本所在课程目录后依次执行 cmake --preset default 配置与构建，最后以 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "config:month02/week04/CMakeLists.txt": {
+      "name": "CMakeLists.txt",
+      "type": "config",
+      "summary": "第二月第 4 周的 CMake 构建脚本：为 expression_month02_week04 定义 demo 可执行目标，显式列出 9 个实现源文件与 7 个 CXX_MODULES 模块接口文件，并在配置期强制 Clang 22+ 与 C++23 import std 可用。"
+    },
+    "config:month02/week04/CMakePresets.json": {
+      "name": "CMakePresets.json",
+      "type": "config",
+      "summary": "CMake 预设文件，定义同名 default 的配置、构建与测试三组预设：Ninja 生成器、clang++ 编译器、Debug 构建类型、build/ 输出目录以及失败时打印测试输出。"
+    },
+    "document:month02/week04/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "第二月第 4 周“维护与错误恢复”课程讲义，回答第 56–60 题：替换/解绑公式依赖、循环与无效引用保留原状态、删除对象后的 MissingReference 标识、Failed/Blocked 状态传播与无关分支继续计算、修复后恢复正常重算，并给出构建命令与两场景演示输出。"
+    },
+    "file:month02/week04/run.sh": {
+      "name": "run.sh",
+      "type": "file",
+      "summary": "本周一键构建运行脚本：切到周目录后用 quiet 函数静默执行 cmake 配置与构建（仅在失败时输出日志并按原状态码退出），最后 exec 运行 build/demo 并透传全部命令行参数。"
+    },
+    "file:.ua/.understandignore": {
+      "name": ".understandignore",
+      "type": "file",
+      "summary": "understand-anything 插件的分析排除配置模板，按 .gitignore 语法列出各类语言的测试文件排除模式建议，当前全部处于注释状态、未启用任何额外排除。"
+    },
+    "config:.ua/config.json": {
+      "name": "config.json",
+      "type": "config",
+      "summary": "understand-anything 知识图谱分析的配置文件，仅声明 outputLanguage 为 zh，指定图谱的摘要等文本内容以中文输出。"
+    },
+    "document:README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "表达式引擎与依赖图分类的总 README，给出两月八周课程导航表、每周五题（问题 21–60）的任务清单，并说明跨分类学习顺序与最终矩形重算演示的预期输出。"
+    },
+    "file:month01/week01/.clangd": {
+      "name": ".clangd",
+      "type": "file",
+      "summary": "week01 的 clangd 本地配置，指定从 build/ 目录读取 compile_commands.json 并开启基于构建的后台索引，让 clangd 能理解 C++23 命名模块代码。"
+    },
+    "file:month01/week01/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "week01 词法分析器的实现单元：单遍扫描表达式文本，识别整数与小数字面量、属性名、四则运算符和括号，跳过空白并为非法字符与非法数字返回带字节位置的 Error。"
+    },
+    "file:month01/week01/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "week01 词法分析模块的接口单元（module month02.week01.lexer），导出 ErrorStage/Error、TokenKind/Token 以及 stage_name、token_name、lex 的声明，配套中文注释讲解每个 Token 字段的含义。"
+    },
+    "file:month01/week01/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week01 的演示入口：从命令行参数（默认 length / 2 + 5）取表达式调用 lex，逐行打印每个 Token 的类别、文本、位置与数字值，并演示错误输出路径。"
+    },
+    "document:month01/week01/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week01 的构建与工具说明：介绍 Clang 22/CMake 4.3/Ninja 环境准备、cmake --preset 与 run.sh 的构建运行步骤、clangd 与 VS Code 配置以及 clang-format 格式检查。"
+    },
+    "file:month01/week02/.clangd": {
+      "name": ".clangd",
+      "type": "file",
+      "summary": "week02 的 clangd 本地配置，指向 build/ 下的编译数据库并开启后台索引，与 week01 完全相同，服务本周的命名模块解析。"
+    },
+    "file:month01/week02/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "week02 的词法分析实现，与 week01 的 lexer.cpp 逐行相同——课程刻意复制上一周成果，让每周自包含，供本周递归下降解析器消费其 Token 序列。"
+    },
+    "file:month01/week02/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "week02 词法模块接口单元（module month02.week02.lexer），内容与 week01 的接口一致，仅命名空间切换为 month02::week02，向解析器导出 Token/Error 类型与 lex 声明。"
+    },
+    "file:month01/week02/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week02 的演示入口：对内置表达式 -(2 + 3) * 4 调用 parse 构建 AST，并用 describe 打印树结构，展示括号、一元负号与乘除优先级的解析结果。"
+    },
+    "file:month01/week02/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "week02 递归下降解析器的实现单元：按 additive→multiplicative→unary→primary 的层级构造 AST，体现乘除优先于加减与同级左结合，并报告缺操作数、括号不匹配、多余 Token 与嵌套超限。"
+    },
+    "file:month01/week02/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "week02 解析模块接口单元（module month02.week02.parser）：export import 词法模块并导出 NodeKind/Node/Tree 与 parse、describe，注释详细解释为什么 Token 序列不足以表达计算结构。"
+    },
+    "document:month01/week02/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week02 的构建与工具说明，章节与 week01 相同：环境准备、preset 构建运行、clangd 与 VS Code 配置、clang-format 检查。"
+    },
+    "file:month01/week03/.clangd": {
+      "name": ".clangd",
+      "type": "file",
+      "summary": "week03 的 clangd 本地配置，与 week01/week02 相同，指向 build/ 编译数据库并开启后台索引。"
+    },
+    "file:month01/week03/change_signal.cpp": {
+      "name": "change_signal.cpp",
+      "type": "file",
+      "summary": "实现 ChangeSignal 变更信号：基于 weak_ptr Slot 的 RAII Connection 支持断开与移动，connect 校验空回调并清理失效槽位，emit 在遍历副本时过滤已断开的槽并统计通知错误，避免回调中重入修改容器。"
+    },
+    "file:month01/week03/evaluator.cpp": {
+      "name": "evaluator.cpp",
+      "type": "file",
+      "summary": "week03 求值器实现：递归遍历 AST 求出 double 结果，变量节点通过 Resolver 回调查询属性值并拒绝整数、布尔、字符串等非数值结果，报告除零与非有限结果，calculate 把解析与求值串成完整管线。"
+    },
+    "file:month01/week03/evaluator.cppm": {
+      "name": "evaluator.cppm",
+      "type": "file",
+      "summary": "week03 求值模块接口单元（module month02.week03.evaluator）：export import 解析与属性模块，导出 Resolver 回调类型及 evaluate、calculate 两个入口声明。"
+    },
+    "file:month01/week03/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "week03 的词法分析实现，内容与 week01/week02 一致的课程式复制，为本周的解析-求值管线继续提供 Token 流。"
+    },
+    "file:month01/week03/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "week03 词法模块接口单元（module month02.week03.lexer），与前两周接口相同，仅命名空间换成 month02::week03。"
+    },
+    "file:month01/week03/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week03 的演示入口：构造 Rectangle{100, 1}，对表达式 length / 2 + 5 调用 calculate，并用 lambda 把 rectangle.get 作为 Resolver 传入，最终打印 55，展示词法-解析-求值-属性读取的完整连接。"
+    },
+    "file:month01/week03/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "week03 的递归下降解析器实现，结构与 week02 相同的复制版本，继续产出供求值器消费的 AST。"
+    },
+    "file:month01/week03/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "week03 解析模块接口单元（module month02.week03.parser），与 week02 接口一致并 export import 本周词法模块，命名空间为 month02::week03。"
+    },
+    "file:month01/week03/property.cpp": {
+      "name": "property.cpp",
+      "type": "file",
+      "summary": "week03 属性对象实现：result_name/type_name/value_text 提供调试文本，PropertyObject 以名称索引属性、经 compute 回调统一读取，set_many 在校验全部通过后一次性提交并经 ChangeSignal 发出合并通知，失败则整体回滚保留原值。"
+    },
+    "file:month01/week03/property.cppm": {
+      "name": "property.cppm",
+      "type": "file",
+      "summary": "week03 属性系统的模块接口单元，定义 Value 多类型变体、SetResult 结果枚举、PropertyView 快照、Change/ChangeEvent/Update 通知结构，以及 ChangeSignal 信号类与 PropertyObject 属性对象类的完整声明。"
+    },
+    "file:month01/week03/rectangle.cpp": {
+      "name": "rectangle.cpp",
+      "type": "file",
+      "summary": "week03 Rectangle 构造函数的实现单元，注册 length/width/area/segments/visible/name 六个属性；area 为派生属性，读取时按 length×width 即时计算，不维护缓存。"
+    },
+    "file:month01/week03/rectangle.cppm": {
+      "name": "rectangle.cppm",
+      "type": "file",
+      "summary": "week03 参数化矩形类的模块接口，声明继承 PropertyObject 的 Rectangle 类，并通过 export import 复用属性模块的公开类型。"
+    },
+    "document:month01/week03/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week03 构建与工具说明，五个小节覆盖环境准备、cmake --preset 构建运行、原生 clangd 配置以及格式检查与测试命令。"
+    },
+    "config:month01/week04/.clangd": {
+      "name": ".clangd",
+      "type": "config",
+      "summary": "week04 的 clangd 配置，指向 build/ 目录的编译数据库并开启后台索引，为具名模块代码提供准确的补全与跳转。"
+    },
+    "file:month01/week04/change_signal.cpp": {
+      "name": "change_signal.cpp",
+      "type": "file",
+      "summary": "ChangeSignal 及其 Connection 的实现单元：连接句柄支持移动语义与析构自动断连，connect 清理失效槽位后注册回调，emit 以快照迭代派发事件并吞掉、统计单个观察者抛出的异常。"
+    },
+    "file:month01/week04/evaluator.cpp": {
+      "name": "evaluator.cpp",
+      "type": "file",
+      "summary": "表达式求值实现单元：evaluate 递归遍历 AST，用注入的 Resolver 读取变量并对每步算术结果做有限性检查，除零、变量缺失与非有限值都返回带阶段与位置的 Error；calculate 先 parse 再求值。"
+    },
+    "file:month01/week04/evaluator.cppm": {
+      "name": "evaluator.cppm",
+      "type": "file",
+      "summary": "求值模块接口单元，定义 Resolver 变量查询回调类型并声明 evaluate/calculate，通过 export import 复用 parser 与 property 模块的 Node 与 Value 类型。"
+    },
+    "file:month01/week04/formulas.cpp": {
+      "name": "formulas.cpp",
+      "type": "file",
+      "summary": "FormulaEngine 的实现单元：bind 先校验目标属性存在且可写再 parse 表达式存入绑定表，compute 以当前属性值为环境求值并通过 PropertyObject::set 写回，由属性系统校验并发出变更通知。"
+    },
+    "file:month01/week04/formulas.cppm": {
+      "name": "formulas.cppm",
+      "type": "file",
+      "summary": "公式引擎模块接口，声明 FormulaEngine 类：bind/unbind 管理属性与表达式的绑定，formula/formulas 查询绑定，compute 触发计算并写回；私有 Binding 同时保存表达式原文与语法树。"
+    },
+    "file:month01/week04/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "词法分析实现单元：lex 逐字符扫描出数字（含小数与前导点）、标识符、运算符与括号 Token，用 std::from_chars 转换数值并校验有限性，非法字符返回带字节位置的错误；另附 stage_name/token_name 调试名称。"
+    },
+    "file:month01/week04/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "词法模块接口单元，定义 ErrorStage/Error 与 TokenKind/Token 等核心类型并声明 lex；week04 在 week03 副本基础上把 Binding 与 Storage 纳入错误阶段。"
+    },
+    "file:month01/week04/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week04 演示入口：依次演示公式绑定与按序计算、修改 length 后重算、重复 compute 不触发通知、非法表达式的错误处理，最后把模型保存到 build/rectangle.txt 再完整恢复并重算验证公式仍然生效。"
+    },
+    "file:month01/week04/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "递归下降解析器实现单元：Parser 类按 加减→乘除→一元→初级 四层优先级把 Token 流解析成 AST，make/make_binary 统一建节点并维护子树高度，parse 把 lex 与 Parser 组装成对外入口，describe 输出表达式的可读结构。"
+    },
+    "file:month01/week04/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "语法模块接口单元，定义 NodeKind/Node/Tree（AST 节点类型、节点结构与树的所有权别名）并声明 parse 与 describe；export import lexer 复用 Token 类型。"
+    },
+    "file:month01/week04/property.cpp": {
+      "name": "property.cpp",
+      "type": "file",
+      "summary": "PropertyObject 实现单元：set_many 以先校验后提交的事务方式批量更新属性并只发一次 ChangeEvent，add 注册带校验器与派生读取函数的属性，read 对派生属性即时求值；另提供 result_name/type_name/value_text 文本辅助。"
+    },
+    "file:month01/week04/property.cppm": {
+      "name": "property.cppm",
+      "type": "file",
+      "summary": "week04 属性系统模块接口（与 week03 副本仅模块名不同），声明 Value/SetResult/PropertyView/Change/ChangeEvent/Update 与 ChangeSignal、PropertyObject 两个核心类。"
+    },
+    "file:month01/week04/rectangle.cpp": {
+      "name": "rectangle.cpp",
+      "type": "file",
+      "summary": "week04 Rectangle 构造函数实现单元，注册 length/width/segments 等校验属性与 area 派生属性；area 无缓存，读取时由 lambda 实时计算 length×width。"
+    },
+    "file:month01/week04/rectangle.cppm": {
+      "name": "rectangle.cppm",
+      "type": "file",
+      "summary": "week04 矩形类模块接口，声明继承 PropertyObject 的 Rectangle，export import property 复用属性系统类型。"
+    },
+    "file:month01/week04/storage.cpp": {
+      "name": "storage.cpp",
+      "type": "file",
+      "summary": "模型持久化实现单元：save_model 以固定文本格式写出属性名/标签/单位/类型/值与公式绑定表，load_model 反序列化重建 RectangleModel、用 set_many 批量恢复属性并重新 bind 公式，全程 classic locale 保证小数点稳定。"
+    },
+    "file:month01/week04/storage.cppm": {
+      "name": "storage.cppm",
+      "type": "file",
+      "summary": "持久化模块接口单元，定义 RectangleModel 聚合（Rectangle + FormulaEngine）并声明 save_model/load_model。"
+    },
+    "document:month01/week04/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week04 构建与工具说明，五个小节覆盖环境准备、preset 构建运行、原生 clangd 配置以及格式检查与测试命令。"
+    },
+    "config:month02/week01/.clang-format": {
+      "name": ".clang-format",
+      "type": "config",
+      "summary": "month02/week01 的 clang-format 配置：基于 LLVM 风格，列宽放宽到 500、缩进 4 空格，适配课程中带讲解注释的长行代码。"
+    },
+    "config:month02/week01/.clangd": {
+      "name": ".clangd",
+      "type": "config",
+      "summary": "month02/week01 的 clangd 配置，指向 build/ 目录的编译数据库并开启后台索引，支持具名模块的语义分析。"
+    },
+    "file:month02/week01/dependencies.cpp": {
+      "name": "dependencies.cpp",
+      "type": "file",
+      "summary": "依赖图模块实现单元：从 AST 收集变量名并经别名表解析为 PropertyKey，DependencyGraph::replace_dependencies 同步维护正向 dependencies 与反向 children 两个索引，remove_formula 只解除出边而保留他人对该属性的引用。"
+    },
+    "file:month02/week01/dependencies.cppm": {
+      "name": "dependencies.cppm",
+      "type": "file",
+      "summary": "week01 依赖模块的接口单元：定义 PropertyKey 属性标识、KeySet/VariableMap 类型别名与 DependencyGraph 类，声明 key_text、collect_variables、resolve_dependencies 等依赖提取接口，并通过 export import 引入 parser 模块。"
+    },
+    "file:month02/week01/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "词法分析器的实现单元：把表达式文本逐字符扫描成 Token 流，识别数字（std::from_chars 转换并检查有限性）、标识符与运算符括号，失败时返回带阶段和字节位置的 Error。"
+    },
+    "file:month02/week01/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "lexer 模块的接口单元：导出 ErrorStage/Error、TokenKind/Token 以及 lex、stage_name、token_name 声明，是表达式处理流水线的入口契约。"
+    },
+    "file:month02/week01/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week01 演示入口：解析表达式 (length + length) / 2 + source_width，打印 AST 中的变量，再经别名表把依赖写入 DependencyGraph，输出 dependencies/dependents 双向查询结果。"
+    },
+    "file:month02/week01/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "递归下降解析器的实现单元：Parser 类按 additive/multiplicative/unary/primary 优先级层级构建 AST，带嵌套深度上限与节点高度维护，对外提供 parse 与 describe。"
+    },
+    "file:month02/week01/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "parser 模块的接口单元：导出 NodeKind/Node/Tree 语法树类型与 parse、describe 声明，export import lexer 复用 Token 与 Error 定义。"
+    },
+    "file:month02/week02/.clang-format": {
+      "name": ".clang-format",
+      "type": "file",
+      "summary": "week02 的 clang-format 配置：基于 LLVM 风格，列宽上限 500、缩进 4 空格，用于本周源码的格式化检查。"
+    },
+    "file:month02/week02/.clangd": {
+      "name": ".clangd",
+      "type": "file",
+      "summary": "week02 的 clangd 配置：把编译数据库指向 build 目录的 compile_commands.json，并开启后台索引，支撑 C++23 具名模块的代码智能。"
+    },
+    "file:month02/week02/dependencies.cpp": {
+      "name": "dependencies.cpp",
+      "type": "file",
+      "summary": "week02 依赖图的实现单元：在 week01 的结构维护之上新增 Kahn 拓扑排序 topological_order、环路径定位 find_cycle，以及带无环校验的事务式提交 try_replace_dependencies。"
+    },
+    "file:month02/week02/dependencies.cppm": {
+      "name": "dependencies.cppm",
+      "type": "file",
+      "summary": "week02 依赖模块接口：沿用 PropertyKey/KeySet/VariableMap，新增含环路径的 GraphError，并给 DependencyGraph 扩展拓扑排序与 try_replace_dependencies 无环提交接口。"
+    },
+    "file:month02/week02/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "词法分析实现，与 week01 逐字相同（仅模块名与命名空间不同）：课程刻意复制源码保持每周自包含，为依赖图提供 Token 流。"
+    },
+    "file:month02/week02/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "week02 lexer 模块接口单元，与 week01 版本仅模块名不同：导出 Error/Token 类型与 lex、stage_name、token_name 声明。"
+    },
+    "file:month02/week02/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week02 演示入口：先按书写顺序调用 calculations 中的 lambda 展示\"算错序导致结果过时\"的问题，再建立 area/width 依赖图做拓扑排序并按序求值，最后故意构造循环依赖验证 try_replace_dependencies 的拦截并打印环路径。"
+    },
+    "file:month02/week02/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "递归下降解析器实现，与 week01 相同（仅模块名与命名空间不同）：课程刻意复制源码保持每周自包含，为本周依赖图提供 AST 输入。"
+    },
+    "file:month02/week02/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "week02 parser 模块接口，与 week01 仅模块名不同：导出 NodeKind/Node/Tree 与 parse、describe，export import lexer。"
+    },
+    "document:month02/week02/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week02 的工具说明文档：分环境准备、CMake preset 构建运行、IDE 与原生 clangd、格式与测试四节，给出本周从零跑起来的具体命令。"
+    },
+    "file:month02/week03/.clang-format": {
+      "name": ".clang-format",
+      "type": "file",
+      "summary": "week03 的 clang-format 配置：基于 LLVM 风格，列宽上限 500、缩进 4 空格，用于本周源码的格式化检查。"
+    },
+    "file:month02/week03/.clangd": {
+      "name": ".clangd",
+      "type": "file",
+      "summary": "week03 的 clangd 配置：把编译数据库指向 build 目录的 compile_commands.json，并开启后台索引，支撑 C++23 具名模块的代码智能。"
+    },
+    "file:month02/week03/change_signal.cpp": {
+      "name": "change_signal.cpp",
+      "type": "file",
+      "summary": "ChangeSignal 信号类的实现单元（隶属 property 模块）：connect 注册回调并返回可退订的 Connection 弱引用凭证，emit 以快照方式派发 ChangeEvent，单个观察者异常不中断广播，整体与 month01/week04 版本几乎相同。"
+    },
+    "file:month02/week03/dependencies.cpp": {
+      "name": "dependencies.cpp",
+      "type": "file",
+      "summary": "week03 依赖图的实现单元：在 week02 的拓扑排序与环检测之上新增 affected() 正向闭包查询，为增量重算给出\"改动源会波及哪些下游属性\"的集合。"
+    },
+    "file:month02/week03/dependencies.cppm": {
+      "name": "dependencies.cppm",
+      "type": "file",
+      "summary": "week03 依赖模块接口：DependencyGraph 在拓扑排序与无环提交之上新增 affected() 下游影响集查询，注释明确\"定范围、定顺序、防循环\"三个职责，为增量重算引擎提供支撑。"
+    },
+    "file:month02/week03/engine.cpp": {
+      "name": "engine.cpp",
+      "type": "file",
+      "summary": "增量重算引擎 RecomputeEngine 的实现单元：矩形创建、set/set_many 属性修改、bind 公式绑定、begin/end_batch 批次与 flush_if_ready 统一重算，配合 writing_/recomputing_ 重入保护和 last_report 执行报告。"
+    },
+    "file:month02/week03/engine.cppm": {
+      "name": "engine.cppm",
+      "type": "file",
+      "summary": "engine 模块接口：导出 RecomputeEngine 类与 RecomputeStep/EngineError，export import dependencies/evaluator/rectangle 三个模块，聚合成本周增量重算的公共入口；注释详述 bindings_、batch_depth_ 与重入标志的语义。"
+    },
+    "file:month02/week03/evaluator.cpp": {
+      "name": "evaluator.cpp",
+      "type": "file",
+      "summary": "表达式求值的实现单元：evaluate 递归遍历 AST 完成四则与一元运算，除零与结果非有限数返回 Error，变量值经 Resolver 回调从属性系统查询。"
+    },
+    "file:month02/week03/evaluator.cppm": {
+      "name": "evaluator.cppm",
+      "type": "file",
+      "summary": "evaluator 模块接口：导出 Resolver 属性查询回调类型与 evaluate/calculate 声明，export import parser 与 property 复用 AST 与属性值类型。"
+    },
+    "file:month02/week03/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "词法模块 month03.week03.lexer 的实现单元：lex() 单遍扫描表达式文本，识别数字、标识符、四则运算符和括号并转成 Token 序列，数字用 std::from_chars 转换并检查有限性，失败时经 std::expected 返回带字节位置的错误。"
+    },
+    "file:month02/week03/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "词法模块的接口单元：定义贯穿全课程的 ErrorStage/Error 错误模型与 TokenKind/Token 词法单元类型，并导出 lex() 声明，是表达式前端所有错误信息的公共定义处。"
+    },
+    "file:month02/week03/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week03 演示入口：只 import engine 门面模块，创建矩形后在批次内绑定 area/width 公式，依次演示修改长宽后的增量重算、批内失败保持原值、以及无效输入等错误路径。"
+    },
+    "file:month02/week03/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "递归下降解析器的实现单元：内部 Parser 类按 加减→乘除→一元→初级 四层优先级链把 Token 流构建成 AST，带最大嵌套深度防护，对外提供 parse()（词法+语法一步完成）与 describe() 调试输出。"
+    },
+    "file:month02/week03/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "语法模块接口单元：导出 NodeKind/Node/Tree 等 AST 类型与 parse()/describe() 声明，并 export import lexer，让使用者一次导入即可获得完整表达式前端。"
+    },
+    "file:month02/week03/property.cpp": {
+      "name": "property.cpp",
+      "type": "file",
+      "summary": "PropertyObject 的实现单元：set_many() 按「先全量校验、再统一提交、最后单次通知」的事务流程批量修改属性并拒绝通知期间的重入修改，add() 负责注册带校验函数与派生计算函数的属性。"
+    },
+    "file:month02/week03/property.cppm": {
+      "name": "property.cppm",
+      "type": "file",
+      "summary": "属性系统公共接口：Value variant、SetResult 结果码、PropertyView 快照、Change/ChangeEvent/Update 事件与输入结构，以及 ChangeSignal 通知管理器和 PropertyObject 属性对象两个核心类声明；通知与属性对象同模块以避免事件来源指针的循环依赖。"
+    },
+    "file:month02/week03/rectangle.cpp": {
+      "name": "rectangle.cpp",
+      "type": "file",
+      "summary": "矩形领域模型的实现单元：构造函数通过 PropertyObject::add() 注册 length/width 输入属性（正值校验）与 area、对角线等只读派生属性，是课程贯穿案例的模型装配处。"
+    },
+    "file:month02/week03/rectangle.cppm": {
+      "name": "rectangle.cppm",
+      "type": "file",
+      "summary": "Rectangle 类声明：继承 PropertyObject 并 export import property，仅暴露带默认长宽的构造函数，定义了各周课程反复使用的参数化矩形案例。"
+    },
+    "document:month02/week03/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week03 构建与工具说明：环境依赖（Clang/CMake/Ninja/libstdc++ 模块）、cmake --preset 构建与 ./build/demo 运行、原生 clangd 指向 build/ 的 IDE 配置，以及格式与测试命令。"
+    },
+    "config:month02/week04/.clang-format": {
+      "name": ".clang-format",
+      "type": "config",
+      "summary": "week04 的 clang-format 配置：基于 LLVM 风格，列宽 150、缩进 4 空格，控制本周全部 C++ 源码的排版。"
+    },
+    "config:month02/week04/.clangd": {
+      "name": ".clangd",
+      "type": "config",
+      "summary": "week04 的 clangd 配置：指定 CompilationDatabase 位于 build/ 目录并开启后台索引，使 IDE 能解析 C++23 模块单元。"
+    },
+    "file:month02/week04/change_signal.cpp": {
+      "name": "change_signal.cpp",
+      "type": "file",
+      "summary": "ChangeSignal 的实现单元（声明位于本周 property.cppm）：connect() 注册订阅并顺手清理已失效槽位，emit() 按注册顺序同步通知并统计回调异常次数，Connection 借 weak_ptr 在发布者先销毁时也能安全退订。"
+    },
+    "file:month02/week04/dependencies.cpp": {
+      "name": "dependencies.cpp",
+      "type": "file",
+      "summary": "依赖图算法实现单元：replace_dependencies 同步维护 parents_/children_ 两张邻接表，affected 求下游闭包，topological_order 用 Kahn 算法给出重算顺序，find_cycle 用 DFS 提取成环路径，try_replace_dependencies 在图副本上修改并验证无环后才提交。"
+    },
+    "file:month02/week04/dependencies.cppm": {
+      "name": "dependencies.cppm",
+      "type": "file",
+      "summary": "依赖图模块接口：PropertyKey 以对象 ID+属性名唯一定位图节点，DependencyGraph 用 parents_/children_ 两张表回答「计算需要谁」与「改动影响谁」，并提供拓扑排序与 try_replace_dependencies 无环校验接口。"
+    },
+    "file:month02/week04/engine.cpp": {
+      "name": "engine.cpp",
+      "type": "file",
+      "summary": "RecomputeEngine 的实现单元：bind() 解析公式并经无环校验后登记绑定，collect_changes/mark_downstream 把属性变化转成 dirty 集合，flush_if_ready() 按拓扑序求值并写回，set_many 与 begin_batch/end_batch 合并修改减少重复计算，erase 处理删除对象后的引用失效。"
+    },
+    "file:month02/week04/engine.cppm": {
+      "name": "engine.cppm",
+      "type": "file",
+      "summary": "增量重算协调器接口：ComputeState 五态、PropertyStatus 与 RecomputeStep 记录重算过程，RecomputeEngine 类声明绑定/批次/订阅/删除等全部公开操作，并 export import dependencies、evaluator、rectangle 形成对外唯一门面（main.cpp 只 import 它即可）。"
+    },
+    "file:month02/week04/evaluator.cpp": {
+      "name": "evaluator.cpp",
+      "type": "file",
+      "summary": "求值器实现单元：evaluate() 递归遍历 AST，变量经 Resolver 回调查取值，每步运算前后检查结果有限性（除零、溢出返回带位置与阶段的 Error），calculate() 提供「解析+求值」一步入口。"
+    },
+    "file:month02/week04/evaluator.cppm": {
+      "name": "evaluator.cppm",
+      "type": "file",
+      "summary": "求值模块公开接口：定义 Resolver 变量查询回调类型，导出 evaluate()（对已解析 AST 求值）与 calculate()（先解析再求值）两个入口，export import parser 与 property。"
+    },
+    "file:month02/week04/lexer.cpp": {
+      "name": "lexer.cpp",
+      "type": "file",
+      "summary": "week04 的词法实现单元，与 month02/week03/lexer.cpp 逐字相同（仅模块名 month03.week04.lexer 不同），体现课程每周自包含、有意复制基础组件的约定。"
+    },
+    "file:month02/week04/lexer.cppm": {
+      "name": "lexer.cppm",
+      "type": "file",
+      "summary": "week04 的词法接口单元：与 week03 版仅模块名不同，同样导出 ErrorStage/Error、TokenKind/Token 与 lex() 声明。"
+    },
+    "file:month02/week04/main.cpp": {
+      "name": "main.cpp",
+      "type": "file",
+      "summary": "week04 演示入口：rectangle_example 演示批量绑定公式、修改长宽后的按序重算与二次绑定替换；failure_example 依次制造绑定失败、解绑恢复、批次中失败与删除对象后的 MissingReference，观察 ComputeState 与 last_report。"
+    },
+    "file:month02/week04/parser.cpp": {
+      "name": "parser.cpp",
+      "type": "file",
+      "summary": "week04 的递归下降解析器实现，与 month02/week03/parser.cpp 逐字相同（仅模块名 month03.week04.parser 不同），继续提供 parse() 与 describe() 入口。"
+    },
+    "file:month02/week04/parser.cppm": {
+      "name": "parser.cppm",
+      "type": "file",
+      "summary": "week04 的语法接口单元：与 week03 版仅模块名不同，导出 NodeKind/Node/Tree AST 类型与 parse()/describe() 声明并 export import lexer。"
+    },
+    "file:month02/week04/property.cpp": {
+      "name": "property.cpp",
+      "type": "file",
+      "summary": "week04 版 PropertyObject 实现单元：保留 set_many() 的「全量校验→统一提交→单次通知」事务流程，并增加通知回调异常累计（notification_errors），让上层引擎能观察订阅回调的失败次数。"
+    },
+    "file:month02/week04/property.cppm": {
+      "name": "property.cppm",
+      "type": "file",
+      "summary": "week04 的属性系统模块接口单元：以 std::variant 定义 Value 值模型，声明 PropertyObject 属性对象基类、ChangeSignal 变化通知管理器及其 RAII 订阅连接 Connection，并定义 PropertyView/Change/ChangeEvent/Update 等数据结构与 SetResult 修改结果枚举。"
+    },
+    "file:month02/week04/rectangle.cpp": {
+      "name": "rectangle.cpp",
+      "type": "file",
+      "summary": "Rectangle 构造函数的实现单元：向 PropertyObject 基类注册 length、width、area、segments、visible、name 六个属性，length/width 用 positive_size 校验必须为正的有限值，area 本周以存储型属性演示公式写回。"
+    },
+    "file:month02/week04/rectangle.cppm": {
+      "name": "rectangle.cppm",
+      "type": "file",
+      "summary": "Rectangle 类的模块接口单元：声明继承 PropertyObject 的参数化矩形模型，构造函数默认 5.0×3.0；通过 export import month03.week04.property 转发导出属性系统的全部符号。"
+    },
+    "document:month02/week04/tools/README.md": {
+      "name": "README.md",
+      "type": "document",
+      "summary": "week04 的工具说明文档，分环境准备、构建与运行、IDE 与原生 clangd、格式与测试五节，给出 CMake preset 构建命令、run.sh 用法，并说明本周只有演示与 README 练习、没有自动测试入口。"
+    }
+  },
+  "totalNodes": 136,
+  "totalEdges": 307
+}

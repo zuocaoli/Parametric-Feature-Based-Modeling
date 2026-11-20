@@ -1,0 +1,135 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [
+    "month01/week03/CMakeLists.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "month01/week03/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "cmakeMinimumRequired",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "configurePresets",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "buildPresets",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "testPresets",
+          "level": 1,
+          "line": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month01/week03/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 82,
+      "nonEmptyLines": 50,
+      "sections": [
+        {
+          "heading": "表达式引擎与依赖图·第一月第 3 周：求值与属性读取",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "本周训练",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "31. 如何递归执行 AST？",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "32. 如何读取属性，又不依赖矩形类？",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "33. 未知属性和不同类型如何处理？",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "34. 如何处理除零及非有限值？",
+          "level": 2,
+          "line": 43
+        },
+        {
+          "heading": "35. 如何串联并验证？",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "单独打开与运行",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "代码与运行",
+          "level": 2,
+          "line": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "month01/week03/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

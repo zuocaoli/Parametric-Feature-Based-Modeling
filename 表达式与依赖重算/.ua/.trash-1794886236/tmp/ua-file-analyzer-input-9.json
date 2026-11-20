@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算",
+  "batchFiles": [
+    {"path": ".ua/.understandignore", "language": "unknown", "sizeLines": 59, "fileCategory": "code"},
+    {"path": ".ua/config.json", "language": "json", "sizeLines": 3, "fileCategory": "config"},
+    {"path": "README.md", "language": "markdown", "sizeLines": 74, "fileCategory": "docs"},
+    {"path": "month01/week01/.clangd", "language": "unknown", "sizeLines": 4, "fileCategory": "code"},
+    {"path": "month01/week01/lexer.cpp", "language": "cpp", "sizeLines": 210, "fileCategory": "code"},
+    {"path": "month01/week01/lexer.cppm", "language": "cppm", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "month01/week01/main.cpp", "language": "cpp", "sizeLines": 38, "fileCategory": "code"},
+    {"path": "month01/week01/tools/README.md", "language": "markdown", "sizeLines": 44, "fileCategory": "docs"},
+    {"path": "month01/week02/.clangd", "language": "unknown", "sizeLines": 4, "fileCategory": "code"},
+    {"path": "month01/week02/lexer.cpp", "language": "cpp", "sizeLines": 210, "fileCategory": "code"},
+    {"path": "month01/week02/lexer.cppm", "language": "cppm", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "month01/week02/main.cpp", "language": "cpp", "sizeLines": 24, "fileCategory": "code"},
+    {"path": "month01/week02/parser.cpp", "language": "cpp", "sizeLines": 263, "fileCategory": "code"},
+    {"path": "month01/week02/parser.cppm", "language": "cppm", "sizeLines": 40, "fileCategory": "code"},
+    {"path": "month01/week02/tools/README.md", "language": "markdown", "sizeLines": 44, "fileCategory": "docs"},
+    {"path": "month01/week03/.clangd", "language": "unknown", "sizeLines": 4, "fileCategory": "code"},
+    {"path": "month01/week03/change_signal.cpp", "language": "cpp", "sizeLines": 56, "fileCategory": "code"},
+    {"path": "month01/week03/evaluator.cpp", "language": "cpp", "sizeLines": 154, "fileCategory": "code"},
+    {"path": "month01/week03/evaluator.cppm", "language": "cppm", "sizeLines": 22, "fileCategory": "code"},
+    {"path": "month01/week03/lexer.cpp", "language": "cpp", "sizeLines": 210, "fileCategory": "code"},
+    {"path": "month01/week03/lexer.cppm", "language": "cppm", "sizeLines": 51, "fileCategory": "code"},
+    {"path": "month01/week03/main.cpp", "language": "cpp", "sizeLines": 29, "fileCategory": "code"},
+    {"path": "month01/week03/parser.cpp", "language": "cpp", "sizeLines": 275, "fileCategory": "code"},
+    {"path": "month01/week03/parser.cppm", "language": "cppm", "sizeLines": 40, "fileCategory": "code"},
+    {"path": "month01/week03/property.cpp", "language": "cpp", "sizeLines": 149, "fileCategory": "code"}
+  ],
+  "batchImportData": {".ua/.understandignore": [], ".ua/config.json": [], "README.md": [], "month01/week01/.clangd": [], "month01/week01/lexer.cpp": [], "month01/week01/lexer.cppm": [], "month01/week01/main.cpp": [], "month01/week01/tools/README.md": [], "month01/week02/.clangd": [], "month01/week02/lexer.cpp": [], "month01/week02/lexer.cppm": [], "month01/week02/main.cpp": [], "month01/week02/parser.cpp": [], "month01/week02/parser.cppm": [], "month01/week02/tools/README.md": [], "month01/week03/.clangd": [], "month01/week03/change_signal.cpp": [], "month01/week03/evaluator.cpp": [], "month01/week03/evaluator.cppm": [], "month01/week03/lexer.cpp": [], "month01/week03/lexer.cppm": [], "month01/week03/main.cpp": [], "month01/week03/parser.cpp": [], "month01/week03/parser.cppm": [], "month01/week03/property.cpp": []}
+}

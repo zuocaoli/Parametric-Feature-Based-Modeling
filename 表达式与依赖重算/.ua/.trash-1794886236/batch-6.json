@@ -1,0 +1,165 @@
+{
+  "nodes": [
+    {
+      "id": "config:month02/week02/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month02/week02/CMakeLists.txt",
+      "summary": "expression_month02_week02 的 CMake 构建配置：强制 Clang 22+ 并启用 C++23 import std，把 dependencies/lexer/parser 的实现文件与 .cppm 具名模块接口一起编译进 demo 可执行文件，同时开启 CTest 和 -Wall/-Wextra/-Wpedantic 警告。",
+      "tags": ["configuration", "build-system", "cpp23", "import-std", "clang"],
+      "complexity": "simple",
+      "languageNotes": "使用 CMake 4.3 的 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌与 CXX_MODULES file set 声明 .cppm 模块接口，这是 C++23 import std 支持尚处实验期时的标准接入方式；还显式校验编译器为 Clang 22+ 且 23 在 CMAKE_CXX_COMPILER_IMPORT_STD 列表中。"
+    },
+    {
+      "id": "config:month02/week02/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month02/week02/CMakePresets.json",
+      "summary": "定义统一的 default 预设组：Ninja + clang++ 的 configure 预设（Debug、导出 compile_commands.json）以及挂接其上的 build 与 test 预设，test 失败时输出日志；是本周 cmake --preset default 系列命令的来源。",
+      "tags": ["configuration", "build-system", "cmake-presets", "ninja", "clang"],
+      "complexity": "simple",
+      "languageNotes": "cmakeMinimumRequired 声明 CMake 4.3.0，binaryDir 固定为 ${sourceDir}/build，使 clangd 等工具始终能在固定路径找到 compile_commands.json。"
+    },
+    {
+      "id": "document:month02/week02/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week02/README.md",
+      "summary": "第二月第 2 周《确定计算顺序》课程讲义：以问题 46–50 讲解创建顺序与依赖顺序的差异、Kahn 拓扑排序的入度与 ready 集合、菱形汇聚节点只计算一次、直接自引用识别，以及用 DFS 着色报告多属性闭环并通过 try_replace_dependencies 的“先验证后提交”保护正式图，附独立练习、验收标准与构建运行说明。",
+      "tags": ["documentation", "topological-sort", "dependency-graph", "cycle-detection", "course"],
+      "complexity": "moderate",
+      "languageNotes": "沿用课程固定的五问结构，逐段引用 dependencies.cpp 中的具体实现细节（indegree 表、ready 有序集合、color 三态数组、parents_/children_ 双索引 swap）展开讲解，并通过相对链接指向本周源码与上周 README。"
+    },
+    {
+      "id": "file:month02/week02/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month02/week02/run.sh",
+      "summary": "本周一键构建运行脚本：从 BASH_SOURCE 解析并切换到课程目录，依次执行 cmake 的 default configure 与 build 预设，最后 exec 运行 build/demo 并透传全部命令行参数。",
+      "tags": ["script", "build-system", "entry-point", "bash", "automation"],
+      "complexity": "simple",
+      "languageNotes": "set -euo pipefail 保证任一步失败即中止；用 exec 替换 shell 进程运行 demo，使脚本的退出码与信号行为直接来自被运行的程序。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/dependencies.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/lexer.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/parser.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/dependencies.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/lexer.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakeLists.txt",
+      "target": "file:month02/week02/parser.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week02/CMakePresets.json",
+      "target": "config:month02/week02/CMakeLists.txt",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "file:month02/week02/main.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "file:month02/week02/dependencies.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "file:month02/week02/dependencies.cppm",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "document:month02/week02/tools/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "document:month02/week01/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "config:month02/week02/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/README.md",
+      "target": "config:month02/week02/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/run.sh",
+      "target": "config:month02/week02/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week02/run.sh",
+      "target": "config:month02/week02/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

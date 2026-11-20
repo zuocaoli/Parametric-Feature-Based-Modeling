@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "config:month01/week04/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month01/week04/CMakeLists.txt",
+      "summary": "定义 expression_month01_week04 周课程的 CMake 构建：强制 Clang 22+ 并启用 C++23 import std（含 CMake 4.3 实验性令牌），把 9 个 .cpp 实现文件与 7 个 .cppm 命名模块接口编入单个 demo 可执行目标，同时开启 CTest 与 -Wall/-Wextra/-Wpedantic 告警。",
+      "tags": ["build-system", "configuration", "cmake", "cxx-modules", "import-std"],
+      "complexity": "simple",
+      "languageNotes": "通过 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌启用 CMake 4.3 尚处实验阶段的 C++23 import std 支持，并用 target_sources 的 CXX_MODULES FILE_SET 声明命名模块接口；配置阶段即校验编译器为 Clang、版本不低于 22 且 import std 可用，任一不满足直接 FATAL_ERROR。"
+    },
+    {
+      "id": "config:month01/week04/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month01/week04/CMakePresets.json",
+      "summary": "为本周提供统一名为 default 的 CMake 预设：Ninja 生成器加 clang++ 的 Debug 配置，配套构建预设与失败时输出详情的测试预设，产物统一落在本周 build/ 目录并导出 compile_commands.json。",
+      "tags": ["configuration", "cmake", "build-system", "presets"],
+      "complexity": "simple",
+      "languageNotes": "采用 version 6 预设格式，configure/build/test 三个 default 预设都挂在同一个 configurePreset 上，保证 IDE、命令行与 run.sh 脚本走完全一致的构建配置。"
+    },
+    {
+      "id": "document:month01/week04/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month01/week04/README.md",
+      "summary": "第一月第 4 周『绑定与整合』课程讲义：以参数化矩形为主线回答问题 36–40，讲解 FormulaEngine 公式绑定、显式按序计算与写回、解析/求值失败的旧值保护，以及 save_model/load_model 持久化，并给出月末综合验收与构建运行说明。",
+      "tags": ["documentation", "entry-point", "course-material", "formula-binding", "persistence"],
+      "complexity": "moderate",
+      "languageNotes": "延续本仓库每周 README 的『五问 + 本周训练 + 验收』结构，用接口表格逐一说明 FormulaEngine 的 bind/unbind/compute 等入口，并附演示输出片段供运行后核对。"
+    },
+    {
+      "id": "file:month01/week04/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month01/week04/run.sh",
+      "summary": "本周一键构建运行脚本：以 BASH_SOURCE 定位周目录并切换进去，依次执行 cmake --preset default 配置与构建，最后 exec 运行 build/demo 并透传全部命令行参数。",
+      "tags": ["build-system", "script", "automation", "bash"],
+      "complexity": "simple",
+      "languageNotes": "使用 set -euo pipefail 严格模式，任一步配置或构建失败立即中止；exec 替换进程运行 demo，保证退出码与程序一致。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:month01/week04/run.sh",
+      "target": "config:month01/week04/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month01/week04/run.sh",
+      "target": "config:month01/week04/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month01/week04/CMakePresets.json",
+      "target": "config:month01/week04/CMakeLists.txt",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week04/README.md",
+      "target": "file:month01/week04/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week04/README.md",
+      "target": "config:month01/week04/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month01/week04/README.md",
+      "target": "config:month01/week04/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

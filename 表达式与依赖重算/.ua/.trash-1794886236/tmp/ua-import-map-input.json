@@ -1,0 +1,685 @@
+{
+  "projectRoot": "/home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算",
+  "files": [
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week01/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week01/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week01/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week01/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week02/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week02/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week02/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week02/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week03/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week03/change_signal.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/evaluator.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/evaluator.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/property.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/property.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/rectangle.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/rectangle.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week03/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week03/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month01/week04/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month01/week04/change_signal.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/evaluator.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/evaluator.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/formulas.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/formulas.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/property.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/property.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/rectangle.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/rectangle.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month01/week04/storage.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/storage.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month01/week04/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/.clang-format",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week01/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week01/dependencies.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/dependencies.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week01/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week02/.clang-format",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week02/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week02/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week02/dependencies.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/dependencies.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week02/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week02/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/.clang-format",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week03/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week03/change_signal.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/dependencies.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/dependencies.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/engine.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/engine.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/evaluator.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/evaluator.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/property.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/property.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/rectangle.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/rectangle.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week03/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week03/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/.clang-format",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/.clangd",
+      "language": "unknown",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/CMakeLists.txt",
+      "language": "txt",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config"
+    },
+    {
+      "path": "month02/week04/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    },
+    {
+      "path": "month02/week04/change_signal.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/dependencies.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/dependencies.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/engine.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/engine.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/evaluator.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/evaluator.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/lexer.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/lexer.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/main.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/parser.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/parser.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/property.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/property.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/rectangle.cpp",
+      "language": "cpp",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/rectangle.cppm",
+      "language": "cppm",
+      "fileCategory": "code"
+    },
+    {
+      "path": "month02/week04/run.sh",
+      "language": "shell",
+      "fileCategory": "script"
+    },
+    {
+      "path": "month02/week04/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs"
+    }
+  ]
+}

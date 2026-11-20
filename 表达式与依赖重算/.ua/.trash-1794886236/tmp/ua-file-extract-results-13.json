@@ -1,0 +1,164 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    "month02/week04/property.cppm",
+    "month02/week04/rectangle.cppm"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 1,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "month02/week04/rectangle.cpp",
+      "language": "cpp",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "positive_size",
+          "startLine": 7,
+          "endLine": 10,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "Rectangle",
+          "startLine": 13,
+          "endLine": 25,
+          "params": [
+            "length",
+            "width",
+            "id"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "positive_size",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "Rectangle",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "positive_size",
+          "callee": "std::get<double>",
+          "lineNumber": 8
+        },
+        {
+          "caller": "positive_size",
+          "callee": "std::isfinite",
+          "lineNumber": 9
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 14
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 15
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 17
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "std::get<double>",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "std::isfinite",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "std::get<std::int64_t>",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Rectangle",
+          "callee": "add",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "month02/week04/tools/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 44,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "本周构建、运行与 clangd",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "环境准备",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "构建与运行",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "IDE 与原生 clangd",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "格式与测试",
+          "level": 2,
+          "line": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "order": 1,
+    "title": "课程总览与构建运行方式",
+    "description": "从根 README.md 出发：它给出两月八周的课程导航表（问题 21–60）、跨分类学习顺序，以及最终矩形重算演示的预期输出，是整条 tour 的地图。这个仓库没有统一入口，8 门周课程各自自包含，因此配套看 week01 的 CMakeLists.txt、run.sh 与 tools/README.md——这套「构建三件套 + 周讲义」模式在全部 8 周中原样重复。掌握它之后，本 tour 后面每一步都可以在同一套路线下独立配置、构建并运行 build/demo。",
+    "nodeIds": [
+      "document:README.md",
+      "config:month01/week01/CMakeLists.txt",
+      "file:month01/week01/run.sh",
+      "document:month01/week01/tools/README.md"
+    ],
+    "languageLesson": "CMakeLists.txt 通过 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌开启 CMake 4.3 的 import std 支持，并以 FILE_SET CXX_MODULES 声明 .cppm 模块接口单元；升级 CMake 大版本时必须同步更新该实验令牌。run.sh 则固定为 cmake --preset default 配置、按 preset 构建最后 exec 运行 build/demo 的三步模式。"
+  },
+  {
+    "order": 2,
+    "title": "词法分析：把表达式切成 Token",
+    "description": "第一站进入 month01/week01：lexer.cppm 导出 TokenKind/Token 与 lex 的声明，lexer.cpp 单遍扫描表达式文本，把 `length / 2 + 5` 切成数字字面量、属性名、四则运算符与括号，并为非法字符返回带字节位置的 Error。main.cpp 是全仓库最小的演示入口——逐行打印每个 Token 的类别、文本、位置与数字值，同时演示错误输出路径。这是整条流水线的最底层：后续各周的 lexer 都由这里复制扩展而来。",
+    "nodeIds": [
+      "file:month01/week01/lexer.cppm",
+      "file:month01/week01/lexer.cpp",
+      "file:month01/week01/main.cpp",
+      "document:month01/week01/README.md"
+    ],
+    "languageLesson": "本仓库使用 C++23 具名模块（named modules）：lexer.cppm 是接口单元，写 `export module month02.week01.lexer` 并导出公开声明；lexer.cpp 是实现单元，写 `module month02.week01.lexer` 提供函数体。模块名与目录结构无关，`import std;` 取代了传统的 #include 标准库头。"
+  },
+  {
+    "order": 3,
+    "title": "语法分析：递归下降与 AST",
+    "description": "week02 在第 2 步同一套 lexer 之上加入 parser.cppm/.cpp：按 additive→multiplicative→unary→primary 的层级递归下降，使乘除优先于加减、同级左结合，最终产出 Node/Tree 构成的 AST。main.cpp 对内置表达式 -(2 + 3) * 4 调用 parse 并用 describe 打印树结构，直观展示括号、一元负号与优先级的落点。README（问题 26–30）解释了为什么 Token 序列不足以表达计算结构，以及缺操作数、括号不匹配等错误的恢复方式。注意本周的 lexer/parser 与 week01 几乎逐行一致——课程刻意复制再扩展，保持每周自包含。",
+    "nodeIds": [
+      "file:month01/week02/parser.cppm",
+      "file:month01/week02/parser.cpp",
+      "file:month01/week02/main.cpp",
+      "document:month01/week02/README.md"
+    ],
+    "languageLesson": "parser.cppm 用 `export import` 转发导出词法模块：使用者只要 import parser 就能同时拿到 Token 类型，无需重复 import lexer。这是具名模块组织层间依赖的常用手法，后面 evaluator、engine 都沿用。"
+  },
+  {
+    "order": 4,
+    "title": "属性系统与参数化矩形",
+    "description": "week03 引入属性与领域模型层：property.cppm 定义 std::variant 多类型 Value、Change/ChangeEvent 通知结构与 ChangeSignal 信号类，property.cpp 中的 PropertyObject 以名称索引属性，set_many 在全部校验通过后一次性提交并经 ChangeSignal 发出合并通知，失败则整体回滚保留原值。change_signal.cpp 实现基于 weak_ptr 槽位的 RAII Connection，支持断开与防重入。rectangle.cppm/.cpp 让 Rectangle 继承 PropertyObject，注册 length/width/area 等六个属性，其中 area 是派生属性——读取时按 length×width 即时计算，不维护缓存。这个参数化矩形案例从本周一直贯穿到课程结束。",
+    "nodeIds": [
+      "file:month01/week03/property.cppm",
+      "file:month01/week03/property.cpp",
+      "file:month01/week03/change_signal.cpp",
+      "file:month01/week03/rectangle.cppm",
+      "file:month01/week03/rectangle.cpp"
+    ],
+    "languageLesson": "观察者模式在这里有三个 C++ 细节值得注意：ChangeSignal 用 std::weak_ptr 保存槽位避免悬垂回调；Connection 以 RAII 管理连接生命周期（析构即断开）；emit 时遍历槽位副本并过滤已断开项，防止回调内部重入修改容器。"
+  },
+  {
+    "order": 5,
+    "title": "求值器：从 AST 到数值",
+    "description": "evaluator.cppm/.cpp 递归遍历第 3 步产出的 AST 求出 double 结果；变量节点不直接访问矩形，而是通过 Resolver 回调查询属性值，并拒绝整数、布尔、字符串等非数值结果，同时报告除零与非有限结果。main.cpp 把 Rectangle{100, 1}、表达式 length / 2 + 5 与一个把 rectangle.get 包成 Resolver 的 lambda 串起来打印 55——词法、解析、求值、属性读取四层在本周首次完整连接。calculate() 把 parse 与 evaluate 封装成单一入口，下一周的公式引擎将直接调用它。",
+    "nodeIds": [
+      "file:month01/week03/evaluator.cppm",
+      "file:month01/week03/evaluator.cpp",
+      "file:month01/week03/main.cpp",
+      "document:month01/week03/README.md"
+    ],
+    "languageLesson": "Resolver 是一个函数类型回调：求值器只依赖「给定名字返回 Value」的抽象接口，而不 import 具体的 rectangle 模块，从而保持各层单向依赖。这是用回调（依赖注入）替代反向依赖的典型 C++ 手法。"
+  },
+  {
+    "order": 6,
+    "title": "公式绑定与模型持久化",
+    "description": "month01 的最后一周把前四周组装成完整系统：formulas.cppm/.cpp 的 FormulaEngine 用 bind/unbind 把表达式绑定到属性通道，私有 Binding 同时保存表达式原文与语法树，compute 以当前属性值为环境求值并经 PropertyObject::set 写回，由属性系统校验并发出变更通知——解析或求值失败时旧值受保护。storage.cppm/.cpp 定义 RectangleModel 聚合（Rectangle + FormulaEngine）并实现 save_model/load_model，把属性与公式绑定表写成文本再完整恢复、重新 bind。main.cpp 依次演示按序绑定计算、修改 length 后重算、重复 compute 不触发通知，以及保存到 build/rectangle.txt 后恢复验证公式仍然生效。",
+    "nodeIds": [
+      "file:month01/week04/formulas.cppm",
+      "file:month01/week04/formulas.cpp",
+      "file:month01/week04/storage.cppm",
+      "file:month01/week04/storage.cpp",
+      "file:month01/week04/main.cpp",
+      "document:month01/week04/README.md"
+    ],
+    "languageLesson": "storage.cpp 全程固定使用 classic locale（std::locale::classic）序列化数值，保证小数点不随系统区域设置变化——持久化格式的可移植性靠显式 locale 而不是默认全局环境。"
+  },
+  {
+    "order": 7,
+    "title": "建立依赖关系：从 AST 抽取依赖边",
+    "description": "第二月转向依赖图：month02/week01 的 dependencies.cppm/.cpp 遍历第 3 步的 AST 收集变量名，经别名表把名字解析为 PropertyKey，DependencyGraph::replace_dependencies 同步维护正向 dependencies 与反向 children 两份邻接表，remove_formula 只解除出边而保留他人对该属性的引用。main.cpp 解析 (length + length) / 2 + source_width，先打印 AST 中的变量，再输出双向查询结果。本月的 lexer/parser 与 month01 完全相同——第二月各周继续复用，只新增 dependencies 模块。",
+    "nodeIds": [
+      "file:month02/week01/dependencies.cppm",
+      "file:month02/week01/dependencies.cpp",
+      "file:month02/week01/main.cpp",
+      "document:month02/week01/README.md"
+    ]
+  },
+  {
+    "order": 8,
+    "title": "确定计算顺序：拓扑排序与循环检测",
+    "description": "week02 在第 7 步的图结构之上回答「先算谁」：dependencies.cpp/.cpp 新增 Kahn 拓扑排序 topological_order 与环路径定位 find_cycle，并提供带无环校验的事务式提交 try_replace_dependencies——先验证后写入，循环依赖不会污染正式图。main.cpp 先按书写顺序对 calculations 中的 lambda 求值，展示「算错序导致结果过时」的问题，再建立依赖图按拓扑序计算，最后故意构造循环验证拦截并打印环路径。README（问题 46–50）还讲解了菱形汇聚节点只计算一次与直接自引用的识别。",
+    "nodeIds": [
+      "file:month02/week02/dependencies.cppm",
+      "file:month02/week02/dependencies.cpp",
+      "file:month02/week02/main.cpp",
+      "document:month02/week02/README.md"
+    ],
+    "languageLesson": "Kahn 算法维护每个节点的入度与 ready 集合：入度归零即可计算，天然给出合法计算顺序；find_cycle 用 DFS 三色着色（未访问/访问中/已完成）在回边处捕获环并报告完整路径。try_replace_dependencies 的「先验证后提交」是把事务思想应用到内存图结构的常见模式。"
+  },
+  {
+    "order": 9,
+    "title": "增量重算引擎",
+    "description": "week03 把静态依赖图变成运行时引擎：engine.cppm/.cpp 的 RecomputeEngine 聚合第 7、8 步的 dependencies 与第 5 步的 evaluator，登记对象、保存公式绑定并订阅第 4 步的 ChangeSignal，用脏标记把修改传播到下游闭包后按依赖序重算。begin/end_batch 批次把批内多次修改合并为一次统一重算，writing_/recomputing_ 标志防止通知重入，last_report 记录每次执行。main.cpp 只 import engine 这个门面模块，在批次内绑定 area/width 公式并演示批内失败保持原值——观察者机制在这里正式成为触发重算的信号源。",
+    "nodeIds": [
+      "file:month02/week03/engine.cppm",
+      "file:month02/week03/engine.cpp",
+      "file:month02/week03/rectangle.cppm",
+      "file:month02/week03/main.cpp",
+      "document:month02/week03/README.md"
+    ],
+    "languageLesson": "engine.cppm 是门面（facade）模式的模块化实现：它 `export import` dependencies、evaluator、rectangle 三个模块，把入口收敛到一个模块单元；下一周 main.cpp 只需一条 import 即可使用整条流水线。批次接口 begin_batch/end_batch 配合深度计数 batch_depth_ 支持嵌套，只有最外层结束时才 flush。"
+  },
+  {
+    "order": 10,
+    "title": "维护与错误恢复：五态完整流水线",
+    "description": "最后一周补齐工程化的错误恢复：month02/week04 的 engine.cppm 引入 ComputeState 五态与 PropertyStatus，处理替换/解绑公式后的依赖变化、循环与无效引用时保留原状态、删除对象后的 MissingReference 标识，以及 Failed/Blocked 状态传播时无关分支继续计算、修复后恢复正常重算。main.cpp 的 rectangle_example 演示矩形尺寸从 50/5000 改为 100/20000 后的按序重算与二次绑定替换，failure_example 则依次制造绑定失败、批中失败与 MissingReference 并观察 last_report。rectangle.cppm 与 evaluator.cppm 在本周几乎与 week03 一致，但通过 export import 转发导出，让 engine 门面真正覆盖全流水线——这是整门课程八个模块协同的终点。",
+    "nodeIds": [
+      "file:month02/week04/engine.cppm",
+      "file:month02/week04/main.cpp",
+      "file:month02/week04/rectangle.cppm",
+      "file:month02/week04/evaluator.cppm",
+      "document:month02/week04/README.md"
+    ]
+  },
+  {
+    "order": 11,
+    "title": "收尾：从构建脚本回看全流水线",
+    "description": "用 month02/week04 的 CMakeLists.txt 收尾最直观：它显式列出 9 个实现源文件与 7 个 CXX_MODULES 模块接口文件，正是第 2–10 步逐层建立的 lexer→parser→property/rectangle→evaluator→dependencies→engine 流水线的物理清单。CMakePresets.json 定义配置、构建、测试三组同名 default 预设，run.sh 仍是 preset 配置→构建→运行 build/demo 的三步模式（本周用 quiet 函数静默正常日志），tools/README.md 则汇总环境准备、clangd 与格式检查五节内容。读完这份清单你就掌握了仓库的组织规律：每周复制上一周、新增一个模块，构建脚本随之同步增长。",
+    "nodeIds": [
+      "config:month02/week04/CMakeLists.txt",
+      "config:month02/week04/CMakePresets.json",
+      "file:month02/week04/run.sh",
+      "document:month02/week04/tools/README.md"
+    ]
+  }
+]

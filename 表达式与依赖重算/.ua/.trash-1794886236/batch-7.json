@@ -1,0 +1,241 @@
+{
+  "nodes": [
+    {
+      "id": "config:month02/week03/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month02/week03/CMakeLists.txt",
+      "summary": "month02/week03「增量重算」的构建配置：强制 Clang 22+ 与 C++23 import std（CMake 4.3 实验令牌），定义 demo 目标的 9 个实现文件与 7 个 CXX_MODULES 模块接口，启用编译警告并包含 CTest。",
+      "tags": ["配置", "构建系统", "cmake", "cxx-modules", "import-std"],
+      "complexity": "moderate",
+      "languageNotes": "通过 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌启用 CMake 4.3 的 import std 实验支持，配置期即校验编译器为 Clang 且 23 在 CMAKE_CXX_COMPILER_IMPORT_STD 中；模块接口以 FILE_SET CXX_MODULES 单独登记，与实现文件分开声明。"
+    },
+    {
+      "id": "config:month02/week03/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month02/week03/CMakePresets.json",
+      "summary": "定义本周的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建与 build/ 输出目录，并配套 build 与 test 预设（失败时输出），供 cmake --preset 系列命令和 run.sh 复用。",
+      "tags": ["配置", "cmake-presets", "构建系统", "ninja", "clang"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:month02/week03/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week03/README.md",
+      "summary": "第二月第 3 周「增量重算」课程讲义：讲解 RecomputeEngine 如何以 Managed/objects_ 登记对象与变化订阅、以 Binding/bindings_ 保存公式定义，并用问题 51–55 解答下游闭包、脏标记、按依赖序重算、批次合并修改与通知重入防护，附独立练习、验收标准与构建运行说明。",
+      "tags": ["文档", "课程讲义", "增量重算", "依赖图", "教学"],
+      "complexity": "moderate",
+      "languageNotes": "延续每周 README 的固定结构（本周训练、核心数据结构小节、编号问题答案、独立练习与验收），正文以 Markdown 链接直接指向 engine.cppm、dependencies.cpp 等实现位置，并给出 set → 通知 → dirty_ → 求值写回的执行流程示例。"
+    },
+    {
+      "id": "file:month02/week03/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month02/week03/run.sh",
+      "summary": "一键构建并运行本周课程：定位脚本所在课程目录后依次执行 cmake --preset default 配置与构建，最后以 exec 运行 build/demo 并透传全部命令行参数。",
+      "tags": ["脚本", "构建", "bash", "一键运行", "入口点"],
+      "complexity": "simple",
+      "languageNotes": "set -euo pipefail 严格模式保证任一构建步骤失败即退出，BASH_SOURCE 定位课程目录使其可从任意工作目录调用；exec 用 demo 进程替换脚本进程，信号直达目标程序。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/change_signal.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/dependencies.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/engine.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/evaluator.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/lexer.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/parser.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/property.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/rectangle.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/dependencies.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/engine.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/evaluator.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/lexer.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/parser.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/property.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakeLists.txt",
+      "target": "file:month02/week03/rectangle.cppm",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:month02/week03/CMakePresets.json",
+      "target": "config:month02/week03/CMakeLists.txt",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "file:month02/week03/engine.cppm",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "file:month02/week03/engine.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "file:month02/week03/dependencies.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "file:month02/week03/main.cpp",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "file:month02/week03/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "config:month02/week03/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "config:month02/week03/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "document:month02/week03/tools/README.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week03/README.md",
+      "target": "document:month02/week02/README.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/run.sh",
+      "target": "config:month02/week03/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/run.sh",
+      "target": "config:month02/week03/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

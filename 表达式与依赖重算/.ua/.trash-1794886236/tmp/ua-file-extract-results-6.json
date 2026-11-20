@@ -1,0 +1,135 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [
+    "month02/week02/CMakeLists.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "month02/week02/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "cmakeMinimumRequired",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "configurePresets",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "buildPresets",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "testPresets",
+          "level": 1,
+          "line": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month02/week02/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 107,
+      "nonEmptyLines": 62,
+      "sections": [
+        {
+          "heading": "表达式引擎与依赖图·第二月第 2 周：确定计算顺序",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "本周训练",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "46. 为什么不能按创建顺序计算？",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "47. 如何拓扑排序？",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "48. 汇聚节点如何只计算一次？",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "49. 如何识别直接自引用？",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "50. 如何报告多个属性的循环？",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "单独打开与运行",
+          "level": 2,
+          "line": 74
+        },
+        {
+          "heading": "代码与运行",
+          "level": 2,
+          "line": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "month02/week02/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

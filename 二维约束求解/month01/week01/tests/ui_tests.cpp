@@ -1,8 +1,6 @@
 import std;
 #include "ui/workbench.hpp"
 #include <QApplication>
-#include <QComboBox>
-#include <QDoubleSpinBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QTest>
@@ -15,16 +13,14 @@ int main(int argc, char **argv) {
         QTest::qWait(40);
         auto *canvas = window.findChild<QWidget *>("canvas");
         auto *status = window.findChild<QLabel *>("status");
-        auto *reset = window.findChild<QPushButton *>("reset");
-        auto *solve = window.findChild<QPushButton *>("solve");
         auto check = [](bool ok, const char *message) {
             if (!ok)
                 throw std::runtime_error(message);
         };
-        check(canvas && status && reset && solve, "observer widgets exist");
-        check(!status->text().isEmpty(), "status is populated");
-        QTest::mouseClick(solve, Qt::LeftButton);
-        QTest::mouseClick(reset, Qt::LeftButton);
+        check(canvas && status, "observer widgets exist");
+        check(status->text() == "Parameters: 8", "four points own eight coordinate parameters");
+        check(window.findChildren<QPushButton *>().isEmpty(),
+              "observation-only lesson has no action buttons");
         auto picture = canvas->grab().toImage();
         check(!picture.isNull(), "observer produces an image");
         int nonBackground = 0;

@@ -1,0 +1,328 @@
+{
+  "nodes": [
+    {
+      "id": "file:month02/week03/lexer.cpp",
+      "type": "file",
+      "name": "lexer.cpp",
+      "filePath": "month02/week03/lexer.cpp",
+      "summary": "词法模块 month03.week03.lexer 的实现单元：lex() 单遍扫描表达式文本，识别数字、标识符、四则运算符和括号并转成 Token 序列，数字用 std::from_chars 转换并检查有限性，失败时经 std::expected 返回带字节位置的错误。",
+      "tags": ["lexer", "词法分析", "token", "utility", "错误处理"],
+      "complexity": "complex",
+      "languageNotes": "C++23 风格：用 std::expected<std::vector<Token>, Error> 替代异常传递词法错误，错误携带 stage/position/message 三元组便于定位。"
+    },
+    {
+      "id": "file:month02/week03/lexer.cppm",
+      "type": "file",
+      "name": "lexer.cppm",
+      "filePath": "month02/week03/lexer.cppm",
+      "summary": "词法模块的接口单元：定义贯穿全课程的 ErrorStage/Error 错误模型与 TokenKind/Token 词法单元类型，并导出 lex() 声明，是表达式前端所有错误信息的公共定义处。",
+      "tags": ["module-interface", "type-definition", "token", "错误模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/main.cpp",
+      "type": "file",
+      "name": "main.cpp",
+      "filePath": "month02/week03/main.cpp",
+      "summary": "week03 演示入口：只 import engine 门面模块，创建矩形后在批次内绑定 area/width 公式，依次演示修改长宽后的增量重算、批内失败保持原值、以及无效输入等错误路径。",
+      "tags": ["entry-point", "demo", "console", "增量重算"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week03/parser.cpp",
+      "type": "file",
+      "name": "parser.cpp",
+      "filePath": "month02/week03/parser.cpp",
+      "summary": "递归下降解析器的实现单元：内部 Parser 类按 加减→乘除→一元→初级 四层优先级链把 Token 流构建成 AST，带最大嵌套深度防护，对外提供 parse()（词法+语法一步完成）与 describe() 调试输出。",
+      "tags": ["parser", "递归下降", "ast", "语法分析"],
+      "complexity": "complex",
+      "languageNotes": "每个优先级一层递归函数，用 unique_ptr 的 Tree 表达节点的唯一所有权；嵌套深度超限与悬余 Token 都转为 ParseFailure 异常再统一折成 Error。"
+    },
+    {
+      "id": "file:month02/week03/parser.cppm",
+      "type": "file",
+      "name": "parser.cppm",
+      "filePath": "month02/week03/parser.cppm",
+      "summary": "语法模块接口单元：导出 NodeKind/Node/Tree 等 AST 类型与 parse()/describe() 声明，并 export import lexer，让使用者一次导入即可获得完整表达式前端。",
+      "tags": ["module-interface", "ast", "type-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/property.cpp",
+      "type": "file",
+      "name": "property.cpp",
+      "filePath": "month02/week03/property.cpp",
+      "summary": "PropertyObject 的实现单元：set_many() 按「先全量校验、再统一提交、最后单次通知」的事务流程批量修改属性并拒绝通知期间的重入修改，add() 负责注册带校验函数与派生计算函数的属性。",
+      "tags": ["property-system", "事务提交", "validation", "数据模型"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:month02/week03/property.cppm",
+      "type": "file",
+      "name": "property.cppm",
+      "filePath": "month02/week03/property.cppm",
+      "summary": "属性系统公共接口：Value variant、SetResult 结果码、PropertyView 快照、Change/ChangeEvent/Update 事件与输入结构，以及 ChangeSignal 通知管理器和 PropertyObject 属性对象两个核心类声明；通知与属性对象同模块以避免事件来源指针的循环依赖。",
+      "tags": ["module-interface", "property-system", "observer-pattern", "type-definition"],
+      "complexity": "moderate",
+      "languageNotes": "ChangeSignal::Connection 用 weak_ptr 弱引用订阅槽位，析构即退订；派生属性的 Reader 捕获 this，因此 PropertyObject 禁止复制。"
+    },
+    {
+      "id": "file:month02/week03/rectangle.cpp",
+      "type": "file",
+      "name": "rectangle.cpp",
+      "filePath": "month02/week03/rectangle.cpp",
+      "summary": "矩形领域模型的实现单元：构造函数通过 PropertyObject::add() 注册 length/width 输入属性（正值校验）与 area、对角线等只读派生属性，是课程贯穿案例的模型装配处。",
+      "tags": ["domain-model", "rectangle", "数据模型", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/rectangle.cppm",
+      "type": "file",
+      "name": "rectangle.cppm",
+      "filePath": "month02/week03/rectangle.cppm",
+      "summary": "Rectangle 类声明：继承 PropertyObject 并 export import property，仅暴露带默认长宽的构造函数，定义了各周课程反复使用的参数化矩形案例。",
+      "tags": ["module-interface", "domain-model", "rectangle", "inheritance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:month02/week03/tools/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week03/tools/README.md",
+      "summary": "week03 构建与工具说明：环境依赖（Clang/CMake/Ninja/libstdc++ 模块）、cmake --preset 构建与 ./build/demo 运行、原生 clangd 指向 build/ 的 IDE 配置，以及格式与测试命令。",
+      "tags": ["documentation", "build-system", "开发环境", "ide"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:month02/week04/.clang-format",
+      "type": "config",
+      "name": ".clang-format",
+      "filePath": "month02/week04/.clang-format",
+      "summary": "week04 的 clang-format 配置：基于 LLVM 风格，列宽 150、缩进 4 空格，控制本周全部 C++ 源码的排版。",
+      "tags": ["configuration", "formatting", "clang-format"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:month02/week04/.clangd",
+      "type": "config",
+      "name": ".clangd",
+      "filePath": "month02/week04/.clangd",
+      "summary": "week04 的 clangd 配置：指定 CompilationDatabase 位于 build/ 目录并开启后台索引，使 IDE 能解析 C++23 模块单元。",
+      "tags": ["configuration", "clangd", "ide", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week04/change_signal.cpp",
+      "type": "file",
+      "name": "change_signal.cpp",
+      "filePath": "month02/week04/change_signal.cpp",
+      "summary": "ChangeSignal 的实现单元（声明位于本周 property.cppm）：connect() 注册订阅并顺手清理已失效槽位，emit() 按注册顺序同步通知并统计回调异常次数，Connection 借 weak_ptr 在发布者先销毁时也能安全退订。",
+      "tags": ["observer-pattern", "event-handler", "property-system", "信号槽"],
+      "complexity": "moderate",
+      "languageNotes": "发布者持 shared_ptr<Slot> 强引用、连接持 weak_ptr，单个回调抛异常不阻断其他回调，异常次数经返回值交给 PropertyObject 累计。"
+    },
+    {
+      "id": "function:month02/week03/lexer.cpp:lex",
+      "type": "function",
+      "name": "lex",
+      "filePath": "month02/week03/lexer.cpp",
+      "lineRange": [71, 209],
+      "summary": "把表达式源码单遍扫描为 Token 向量：跳过空白、按字符分类拼装数字或标识符、识别 + - * ( ) 单字符符号，非法字符与非法数字字面量立即返回带位置的 Error。",
+      "tags": ["lexer", "词法分析", "token", "错误处理"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/main.cpp:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "month02/week03/main.cpp",
+      "lineRange": [22, 141],
+      "summary": "演示主流程：创建矩形后分三次操作——批次内成功绑定公式并重算、单次修改触发下游更新、批内一处失败导致整批回滚，逐步打印属性值与重算报告。",
+      "tags": ["entry-point", "demo", "批次", "增量重算"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week03/parser.cpp:Parser",
+      "type": "class",
+      "name": "Parser",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [11, 221],
+      "summary": "内部递归下降解析器：持有 Token 流、游标与嵌套深度计数，沿 additive→multiplicative→unary→primary 优先级链构建 AST，make/make_binary 统一记录节点高度，越限或残词通过 fail() 抛出 ParseFailure。",
+      "tags": ["parser", "递归下降", "ast", "优先级"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/parser.cpp:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [236, 263],
+      "summary": "解析入口：先调用 lex() 得到 Token 流，再驱动 Parser 解析完整表达式，把词法错误与 ParseFailure 统一折成 Error 返回，成功时交出整棵语法树。",
+      "tags": ["parser", "api", "错误处理"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/parser.cpp:parse_additive",
+      "type": "function",
+      "name": "parse_additive",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [76, 98],
+      "summary": "加减层解析：先取一个乘除层结果，再循环吞并 + - 并左折叠成二元节点，体现最低优先级的左结合。",
+      "tags": ["parser", "递归下降", "二元运算"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/parser.cpp:parse_multiplicative",
+      "type": "function",
+      "name": "parse_multiplicative",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [101, 138],
+      "summary": "乘除层解析：消费一元层结果并循环处理 * /，左折叠成二元节点，实现高于加减的优先级。",
+      "tags": ["parser", "递归下降", "二元运算"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/parser.cpp:parse_unary",
+      "type": "function",
+      "name": "parse_unary",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [141, 182],
+      "summary": "一元层解析：支持连续负号递归下降形成嵌套一元节点，深度超过 maximum_depth 时报错，否则落到初级层。",
+      "tags": ["parser", "递归下降", "一元运算"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/parser.cpp:parse_primary",
+      "type": "function",
+      "name": "parse_primary",
+      "filePath": "month02/week03/parser.cpp",
+      "lineRange": [185, 220],
+      "summary": "初级层解析：处理数字与变量字面量以及括号子表达式（括号内递归回到加减层），其余 Token 视为语法错误。",
+      "tags": ["parser", "递归下降", "括号"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/property.cpp:set_many",
+      "type": "function",
+      "name": "set_many",
+      "filePath": "month02/week03/property.cpp",
+      "lineRange": [68, 153],
+      "summary": "批量修改的事务核心：先整体校验名称、类型、只读与取值合法性（任一失败整批放弃），再统一提交实际变化并只发送一次 ChangeEvent，通知期间重入修改返回 Reentrant。",
+      "tags": ["transaction", "property-system", "validation", "event"],
+      "complexity": "complex",
+      "languageNotes": "用 NotifyGuard 标志位实现重入保护，先收集合法变更再 swap 提交，保证订阅者看不到半更新的中间状态。"
+    },
+    {
+      "id": "function:month02/week03/property.cpp:add",
+      "type": "function",
+      "name": "add",
+      "filePath": "month02/week03/property.cpp",
+      "lineRange": [155, 164],
+      "summary": "受保护的属性注册接口：名称重复即拒绝，注册时做一次初始校验，可附带校验函数与派生读取函数，设置 compute 后属性转为只读。",
+      "tags": ["property-system", "注册", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:month02/week03/property.cppm:ChangeSignal",
+      "type": "class",
+      "name": "ChangeSignal",
+      "filePath": "month02/week03/property.cppm",
+      "lineRange": [69, 119],
+      "summary": "属性变化通知管理器：内部 Slot 保存订阅回调，connect() 返回可移动不可复制的 Connection 退订凭证，emit() 顺序通知全部有效订阅者并返回回调异常次数。",
+      "tags": ["observer-pattern", "信号槽", "event", "property-system"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week03/property.cppm:PropertyObject",
+      "type": "class",
+      "name": "PropertyObject",
+      "filePath": "month02/week03/property.cppm",
+      "lineRange": [121, 191],
+      "summary": "属性对象基类：以 Property 记录名称、标签、单位、存储值与校验/派生函数，提供 get/properties 快照读取、set/set_many 修改入口和 observe 订阅，是 Rectangle 及后续文档对象的共同基础。",
+      "tags": ["property-system", "数据模型", "基类", "observer-pattern"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week03/rectangle.cppm:Rectangle",
+      "type": "class",
+      "name": "Rectangle",
+      "filePath": "month02/week03/rectangle.cppm",
+      "lineRange": [7, 10],
+      "summary": "参数化矩形模型：继承 PropertyObject，在构造函数中装配 length/width 输入属性与面积、对角线等派生属性，是全部课程共用的贯穿案例。",
+      "tags": ["domain-model", "rectangle", "inheritance", "数据模型"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/rectangle.cpp:Rectangle",
+      "type": "function",
+      "name": "Rectangle",
+      "filePath": "month02/week03/rectangle.cpp",
+      "lineRange": [13, 25],
+      "summary": "矩形构造函数：用 add() 注册带正值校验的 length/width，再注册由二者计算的只读派生属性，构成后续公式绑定与增量重算的对象基础。",
+      "tags": ["constructor", "domain-model", "property-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week04/change_signal.cpp:connect",
+      "type": "function",
+      "name": "connect",
+      "filePath": "month02/week04/change_signal.cpp",
+      "lineRange": [30, 49],
+      "summary": "注册订阅回调：拒绝空回调，先清理已失效槽位再以 shared_ptr<Slot> 保存新订阅，返回内部构造的 Connection 作为退订凭证。",
+      "tags": ["observer-pattern", "订阅", "信号槽"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week04/change_signal.cpp:emit",
+      "type": "function",
+      "name": "emit",
+      "filePath": "month02/week04/change_signal.cpp",
+      "lineRange": [51, 79],
+      "summary": "按注册顺序同步通知有效订阅者：捕获单个回调的异常并计数，不阻断后续回调，结束后清理通知期间失效的槽位并返回异常次数。",
+      "tags": ["observer-pattern", "事件分发", "异常处理"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:month02/week03/lexer.cpp", "target": "function:month02/week03/lexer.cpp:lex", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/main.cpp", "target": "function:month02/week03/main.cpp:main", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "class:month02/week03/parser.cpp:Parser", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse_additive", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse_multiplicative", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse_unary", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse_primary", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/property.cpp", "target": "function:month02/week03/property.cpp:set_many", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/property.cpp", "target": "function:month02/week03/property.cpp:add", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/property.cppm", "target": "class:month02/week03/property.cppm:ChangeSignal", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/property.cppm", "target": "class:month02/week03/property.cppm:PropertyObject", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/rectangle.cpp", "target": "function:month02/week03/rectangle.cpp:Rectangle", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/rectangle.cppm", "target": "class:month02/week03/rectangle.cppm:Rectangle", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week04/change_signal.cpp", "target": "function:month02/week04/change_signal.cpp:connect", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week04/change_signal.cpp", "target": "function:month02/week04/change_signal.cpp:emit", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:month02/week03/lexer.cpp", "target": "function:month02/week03/lexer.cpp:lex", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:month02/week03/parser.cpp", "target": "function:month02/week03/parser.cpp:parse", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:month02/week03/property.cppm", "target": "class:month02/week03/property.cppm:ChangeSignal", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:month02/week03/property.cppm", "target": "class:month02/week03/property.cppm:PropertyObject", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:month02/week03/rectangle.cppm", "target": "class:month02/week03/rectangle.cppm:Rectangle", "type": "exports", "direction": "forward", "weight": 0.8},
+    {"source": "file:month02/week03/lexer.cpp", "target": "file:month02/week03/lexer.cppm", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week03/parser.cpp", "target": "file:month02/week03/parser.cppm", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week03/property.cpp", "target": "file:month02/week03/property.cppm", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week03/rectangle.cpp", "target": "file:month02/week03/rectangle.cppm", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week04/change_signal.cpp", "target": "file:month02/week04/property.cppm", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week04/change_signal.cpp", "target": "file:month02/week03/change_signal.cpp", "type": "related", "direction": "forward", "weight": 0.5},
+    {"source": "file:month02/week03/parser.cppm", "target": "file:month02/week03/lexer.cppm", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:month02/week03/rectangle.cppm", "target": "file:month02/week03/property.cppm", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "file:month02/week03/main.cpp", "target": "file:month02/week03/engine.cppm", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "function:month02/week03/parser.cpp:parse", "target": "function:month02/week03/lexer.cpp:lex", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:month02/week03/rectangle.cpp:Rectangle", "target": "function:month02/week03/property.cpp:add", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "function:month02/week03/property.cpp:set_many", "target": "function:month02/week03/change_signal.cpp:emit", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "class:month02/week03/rectangle.cppm:Rectangle", "target": "class:month02/week03/property.cppm:PropertyObject", "type": "inherits", "direction": "forward", "weight": 0.9},
+    {"source": "config:month02/week04/.clang-format", "target": "file:month02/week04/main.cpp", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:month02/week04/.clangd", "target": "file:month02/week04/main.cpp", "type": "configures", "direction": "forward", "weight": 0.6},
+    {"source": "config:month02/week04/.clangd", "target": "config:month02/week04/CMakeLists.txt", "type": "depends_on", "direction": "forward", "weight": 0.6},
+    {"source": "document:month02/week03/tools/README.md", "target": "file:month02/week03/main.cpp", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:month02/week03/tools/README.md", "target": "config:month02/week03/CMakeLists.txt", "type": "documents", "direction": "forward", "weight": 0.5},
+    {"source": "document:month02/week03/tools/README.md", "target": "file:month02/week03/run.sh", "type": "documents", "direction": "forward", "weight": 0.5}
+  ]
+}

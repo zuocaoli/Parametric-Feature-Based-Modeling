@@ -1,0 +1,140 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [
+    "month01/week04/CMakeLists.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "month01/week04/CMakePresets.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 36,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "cmakeMinimumRequired",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "configurePresets",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "buildPresets",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "testPresets",
+          "level": 1,
+          "line": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "month01/week04/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 121,
+      "nonEmptyLines": 77,
+      "sections": [
+        {
+          "heading": "表达式引擎与依赖图·第一月第 4 周：绑定与整合",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "本周训练",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "月末综合验收与衔接",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "36. 如何分别保存公式和数值？",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "37. 如何校验、替换和解除？",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "38. 如何指定顺序并写回？",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "39. 如何保留原值及通知规则？",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "40. 如何保存恢复并验证完整流程？",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "单独打开与运行",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "代码与运行",
+          "level": 2,
+          "line": 96
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": "month01/week04/run.sh",
+      "language": "shell",
+      "fileCategory": "script",
+      "totalLines": 9,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

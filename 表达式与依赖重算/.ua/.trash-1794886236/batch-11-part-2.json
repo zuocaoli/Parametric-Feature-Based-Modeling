@@ -1,0 +1,1044 @@
+{
+  "nodes": [
+    {
+      "id": "file:month02/week02/parser.cpp",
+      "type": "file",
+      "name": "parser.cpp",
+      "filePath": "month02/week02/parser.cpp",
+      "summary": "递归下降解析器实现，与 week01 相同（仅模块名与命名空间不同）：课程刻意复制源码保持每周自包含，为本周依赖图提供 AST 输入。",
+      "tags": [
+        "parser",
+        "recursive-descent",
+        "copied-source",
+        "ast"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:month02/week02/parser.cppm",
+      "type": "file",
+      "name": "parser.cppm",
+      "filePath": "month02/week02/parser.cppm",
+      "summary": "week02 parser 模块接口，与 week01 仅模块名不同：导出 NodeKind/Node/Tree 与 parse、describe，export import lexer。",
+      "tags": [
+        "module-interface",
+        "ast",
+        "copied-source",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:month02/week02/tools/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week02/tools/README.md",
+      "summary": "week02 的工具说明文档：分环境准备、CMake preset 构建运行、IDE 与原生 clangd、格式与测试四节，给出本周从零跑起来的具体命令。",
+      "tags": [
+        "documentation",
+        "build-system",
+        "tooling",
+        "clangd"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:month02/week02/parser.cpp:Parser",
+      "type": "class",
+      "name": "Parser",
+      "filePath": "month02/week02/parser.cpp",
+      "lineRange": [
+        11,
+        221
+      ],
+      "summary": "week02 的递归下降解析器（与 week01 相同）：按 additive/multiplicative/unary/primary 优先级层级构建 AST，make/make_binary 统一建节点并维护子树高度，嵌套超限即失败。",
+      "tags": [
+        "parser",
+        "recursive-descent",
+        "ast",
+        "precedence"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week02/parser.cpp:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "month02/week02/parser.cpp",
+      "lineRange": [
+        236,
+        263
+      ],
+      "summary": "对外解析入口：lex 得到 Token 流后驱动 Parser 解析整棵表达式并检查输入耗尽，词法或语法错误统一返回 Error。",
+      "tags": [
+        "parser",
+        "api",
+        "expected",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week02/parser.cpp:describe",
+      "type": "function",
+      "name": "describe",
+      "filePath": "month02/week02/parser.cpp",
+      "lineRange": [
+        265,
+        274
+      ],
+      "summary": "递归输出 AST 结构的诊断辅助函数，按节点类型打印表达式形状。",
+      "tags": [
+        "diagnostic",
+        "ast",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/.clang-format",
+      "type": "file",
+      "name": ".clang-format",
+      "filePath": "month02/week03/.clang-format",
+      "summary": "week03 的 clang-format 配置：基于 LLVM 风格，列宽上限 500、缩进 4 空格，用于本周源码的格式化检查。",
+      "tags": [
+        "configuration",
+        "formatting",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/.clangd",
+      "type": "file",
+      "name": ".clangd",
+      "filePath": "month02/week03/.clangd",
+      "summary": "week03 的 clangd 配置：把编译数据库指向 build 目录的 compile_commands.json，并开启后台索引，支撑 C++23 具名模块的代码智能。",
+      "tags": [
+        "configuration",
+        "clangd",
+        "ide",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/change_signal.cpp",
+      "type": "file",
+      "name": "change_signal.cpp",
+      "filePath": "month02/week03/change_signal.cpp",
+      "summary": "ChangeSignal 信号类的实现单元（隶属 property 模块）：connect 注册回调并返回可退订的 Connection 弱引用凭证，emit 以快照方式派发 ChangeEvent，单个观察者异常不中断广播，整体与 month01/week04 版本几乎相同。",
+      "tags": [
+        "observer-pattern",
+        "signal-slot",
+        "event-handler",
+        "change-notification"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "用 shared_ptr<Slot> 保存订阅、weak_ptr 形态的 Connection 表达退订凭证，emit 先快照再遍历，保证回调中增删订阅是安全的。"
+    },
+    {
+      "id": "function:month02/week03/change_signal.cpp:connect",
+      "type": "function",
+      "name": "connect",
+      "filePath": "month02/week03/change_signal.cpp",
+      "lineRange": [
+        28,
+        47
+      ],
+      "summary": "注册 ChangeEvent 回调：拒绝空回调，先用 std::erase_if 清理失效订阅，再创建活跃 Slot 并返回弱引用同一 Slot 的 Connection 退订凭证。",
+      "tags": [
+        "observer-pattern",
+        "subscription",
+        "event-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/change_signal.cpp:emit",
+      "type": "function",
+      "name": "emit",
+      "filePath": "month02/week03/change_signal.cpp",
+      "lineRange": [
+        49,
+        77
+      ],
+      "summary": "派发变化事件：对订阅快照逐个调用回调，单个观察者抛异常只计数不中断，最后清理已失效订阅并返回错误数。",
+      "tags": [
+        "event-handler",
+        "observer-pattern",
+        "fault-tolerance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week03/dependencies.cpp",
+      "type": "file",
+      "name": "dependencies.cpp",
+      "filePath": "month02/week03/dependencies.cpp",
+      "summary": "week03 依赖图的实现单元：在 week02 的拓扑排序与环检测之上新增 affected() 正向闭包查询，为增量重算给出\"改动源会波及哪些下游属性\"的集合。",
+      "tags": [
+        "dependency-graph",
+        "topological-sort",
+        "transitive-closure",
+        "cycle-detection"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:resolve_dependencies",
+      "type": "function",
+      "name": "resolve_dependencies",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        45,
+        53
+      ],
+      "summary": "遍历 AST 收集变量名，经别名表 resolve_key 解析成具体 PropertyKey 集合，返回公式直接引用的属性。",
+      "tags": [
+        "dependency-extraction",
+        "ast-walk",
+        "alias-resolution"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:replace_dependencies",
+      "type": "function",
+      "name": "replace_dependencies",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        64,
+        98
+      ],
+      "summary": "把 target 的直接依赖整体替换为新集合，先移除旧关系再同步维护 parents_/children_ 两个方向；只维护结构，不保证无环。",
+      "tags": [
+        "dependency-graph",
+        "mutation",
+        "bidirectional-map"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:nodes",
+      "type": "function",
+      "name": "nodes",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        125,
+        134
+      ],
+      "summary": "汇总 parents_ 与 children_ 两张表的键，返回依赖图中的全部节点集合。",
+      "tags": [
+        "dependency-graph",
+        "query",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:affected",
+      "type": "function",
+      "name": "affected",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        144,
+        165
+      ],
+      "summary": "增量重算的范围查询：从 sources 出发沿 dependents 做广度优先扩散，返回所有直接或间接受影响的下游属性集合（不含源本身），供引擎把受影响公式加入脏集合。",
+      "tags": [
+        "transitive-closure",
+        "breadth-first-search",
+        "incremental-recompute"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:topological_order",
+      "type": "function",
+      "name": "topological_order",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        167,
+        233
+      ],
+      "summary": "Kahn 拓扑排序：在 selected 子图上反复摘除依赖已输出的节点得到重算顺序；剩余节点说明有环，转交 find_cycle 生成 GraphError。",
+      "tags": [
+        "topological-sort",
+        "kahn-algorithm",
+        "ordering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:find_cycle",
+      "type": "function",
+      "name": "find_cycle",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        235,
+        358
+      ],
+      "summary": "环路径定位：从拓扑排序剩余节点出发沿 dependents 深搜，找到回到起点的闭合路径并整理进 GraphError.cycle。",
+      "tags": [
+        "cycle-detection",
+        "depth-first-search",
+        "error-reporting"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/dependencies.cpp:try_replace_dependencies",
+      "type": "function",
+      "name": "try_replace_dependencies",
+      "filePath": "month02/week03/dependencies.cpp",
+      "lineRange": [
+        364,
+        390
+      ],
+      "summary": "事务式依赖提交：在图副本上 replace 后重新拓扑排序，无环才 swap 回原结构，有环返回 GraphError 且原图不变，用于阻止提交循环依赖。",
+      "tags": [
+        "transactional-update",
+        "cycle-detection",
+        "dependency-graph"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week03/dependencies.cppm",
+      "type": "file",
+      "name": "dependencies.cppm",
+      "filePath": "month02/week03/dependencies.cppm",
+      "summary": "week03 依赖模块接口：DependencyGraph 在拓扑排序与无环提交之上新增 affected() 下游影响集查询，注释明确\"定范围、定顺序、防循环\"三个职责，为增量重算引擎提供支撑。",
+      "tags": [
+        "module-interface",
+        "dependency-graph",
+        "incremental-recompute",
+        "type-definition"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week03/dependencies.cppm:DependencyGraph",
+      "type": "class",
+      "name": "DependencyGraph",
+      "filePath": "month02/week03/dependencies.cppm",
+      "lineRange": [
+        40,
+        96
+      ],
+      "summary": "week03 依赖图类：parents_/children_ 双向表维护依赖关系，提供 affected 定重算范围、topological_order 定计算顺序、try_replace_dependencies 防循环依赖，与 RecomputeEngine、求值器分工协作。",
+      "tags": [
+        "dependency-graph",
+        "topological-sort",
+        "cycle-detection",
+        "cxx-modules"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week03/engine.cpp",
+      "type": "file",
+      "name": "engine.cpp",
+      "filePath": "month02/week03/engine.cpp",
+      "summary": "增量重算引擎 RecomputeEngine 的实现单元：矩形创建、set/set_many 属性修改、bind 公式绑定、begin/end_batch 批次与 flush_if_ready 统一重算，配合 writing_/recomputing_ 重入保护和 last_report 执行报告。",
+      "tags": [
+        "recompute-engine",
+        "incremental-recompute",
+        "formula-binding",
+        "batching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:create_rectangle",
+      "type": "function",
+      "name": "create_rectangle",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        45,
+        73
+      ],
+      "summary": "创建矩形对象：校验引擎空闲与尺寸有限及上界，构造 Rectangle 并通过 observe 订阅其变化信号（回调为 collect_changes），登记进 objects_ 表。",
+      "tags": [
+        "factory",
+        "object-creation",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:set_many",
+      "type": "function",
+      "name": "set_many",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        85,
+        131
+      ],
+      "summary": "一次修改同一对象的多个输入属性：先整体验证（对象存在、属性未绑定公式），再统一更新并发送一次变化通知，最后 flush_if_ready 统一重算受影响公式，减少重复计算。",
+      "tags": [
+        "batch-update",
+        "validation",
+        "incremental-recompute"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:bind",
+      "type": "function",
+      "name": "bind",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        133,
+        215
+      ],
+      "summary": "公式绑定核心：校验目标属性存在且可写，parse 表达式得到 AST，resolve_dependencies 解析直接依赖，try_replace_dependencies 无环校验通过后写入 bindings_，再标记下游脏属性并触发统一重算。",
+      "tags": [
+        "formula-binding",
+        "dependency-graph",
+        "cycle-detection",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:begin_batch",
+      "type": "function",
+      "name": "begin_batch",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        222,
+        242
+      ],
+      "summary": "开启批量修改：batch_depth_ 嵌套计数加一，期间输入立即更新但公式重算延迟到最外层 end_batch 统一执行；写入或重算中途开启批次会失败。",
+      "tags": [
+        "batching",
+        "deferred-recompute",
+        "state-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:observe",
+      "type": "function",
+      "name": "observe",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        253,
+        259
+      ],
+      "summary": "为对象注册属性变化回调：查找对象后经 Rectangle::observe 把回调接入底层 ChangeSignal，返回 Connection 订阅凭证供引擎保存。",
+      "tags": [
+        "observer-pattern",
+        "subscription",
+        "change-notification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:mark_downstream",
+      "type": "function",
+      "name": "mark_downstream",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        267,
+        278
+      ],
+      "summary": "把 source 的所有直接或间接下游属性（graph.affected 的结果）加入 dirty_ 脏集合，等待统一重算。",
+      "tags": [
+        "dirty-tracking",
+        "incremental-recompute",
+        "dependency-graph"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:collect_changes",
+      "type": "function",
+      "name": "collect_changes",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        281,
+        293
+      ],
+      "summary": "变化信号回调：解析 ChangeEvent 中发生变化的属性并逐个 mark_downstream，是\"属性修改 → 待重算集合\"之间的桥梁。",
+      "tags": [
+        "event-handler",
+        "dirty-tracking",
+        "change-notification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week03/engine.cpp:flush_if_ready",
+      "type": "function",
+      "name": "flush_if_ready",
+      "filePath": "month02/week03/engine.cpp",
+      "lineRange": [
+        295,
+        362
+      ],
+      "summary": "统一重算执行：不在写入/重算/批次中时，取 dirty_ 的拓扑顺序逐个 evaluate 公式并把结果写回属性，失败以 RecomputeStep 记录原因；每轮重算前清空旧报告。",
+      "tags": [
+        "incremental-recompute",
+        "topological-sort",
+        "evaluation",
+        "reporting"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:month02/week03/engine.cppm",
+      "type": "file",
+      "name": "engine.cppm",
+      "filePath": "month02/week03/engine.cppm",
+      "summary": "engine 模块接口：导出 RecomputeEngine 类与 RecomputeStep/EngineError，export import dependencies/evaluator/rectangle 三个模块，聚合成本周增量重算的公共入口；注释详述 bindings_、batch_depth_ 与重入标志的语义。",
+      "tags": [
+        "module-interface",
+        "recompute-engine",
+        "incremental-recompute",
+        "cxx-modules"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week03/engine.cppm:RecomputeEngine",
+      "type": "class",
+      "name": "RecomputeEngine",
+      "filePath": "month02/week03/engine.cppm",
+      "lineRange": [
+        33,
+        160
+      ],
+      "summary": "增量重算协调器：连接 Rectangle 属性存储、DependencyGraph 依赖排序与 Evaluator 求值，管理 objects_ 登记表、bindings_ 公式表、dirty_ 脏集合、批次深度与 last_report 执行报告，禁止拷贝。",
+      "tags": [
+        "recompute-engine",
+        "orchestrator",
+        "dependency-graph",
+        "singleton-like"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:month02/week03/evaluator.cpp",
+      "type": "file",
+      "name": "evaluator.cpp",
+      "filePath": "month02/week03/evaluator.cpp",
+      "summary": "表达式求值的实现单元：evaluate 递归遍历 AST 完成四则与一元运算，除零与结果非有限数返回 Error，变量值经 Resolver 回调从属性系统查询。",
+      "tags": [
+        "evaluator",
+        "ast-walk",
+        "error-handling",
+        "callback"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week03/evaluator.cpp:evaluate",
+      "type": "function",
+      "name": "evaluate",
+      "filePath": "month02/week03/evaluator.cpp",
+      "lineRange": [
+        34,
+        123
+      ],
+      "summary": "递归求值 AST：Number 直接取值，Variable 经 resolve 回调查询属性值，Unary/Binary 递归求子节点后计算，全程用 finite 检查有限性并返回 std::expected<double, Error>。",
+      "tags": [
+        "evaluator",
+        "recursion",
+        "finite-check",
+        "expected"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week03/evaluator.cpp:calculate",
+      "type": "function",
+      "name": "calculate",
+      "filePath": "month02/week03/evaluator.cpp",
+      "lineRange": [
+        125,
+        138
+      ],
+      "summary": "便捷求值入口：先 parse 表达式文本，成功后交给 evaluate 计算，把解析错误与求值错误统一返回给调用者。",
+      "tags": [
+        "evaluator",
+        "api",
+        "parser-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week03/evaluator.cppm",
+      "type": "file",
+      "name": "evaluator.cppm",
+      "filePath": "month02/week03/evaluator.cppm",
+      "summary": "evaluator 模块接口：导出 Resolver 属性查询回调类型与 evaluate/calculate 声明，export import parser 与 property 复用 AST 与属性值类型。",
+      "tags": [
+        "module-interface",
+        "evaluator",
+        "type-definition",
+        "cxx-modules"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "class:month02/week02/parser.cpp:Parser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "function:month02/week02/parser.cpp:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "function:month02/week02/parser.cpp:describe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "function:month02/week03/change_signal.cpp:connect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "function:month02/week03/change_signal.cpp:emit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:resolve_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:replace_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:nodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:affected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:topological_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:find_cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:try_replace_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/dependencies.cppm",
+      "target": "class:month02/week03/dependencies.cppm:DependencyGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:create_rectangle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:set_many",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:bind",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:begin_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:observe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:mark_downstream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:collect_changes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cpp",
+      "target": "function:month02/week03/engine.cpp:flush_if_ready",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "class:month02/week03/engine.cppm:RecomputeEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/evaluator.cpp",
+      "target": "function:month02/week03/evaluator.cpp:evaluate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week03/evaluator.cpp",
+      "target": "function:month02/week03/evaluator.cpp:calculate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "function:month02/week02/parser.cpp:parse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "function:month02/week02/parser.cpp:describe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "function:month02/week03/change_signal.cpp:connect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "function:month02/week03/change_signal.cpp:emit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:resolve_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:replace_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:nodes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:affected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:topological_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:find_cycle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cpp",
+      "target": "function:month02/week03/dependencies.cpp:try_replace_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/dependencies.cppm",
+      "target": "class:month02/week03/dependencies.cppm:DependencyGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "class:month02/week03/engine.cppm:RecomputeEngine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/evaluator.cpp",
+      "target": "function:month02/week03/evaluator.cpp:evaluate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week03/evaluator.cpp",
+      "target": "function:month02/week03/evaluator.cpp:calculate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/parser.cppm",
+      "target": "file:month02/week02/parser.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/parser.cpp",
+      "target": "file:month02/week03/parser.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/parser.cppm",
+      "target": "file:month02/week03/parser.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/dependencies.cppm",
+      "target": "file:month02/week03/dependencies.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "file:month02/week03/engine.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/evaluator.cppm",
+      "target": "file:month02/week03/evaluator.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "file:month02/week03/property.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/change_signal.cpp",
+      "target": "file:month01/week04/change_signal.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/parser.cppm",
+      "target": "file:month02/week02/lexer.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/evaluator.cppm",
+      "target": "file:month02/week03/parser.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/evaluator.cppm",
+      "target": "file:month02/week03/property.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "file:month02/week03/dependencies.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "file:month02/week03/evaluator.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/engine.cppm",
+      "target": "file:month02/week03/rectangle.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:bind",
+      "target": "function:month02/week03/parser.cpp:parse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:bind",
+      "target": "function:month02/week03/dependencies.cpp:resolve_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:bind",
+      "target": "function:month02/week03/dependencies.cpp:try_replace_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:flush_if_ready",
+      "target": "function:month02/week03/evaluator.cpp:evaluate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:flush_if_ready",
+      "target": "function:month02/week03/dependencies.cpp:topological_order",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:mark_downstream",
+      "target": "function:month02/week03/dependencies.cpp:affected",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/engine.cpp:observe",
+      "target": "function:month02/week03/change_signal.cpp:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week03/evaluator.cpp:calculate",
+      "target": "function:month02/week03/parser.cpp:parse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:month02/week02/tools/README.md",
+      "target": "file:month02/week02/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week02/tools/README.md",
+      "target": "file:month02/week02/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week03/.clang-format",
+      "target": "file:month02/week03/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week03/.clangd",
+      "target": "file:month02/week03/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

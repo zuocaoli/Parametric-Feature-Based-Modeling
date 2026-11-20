@@ -1,0 +1,946 @@
+{
+  "nodes": [
+    {
+      "id": "file:month02/week01/dependencies.cppm",
+      "type": "file",
+      "name": "dependencies.cppm",
+      "filePath": "month02/week01/dependencies.cppm",
+      "summary": "week01 依赖模块的接口单元：定义 PropertyKey 属性标识、KeySet/VariableMap 类型别名与 DependencyGraph 类，声明 key_text、collect_variables、resolve_dependencies 等依赖提取接口，并通过 export import 引入 parser 模块。",
+      "tags": [
+        "module-interface",
+        "dependency-graph",
+        "data-model",
+        "type-definition",
+        "cxx-modules"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "C++23 具名模块把接口与实现拆成 .cppm/.cpp 两个文件；接口单元内 export import parser 让使用者自动获得 AST 类型，无需逐个转发。"
+    },
+    {
+      "id": "file:month02/week01/lexer.cpp",
+      "type": "file",
+      "name": "lexer.cpp",
+      "filePath": "month02/week01/lexer.cpp",
+      "summary": "词法分析器的实现单元：把表达式文本逐字符扫描成 Token 流，识别数字（std::from_chars 转换并检查有限性）、标识符与运算符括号，失败时返回带阶段和字节位置的 Error。",
+      "tags": [
+        "lexer",
+        "tokenizer",
+        "error-handling",
+        "expected",
+        "parser-pipeline"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "单遍扫描配合 std::expected<std::vector<Token>, Error>，用返回值而非异常表达词法失败，错误信息自带 stage 与 position 便于定位。"
+    },
+    {
+      "id": "file:month02/week01/lexer.cppm",
+      "type": "file",
+      "name": "lexer.cppm",
+      "filePath": "month02/week01/lexer.cppm",
+      "summary": "lexer 模块的接口单元：导出 ErrorStage/Error、TokenKind/Token 以及 lex、stage_name、token_name 声明，是表达式处理流水线的入口契约。",
+      "tags": [
+        "module-interface",
+        "lexer",
+        "type-definition",
+        "token",
+        "cxx-modules"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week01/main.cpp",
+      "type": "file",
+      "name": "main.cpp",
+      "filePath": "month02/week01/main.cpp",
+      "summary": "week01 演示入口：解析表达式 (length + length) / 2 + source_width，打印 AST 中的变量，再经别名表把依赖写入 DependencyGraph，输出 dependencies/dependents 双向查询结果。",
+      "tags": [
+        "entry-point",
+        "demo",
+        "dependency-graph",
+        "console"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week01/parser.cpp",
+      "type": "file",
+      "name": "parser.cpp",
+      "filePath": "month02/week01/parser.cpp",
+      "summary": "递归下降解析器的实现单元：Parser 类按 additive/multiplicative/unary/primary 优先级层级构建 AST，带嵌套深度上限与节点高度维护，对外提供 parse 与 describe。",
+      "tags": [
+        "parser",
+        "recursive-descent",
+        "ast",
+        "syntax-analysis"
+      ],
+      "complexity": "complex",
+      "languageNotes": "内部用 ParseFailure 异常做错误恢复，对外统一折算成 std::expected<Tree, Error>；make/make_binary 统一创建节点并记录子树高度。"
+    },
+    {
+      "id": "file:month02/week01/parser.cppm",
+      "type": "file",
+      "name": "parser.cppm",
+      "filePath": "month02/week01/parser.cppm",
+      "summary": "parser 模块的接口单元：导出 NodeKind/Node/Tree 语法树类型与 parse、describe 声明，export import lexer 复用 Token 与 Error 定义。",
+      "tags": [
+        "module-interface",
+        "ast",
+        "type-definition",
+        "cxx-modules"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week01/lexer.cpp:lex",
+      "type": "function",
+      "name": "lex",
+      "filePath": "month02/week01/lexer.cpp",
+      "lineRange": [
+        71,
+        209
+      ],
+      "summary": "核心词法函数：逐字符扫描输入，跳过空白，识别整数与小数（std::from_chars 转换并校验有限性），切分标识符与运算符括号，末尾追加 End 标记。",
+      "tags": [
+        "lexer",
+        "tokenizer",
+        "from-chars",
+        "error-handling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week01/lexer.cpp:stage_name",
+      "type": "function",
+      "name": "stage_name",
+      "filePath": "month02/week01/lexer.cpp",
+      "lineRange": [
+        23,
+        37
+      ],
+      "summary": "把 ErrorStage 枚举映射为可打印的阶段名称，用于错误信息的展示与诊断。",
+      "tags": [
+        "utility",
+        "diagnostic",
+        "error-reporting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week01/lexer.cpp:token_name",
+      "type": "function",
+      "name": "token_name",
+      "filePath": "month02/week01/lexer.cpp",
+      "lineRange": [
+        39,
+        61
+      ],
+      "summary": "把 TokenKind 枚举映射为可打印名称，便于调试时输出 Token 流内容。",
+      "tags": [
+        "utility",
+        "diagnostic",
+        "token"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:month02/week01/parser.cpp:Parser",
+      "type": "class",
+      "name": "Parser",
+      "filePath": "month02/week01/parser.cpp",
+      "lineRange": [
+        11,
+        221
+      ],
+      "summary": "递归下降解析器：持有 Token 流、游标与嵌套计数，按 parse_additive→parse_multiplicative→parse_unary→parse_primary 的优先级层级构建 AST，make/make_binary 统一创建节点并维护子树高度，嵌套超限即失败。",
+      "tags": [
+        "parser",
+        "recursive-descent",
+        "ast",
+        "precedence"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week01/parser.cpp:parse",
+      "type": "function",
+      "name": "parse",
+      "filePath": "month02/week01/parser.cpp",
+      "lineRange": [
+        236,
+        263
+      ],
+      "summary": "对外解析入口：先调用 lex 得到 Token 流，再驱动 Parser 完成整棵表达式解析并检查输入是否耗尽，词法或语法错误统一返回 Error，不做求值。",
+      "tags": [
+        "parser",
+        "api",
+        "expected",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week01/parser.cpp:describe",
+      "type": "function",
+      "name": "describe",
+      "filePath": "month02/week01/parser.cpp",
+      "lineRange": [
+        265,
+        274
+      ],
+      "summary": "递归输出 AST 结构的诊断辅助函数，按节点类型打印表达式形状，便于教学演示树形结构。",
+      "tags": [
+        "diagnostic",
+        "ast",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week01/main.cpp:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "month02/week01/main.cpp",
+      "lineRange": [
+        4,
+        70
+      ],
+      "summary": "week01 演示主流程：解析表达式、collect_variables 打印变量集合，经别名表 resolve_dependencies 后写入 DependencyGraph，并演示 dependencies 与 dependents 两个方向的查询。",
+      "tags": [
+        "entry-point",
+        "demo",
+        "dependency-graph"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:month02/week01/dependencies.cppm:DependencyGraph",
+      "type": "class",
+      "name": "DependencyGraph",
+      "filePath": "month02/week01/dependencies.cppm",
+      "lineRange": [
+        68,
+        93
+      ],
+      "summary": "week01 依赖图类：以 PropertyKey 为节点，parents_/children_ 两张 map 保存\"依赖谁/被谁依赖\"两个查询方向，提供 replace_dependencies、remove_formula、dependencies、dependents、nodes 等结构维护与查询接口。",
+      "tags": [
+        "dependency-graph",
+        "data-model",
+        "bidirectional-map",
+        "cxx-modules"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "同一张有向图用两个方向的红黑树 map 冗余存储，换取 dependencies 与 dependents 的 O(log n) 双向查询。"
+    },
+    {
+      "id": "file:month02/week02/.clang-format",
+      "type": "file",
+      "name": ".clang-format",
+      "filePath": "month02/week02/.clang-format",
+      "summary": "week02 的 clang-format 配置：基于 LLVM 风格，列宽上限 500、缩进 4 空格，用于本周源码的格式化检查。",
+      "tags": [
+        "configuration",
+        "formatting",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week02/.clangd",
+      "type": "file",
+      "name": ".clangd",
+      "filePath": "month02/week02/.clangd",
+      "summary": "week02 的 clangd 配置：把编译数据库指向 build 目录的 compile_commands.json，并开启后台索引，支撑 C++23 具名模块的代码智能。",
+      "tags": [
+        "configuration",
+        "clangd",
+        "ide",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week02/dependencies.cpp",
+      "type": "file",
+      "name": "dependencies.cpp",
+      "filePath": "month02/week02/dependencies.cpp",
+      "summary": "week02 依赖图的实现单元：在 week01 的结构维护之上新增 Kahn 拓扑排序 topological_order、环路径定位 find_cycle，以及带无环校验的事务式提交 try_replace_dependencies。",
+      "tags": [
+        "dependency-graph",
+        "topological-sort",
+        "cycle-detection",
+        "kahn-algorithm"
+      ],
+      "complexity": "complex",
+      "languageNotes": "topological_order 反复摘除零入度节点，剩余未输出节点即处于环中，再由 find_cycle 沿 dependents 深搜回溯出具体环路径。"
+    },
+    {
+      "id": "file:month02/week02/dependencies.cppm",
+      "type": "file",
+      "name": "dependencies.cppm",
+      "filePath": "month02/week02/dependencies.cppm",
+      "summary": "week02 依赖模块接口：沿用 PropertyKey/KeySet/VariableMap，新增含环路径的 GraphError，并给 DependencyGraph 扩展拓扑排序与 try_replace_dependencies 无环提交接口。",
+      "tags": [
+        "module-interface",
+        "dependency-graph",
+        "topological-sort",
+        "type-definition"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week02/lexer.cpp:lex",
+      "type": "function",
+      "name": "lex",
+      "filePath": "month02/week02/lexer.cpp",
+      "lineRange": [
+        71,
+        209
+      ],
+      "summary": "核心词法函数（与 week01 相同）：逐字符扫描输入，识别数字并经 std::from_chars 转换校验，切分标识符与运算符括号，末尾追加 End 标记。",
+      "tags": [
+        "lexer",
+        "tokenizer",
+        "from-chars",
+        "copied-source"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week02/lexer.cpp:stage_name",
+      "type": "function",
+      "name": "stage_name",
+      "filePath": "month02/week02/lexer.cpp",
+      "lineRange": [
+        23,
+        37
+      ],
+      "summary": "把 ErrorStage 枚举映射为可打印的阶段名称，用于错误信息的展示与诊断。",
+      "tags": [
+        "utility",
+        "diagnostic",
+        "error-reporting"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week02/lexer.cpp:token_name",
+      "type": "function",
+      "name": "token_name",
+      "filePath": "month02/week02/lexer.cpp",
+      "lineRange": [
+        39,
+        61
+      ],
+      "summary": "把 TokenKind 枚举映射为可打印名称，便于调试时输出 Token 流内容。",
+      "tags": [
+        "utility",
+        "diagnostic",
+        "token"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week02/lexer.cpp",
+      "type": "file",
+      "name": "lexer.cpp",
+      "filePath": "month02/week02/lexer.cpp",
+      "summary": "词法分析实现，与 week01 逐字相同（仅模块名与命名空间不同）：课程刻意复制源码保持每周自包含，为依赖图提供 Token 流。",
+      "tags": [
+        "lexer",
+        "tokenizer",
+        "copied-source",
+        "error-handling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:month02/week02/lexer.cppm",
+      "type": "file",
+      "name": "lexer.cppm",
+      "filePath": "month02/week02/lexer.cppm",
+      "summary": "week02 lexer 模块接口单元，与 week01 版本仅模块名不同：导出 Error/Token 类型与 lex、stage_name、token_name 声明。",
+      "tags": [
+        "module-interface",
+        "lexer",
+        "copied-source",
+        "type-definition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:month02/week02/main.cpp",
+      "type": "file",
+      "name": "main.cpp",
+      "filePath": "month02/week02/main.cpp",
+      "summary": "week02 演示入口：先按书写顺序调用 calculations 中的 lambda 展示\"算错序导致结果过时\"的问题，再建立 area/width 依赖图做拓扑排序并按序求值，最后故意构造循环依赖验证 try_replace_dependencies 的拦截并打印环路径。",
+      "tags": [
+        "entry-point",
+        "demo",
+        "topological-sort",
+        "cycle-detection"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:resolve_dependencies",
+      "type": "function",
+      "name": "resolve_dependencies",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "遍历 AST 收集变量名，经别名表 resolve_key 把每个变量解析成具体 PropertyKey，返回公式的直接依赖集合。",
+      "tags": [
+        "dependency-extraction",
+        "ast-walk",
+        "alias-resolution"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:replace_dependencies",
+      "type": "function",
+      "name": "replace_dependencies",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        67,
+        100
+      ],
+      "summary": "把 target 的直接依赖整体替换为新集合，先清除旧边再同步维护 parents_/children_ 两个方向；只维护图结构，不保证结果无环。",
+      "tags": [
+        "dependency-graph",
+        "mutation",
+        "bidirectional-map"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:nodes",
+      "type": "function",
+      "name": "nodes",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        127,
+        136
+      ],
+      "summary": "汇总 parents_ 与 children_ 两张表的键，返回依赖图中的全部节点集合。",
+      "tags": [
+        "dependency-graph",
+        "query",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:topological_order",
+      "type": "function",
+      "name": "topological_order",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        146,
+        214
+      ],
+      "summary": "Kahn 拓扑排序：在 selected 子图上反复摘除依赖已全部输出的节点得到计算顺序；若还有剩余节点说明存在环，转交 find_cycle 生成 GraphError 返回。",
+      "tags": [
+        "topological-sort",
+        "kahn-algorithm",
+        "ordering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:find_cycle",
+      "type": "function",
+      "name": "find_cycle",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        216,
+        342
+      ],
+      "summary": "环路径定位：从拓扑排序剩余节点出发沿 dependents 深搜，找到回到起点的闭合路径，整理成首尾相同的 cycle 序列放入 GraphError。",
+      "tags": [
+        "cycle-detection",
+        "depth-first-search",
+        "error-reporting"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:month02/week02/dependencies.cpp:try_replace_dependencies",
+      "type": "function",
+      "name": "try_replace_dependencies",
+      "filePath": "month02/week02/dependencies.cpp",
+      "lineRange": [
+        349,
+        368
+      ],
+      "summary": "事务式依赖提交：在图副本上执行 replace 后重新拓扑排序，无环才把副本 swap 回原结构，有环返回 GraphError 且原图保持不变。",
+      "tags": [
+        "transactional-update",
+        "cycle-detection",
+        "dependency-graph"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "copy-modify-check-swap 的手法让失败的修改不留任何痕迹，是图结构事务提交的最小实现。"
+    },
+    {
+      "id": "class:month02/week02/dependencies.cppm:DependencyGraph",
+      "type": "class",
+      "name": "DependencyGraph",
+      "filePath": "month02/week02/dependencies.cppm",
+      "lineRange": [
+        73,
+        106
+      ],
+      "summary": "week02 依赖图类：在双向依赖表之上提供 topological_order（全图/子集两个重载）、find_cycle 与 try_replace_dependencies 无环提交接口，回答\"按什么顺序算\"的问题。",
+      "tags": [
+        "dependency-graph",
+        "topological-sort",
+        "cycle-detection",
+        "cxx-modules"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:month02/week02/main.cpp:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "month02/week02/main.cpp",
+      "lineRange": [
+        4,
+        86
+      ],
+      "summary": "week02 演示主流程：对比乱序与拓扑序的求值结果，演示 topological_order 决定计算顺序，并以 length←width 的环形绑定验证循环依赖被拒绝后打印环路径。",
+      "tags": [
+        "entry-point",
+        "demo",
+        "topological-sort",
+        "cycle-detection"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:lex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:stage_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:token_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "class:month02/week01/parser.cpp:Parser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "function:month02/week01/parser.cpp:parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "function:month02/week01/parser.cpp:describe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/main.cpp",
+      "target": "function:month02/week01/main.cpp:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/dependencies.cppm",
+      "target": "class:month02/week01/dependencies.cppm:DependencyGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:resolve_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:replace_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:nodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:topological_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:find_cycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:try_replace_dependencies",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/dependencies.cppm",
+      "target": "class:month02/week02/dependencies.cppm:DependencyGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:lex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:stage_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:token_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week02/main.cpp",
+      "target": "function:month02/week02/main.cpp:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:lex",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:stage_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "function:month02/week01/lexer.cpp:token_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "function:month02/week01/parser.cpp:parse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "function:month02/week01/parser.cpp:describe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/dependencies.cppm",
+      "target": "class:month02/week01/dependencies.cppm:DependencyGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:resolve_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:replace_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:nodes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:topological_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:find_cycle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cpp",
+      "target": "function:month02/week02/dependencies.cpp:try_replace_dependencies",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/dependencies.cppm",
+      "target": "class:month02/week02/dependencies.cppm:DependencyGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:lex",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:stage_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "function:month02/week02/lexer.cpp:token_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week01/dependencies.cppm",
+      "target": "file:month02/week01/dependencies.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/lexer.cppm",
+      "target": "file:month02/week01/lexer.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/parser.cppm",
+      "target": "file:month02/week01/parser.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/dependencies.cppm",
+      "target": "file:month02/week02/dependencies.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/lexer.cppm",
+      "target": "file:month02/week02/lexer.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/lexer.cpp",
+      "target": "file:month02/week02/lexer.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/lexer.cppm",
+      "target": "file:month02/week02/lexer.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/parser.cpp",
+      "target": "file:month02/week02/parser.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/parser.cppm",
+      "target": "file:month02/week02/parser.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/lexer.cpp",
+      "target": "file:month02/week03/lexer.cpp",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week02/lexer.cppm",
+      "target": "file:month02/week03/lexer.cppm",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/main.cpp",
+      "target": "file:month02/week01/dependencies.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week01/parser.cppm",
+      "target": "file:month02/week01/lexer.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week01/dependencies.cppm",
+      "target": "file:month02/week01/parser.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week02/main.cpp",
+      "target": "file:month02/week02/dependencies.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week02/dependencies.cppm",
+      "target": "file:month02/week02/parser.cppm",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:month02/week01/main.cpp:main",
+      "target": "function:month02/week01/parser.cpp:parse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week01/main.cpp:main",
+      "target": "function:month02/week01/dependencies.cpp:resolve_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week01/main.cpp:main",
+      "target": "function:month02/week01/dependencies.cpp:replace_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week01/parser.cpp:parse",
+      "target": "function:month02/week01/lexer.cpp:lex",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week02/main.cpp:main",
+      "target": "function:month02/week02/dependencies.cpp:replace_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week02/main.cpp:main",
+      "target": "function:month02/week02/dependencies.cpp:topological_order",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:month02/week02/main.cpp:main",
+      "target": "function:month02/week02/dependencies.cpp:try_replace_dependencies",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:month02/week02/.clang-format",
+      "target": "file:month02/week02/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week02/.clangd",
+      "target": "file:month02/week02/main.cpp",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

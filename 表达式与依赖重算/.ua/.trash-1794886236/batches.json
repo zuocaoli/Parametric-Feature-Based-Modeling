@@ -1,0 +1,1512 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 136,
+  "totalBatches": 13,
+  "exportsByPath": {
+    ".ua/.understandignore": [],
+    "month01/week01/.clangd": [],
+    "month01/week01/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month01/week01/lexer.cppm": [],
+    "month01/week01/main.cpp": [
+      "main"
+    ],
+    "month01/week02/.clangd": [],
+    "month01/week02/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month01/week02/lexer.cppm": [],
+    "month01/week02/main.cpp": [
+      "main"
+    ],
+    "month01/week02/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month01/week02/parser.cppm": [],
+    "month01/week03/.clangd": [],
+    "month01/week03/change_signal.cpp": [
+      "Connection::Connection",
+      "Connection::~Connection",
+      "Connection::disconnect",
+      "Connection::Connection",
+      "connect",
+      "emit"
+    ],
+    "month01/week03/evaluator.cpp": [
+      "finite",
+      "evaluate",
+      "calculate"
+    ],
+    "month01/week03/evaluator.cppm": [],
+    "month01/week03/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month01/week03/lexer.cppm": [],
+    "month01/week03/main.cpp": [
+      "main"
+    ],
+    "month01/week03/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month01/week03/parser.cppm": [],
+    "month01/week03/property.cpp": [
+      "result_name",
+      "type_name",
+      "value_text",
+      "PropertyObject",
+      "id",
+      "properties",
+      "get",
+      "observe",
+      "notification_errors",
+      "set",
+      "set_many",
+      "add",
+      "read"
+    ],
+    "month01/week03/property.cppm": [],
+    "month01/week03/rectangle.cpp": [
+      "positive_size",
+      "Rectangle"
+    ],
+    "month01/week03/rectangle.cppm": [],
+    "month01/week04/.clangd": [],
+    "month01/week04/change_signal.cpp": [
+      "Connection::Connection",
+      "Connection::~Connection",
+      "Connection::disconnect",
+      "Connection::Connection",
+      "connect",
+      "emit"
+    ],
+    "month01/week04/evaluator.cpp": [
+      "finite",
+      "evaluate",
+      "calculate"
+    ],
+    "month01/week04/evaluator.cppm": [],
+    "month01/week04/formulas.cpp": [
+      "FormulaEngine",
+      "bind",
+      "unbind",
+      "formula",
+      "formulas",
+      "compute"
+    ],
+    "month01/week04/formulas.cppm": [],
+    "month01/week04/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month01/week04/lexer.cppm": [],
+    "month01/week04/main.cpp": [
+      "require",
+      "number",
+      "show",
+      "compute_in_order",
+      "main"
+    ],
+    "month01/week04/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month01/week04/parser.cppm": [],
+    "month01/week04/property.cpp": [
+      "result_name",
+      "type_name",
+      "value_text",
+      "PropertyObject",
+      "id",
+      "properties",
+      "get",
+      "observe",
+      "notification_errors",
+      "set",
+      "set_many",
+      "add",
+      "read"
+    ],
+    "month01/week04/property.cppm": [],
+    "month01/week04/rectangle.cpp": [
+      "positive_size",
+      "Rectangle"
+    ],
+    "month01/week04/rectangle.cppm": [],
+    "month01/week04/storage.cpp": [
+      "storage_error",
+      "read_value",
+      "RectangleModel",
+      "save_model",
+      "load_model"
+    ],
+    "month01/week04/storage.cppm": [],
+    "month02/week01/.clang-format": [],
+    "month02/week01/.clangd": [],
+    "month02/week01/dependencies.cpp": [
+      "collect",
+      "key_text",
+      "collect_variables",
+      "resolve_key",
+      "resolve_dependencies",
+      "replace_dependencies",
+      "remove_formula",
+      "nodes"
+    ],
+    "month02/week01/dependencies.cppm": [],
+    "month02/week01/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month02/week01/lexer.cppm": [],
+    "month02/week01/main.cpp": [
+      "main"
+    ],
+    "month02/week01/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month02/week01/parser.cppm": [],
+    "month02/week02/.clang-format": [],
+    "month02/week02/.clangd": [],
+    "month02/week02/dependencies.cpp": [
+      "collect",
+      "key_text",
+      "collect_variables",
+      "resolve_key",
+      "resolve_dependencies",
+      "replace_dependencies",
+      "remove_formula",
+      "nodes",
+      "topological_order",
+      "topological_order",
+      "find_cycle",
+      "try_replace_dependencies"
+    ],
+    "month02/week02/dependencies.cppm": [],
+    "month02/week02/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month02/week02/lexer.cppm": [],
+    "month02/week02/main.cpp": [
+      "main"
+    ],
+    "month02/week02/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month02/week02/parser.cppm": [],
+    "month02/week03/.clang-format": [],
+    "month02/week03/.clangd": [],
+    "month02/week03/change_signal.cpp": [
+      "Connection::Connection",
+      "Connection::~Connection",
+      "Connection::disconnect",
+      "Connection::Connection",
+      "connect",
+      "emit"
+    ],
+    "month02/week03/dependencies.cpp": [
+      "collect",
+      "key_text",
+      "collect_variables",
+      "resolve_key",
+      "resolve_dependencies",
+      "replace_dependencies",
+      "remove_formula",
+      "nodes",
+      "topological_order",
+      "affected",
+      "topological_order",
+      "find_cycle",
+      "try_replace_dependencies"
+    ],
+    "month02/week03/dependencies.cppm": [],
+    "month02/week03/engine.cpp": [
+      "FlagGuard",
+      "~FlagGuard",
+      "FlagGuard",
+      "engine_error",
+      "expression_error",
+      "busy",
+      "create_rectangle",
+      "stored_value",
+      "set",
+      "set_many",
+      "bind",
+      "formula",
+      "begin_batch",
+      "end_batch",
+      "observe",
+      "mark_downstream",
+      "collect_changes",
+      "flush_if_ready"
+    ],
+    "month02/week03/engine.cppm": [],
+    "month02/week03/evaluator.cpp": [
+      "finite",
+      "evaluate",
+      "calculate"
+    ],
+    "month02/week03/evaluator.cppm": [],
+    "month02/week03/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month02/week03/lexer.cppm": [],
+    "month02/week03/main.cpp": [
+      "show",
+      "report",
+      "main"
+    ],
+    "month02/week03/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month02/week03/parser.cppm": [],
+    "month02/week03/property.cpp": [
+      "result_name",
+      "type_name",
+      "value_text",
+      "PropertyObject",
+      "id",
+      "properties",
+      "get",
+      "observe",
+      "notification_errors",
+      "set",
+      "set_many",
+      "add",
+      "read"
+    ],
+    "month02/week03/property.cppm": [],
+    "month02/week03/rectangle.cpp": [
+      "positive_size",
+      "Rectangle"
+    ],
+    "month02/week03/rectangle.cppm": [],
+    "month02/week04/.clang-format": [],
+    "month02/week04/.clangd": [],
+    "month02/week04/change_signal.cpp": [
+      "Connection::Connection",
+      "Connection::~Connection",
+      "Connection::disconnect",
+      "Connection::Connection",
+      "connect",
+      "emit"
+    ],
+    "month02/week04/dependencies.cpp": [
+      "collect",
+      "key_text",
+      "collect_variables",
+      "resolve_key",
+      "resolve_dependencies",
+      "replace_dependencies",
+      "remove_formula",
+      "nodes",
+      "topological_order",
+      "affected",
+      "topological_order",
+      "find_cycle",
+      "try_replace_dependencies"
+    ],
+    "month02/week04/dependencies.cppm": [],
+    "month02/week04/engine.cpp": [
+      "FlagGuard",
+      "~FlagGuard",
+      "FlagGuard",
+      "engine_error",
+      "expression_error",
+      "state_name",
+      "busy",
+      "create_rectangle",
+      "stored_value",
+      "status",
+      "value",
+      "set",
+      "set_many",
+      "bind",
+      "formula",
+      "unbind",
+      "erase",
+      "begin_batch",
+      "end_batch",
+      "observe",
+      "mark_downstream",
+      "mark_dirty",
+      "collect_changes",
+      "flush_if_ready"
+    ],
+    "month02/week04/engine.cppm": [],
+    "month02/week04/evaluator.cpp": [
+      "finite",
+      "evaluate",
+      "calculate"
+    ],
+    "month02/week04/evaluator.cppm": [],
+    "month02/week04/lexer.cpp": [
+      "digit",
+      "identifier_start",
+      "whitespace",
+      "stage_name",
+      "token_name",
+      "lex"
+    ],
+    "month02/week04/lexer.cppm": [],
+    "month02/week04/main.cpp": [
+      "number",
+      "report",
+      "act",
+      "rectangle_example",
+      "failure_example",
+      "main"
+    ],
+    "month02/week04/parser.cpp": [
+      "ParseFailure",
+      "Parser",
+      "parse_complete_expression",
+      "Parser",
+      "parse",
+      "describe"
+    ],
+    "month02/week04/parser.cppm": [],
+    "month02/week04/property.cpp": [
+      "result_name",
+      "type_name",
+      "value_text",
+      "PropertyObject",
+      "id",
+      "properties",
+      "get",
+      "observe",
+      "notification_errors",
+      "set",
+      "set_many",
+      "add",
+      "read"
+    ],
+    "month02/week04/property.cppm": [],
+    "month02/week04/rectangle.cpp": [
+      "positive_size",
+      "Rectangle"
+    ],
+    "month02/week04/rectangle.cppm": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "month01/week01/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 36,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week01/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month01/week01/README.md",
+          "language": "markdown",
+          "sizeLines": 64,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week01/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month01/week01/CMakeLists.txt": [],
+        "month01/week01/CMakePresets.json": [],
+        "month01/week01/README.md": [],
+        "month01/week01/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "month01/week02/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 38,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week02/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month01/week02/README.md",
+          "language": "markdown",
+          "sizeLines": 152,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week02/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month01/week02/CMakeLists.txt": [],
+        "month01/week02/CMakePresets.json": [],
+        "month01/week02/README.md": [],
+        "month01/week02/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "month01/week03/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 45,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week03/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month01/week03/README.md",
+          "language": "markdown",
+          "sizeLines": 82,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week03/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month01/week03/CMakeLists.txt": [],
+        "month01/week03/CMakePresets.json": [],
+        "month01/week03/README.md": [],
+        "month01/week03/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "month01/week04/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 49,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week04/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month01/week04/README.md",
+          "language": "markdown",
+          "sizeLines": 121,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week04/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month01/week04/CMakeLists.txt": [],
+        "month01/week04/CMakePresets.json": [],
+        "month01/week04/README.md": [],
+        "month01/week04/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "month02/week01/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 40,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week01/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month02/week01/README.md",
+          "language": "markdown",
+          "sizeLines": 95,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week01/run.sh",
+          "language": "shell",
+          "sizeLines": 12,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month02/week01/CMakeLists.txt": [],
+        "month02/week01/CMakePresets.json": [],
+        "month02/week01/README.md": [],
+        "month02/week01/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "month02/week02/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 40,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week02/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month02/week02/README.md",
+          "language": "markdown",
+          "sizeLines": 107,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week02/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month02/week02/CMakeLists.txt": [],
+        "month02/week02/CMakePresets.json": [],
+        "month02/week02/README.md": [],
+        "month02/week02/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": "month02/week03/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 49,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week03/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month02/week03/README.md",
+          "language": "markdown",
+          "sizeLines": 216,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week03/run.sh",
+          "language": "shell",
+          "sizeLines": 9,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month02/week03/CMakeLists.txt": [],
+        "month02/week03/CMakePresets.json": [],
+        "month02/week03/README.md": [],
+        "month02/week03/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "month02/week04/CMakeLists.txt",
+          "language": "txt",
+          "sizeLines": 49,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week04/CMakePresets.json",
+          "language": "json",
+          "sizeLines": 36,
+          "fileCategory": "config"
+        },
+        {
+          "path": "month02/week04/README.md",
+          "language": "markdown",
+          "sizeLines": 101,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week04/run.sh",
+          "language": "shell",
+          "sizeLines": 18,
+          "fileCategory": "script"
+        }
+      ],
+      "batchImportData": {
+        "month02/week04/CMakeLists.txt": [],
+        "month02/week04/CMakePresets.json": [],
+        "month02/week04/README.md": [],
+        "month02/week04/run.sh": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": ".ua/.understandignore",
+          "language": "unknown",
+          "sizeLines": 59,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".ua/config.json",
+          "language": "json",
+          "sizeLines": 3,
+          "fileCategory": "config"
+        },
+        {
+          "path": "README.md",
+          "language": "markdown",
+          "sizeLines": 74,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week01/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week01/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week01/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week01/main.cpp",
+          "language": "cpp",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week01/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week02/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/main.cpp",
+          "language": "cpp",
+          "sizeLines": 24,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 263,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week02/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week03/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/change_signal.cpp",
+          "language": "cpp",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/evaluator.cpp",
+          "language": "cpp",
+          "sizeLines": 154,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/evaluator.cppm",
+          "language": "cppm",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/main.cpp",
+          "language": "cpp",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/property.cpp",
+          "language": "cpp",
+          "sizeLines": 149,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".ua/.understandignore": [],
+        ".ua/config.json": [],
+        "README.md": [],
+        "month01/week01/.clangd": [],
+        "month01/week01/lexer.cpp": [],
+        "month01/week01/lexer.cppm": [],
+        "month01/week01/main.cpp": [],
+        "month01/week01/tools/README.md": [],
+        "month01/week02/.clangd": [],
+        "month01/week02/lexer.cpp": [],
+        "month01/week02/lexer.cppm": [],
+        "month01/week02/main.cpp": [],
+        "month01/week02/parser.cpp": [],
+        "month01/week02/parser.cppm": [],
+        "month01/week02/tools/README.md": [],
+        "month01/week03/.clangd": [],
+        "month01/week03/change_signal.cpp": [],
+        "month01/week03/evaluator.cpp": [],
+        "month01/week03/evaluator.cppm": [],
+        "month01/week03/lexer.cpp": [],
+        "month01/week03/lexer.cppm": [],
+        "month01/week03/main.cpp": [],
+        "month01/week03/parser.cpp": [],
+        "month01/week03/parser.cppm": [],
+        "month01/week03/property.cpp": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 10,
+      "files": [
+        {
+          "path": "month01/week03/property.cppm",
+          "language": "cppm",
+          "sizeLines": 127,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/rectangle.cpp",
+          "language": "cpp",
+          "sizeLines": 25,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/rectangle.cppm",
+          "language": "cppm",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week03/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month01/week04/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/change_signal.cpp",
+          "language": "cpp",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/evaluator.cpp",
+          "language": "cpp",
+          "sizeLines": 139,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/evaluator.cppm",
+          "language": "cppm",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/formulas.cpp",
+          "language": "cpp",
+          "sizeLines": 116,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/formulas.cppm",
+          "language": "cppm",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/main.cpp",
+          "language": "cpp",
+          "sizeLines": 153,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/property.cpp",
+          "language": "cpp",
+          "sizeLines": 149,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/property.cppm",
+          "language": "cppm",
+          "sizeLines": 127,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/rectangle.cpp",
+          "language": "cpp",
+          "sizeLines": 32,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/rectangle.cppm",
+          "language": "cppm",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/storage.cpp",
+          "language": "cpp",
+          "sizeLines": 273,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/storage.cppm",
+          "language": "cppm",
+          "sizeLines": 22,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month01/week04/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week01/.clang-format",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/dependencies.cpp",
+          "language": "cpp",
+          "sizeLines": 133,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "month01/week03/property.cppm": [],
+        "month01/week03/rectangle.cpp": [],
+        "month01/week03/rectangle.cppm": [],
+        "month01/week03/tools/README.md": [],
+        "month01/week04/.clangd": [],
+        "month01/week04/change_signal.cpp": [],
+        "month01/week04/evaluator.cpp": [],
+        "month01/week04/evaluator.cppm": [],
+        "month01/week04/formulas.cpp": [],
+        "month01/week04/formulas.cppm": [],
+        "month01/week04/lexer.cpp": [],
+        "month01/week04/lexer.cppm": [],
+        "month01/week04/main.cpp": [],
+        "month01/week04/parser.cpp": [],
+        "month01/week04/parser.cppm": [],
+        "month01/week04/property.cpp": [],
+        "month01/week04/property.cppm": [],
+        "month01/week04/rectangle.cpp": [],
+        "month01/week04/rectangle.cppm": [],
+        "month01/week04/storage.cpp": [],
+        "month01/week04/storage.cppm": [],
+        "month01/week04/tools/README.md": [],
+        "month02/week01/.clang-format": [],
+        "month02/week01/.clangd": [],
+        "month02/week01/dependencies.cpp": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 11,
+      "files": [
+        {
+          "path": "month02/week01/dependencies.cppm",
+          "language": "cppm",
+          "sizeLines": 94,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/main.cpp",
+          "language": "cpp",
+          "sizeLines": 70,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week01/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/.clang-format",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/dependencies.cpp",
+          "language": "cpp",
+          "sizeLines": 369,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/dependencies.cppm",
+          "language": "cppm",
+          "sizeLines": 107,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/main.cpp",
+          "language": "cpp",
+          "sizeLines": 86,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week02/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week03/.clang-format",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/change_signal.cpp",
+          "language": "cpp",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/dependencies.cpp",
+          "language": "cpp",
+          "sizeLines": 391,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/dependencies.cppm",
+          "language": "cppm",
+          "sizeLines": 97,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/engine.cpp",
+          "language": "cpp",
+          "sizeLines": 363,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/engine.cppm",
+          "language": "cppm",
+          "sizeLines": 161,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/evaluator.cpp",
+          "language": "cpp",
+          "sizeLines": 139,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/evaluator.cppm",
+          "language": "cppm",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "month02/week01/dependencies.cppm": [],
+        "month02/week01/lexer.cpp": [],
+        "month02/week01/lexer.cppm": [],
+        "month02/week01/main.cpp": [],
+        "month02/week01/parser.cpp": [],
+        "month02/week01/parser.cppm": [],
+        "month02/week02/.clang-format": [],
+        "month02/week02/.clangd": [],
+        "month02/week02/dependencies.cpp": [],
+        "month02/week02/dependencies.cppm": [],
+        "month02/week02/lexer.cpp": [],
+        "month02/week02/lexer.cppm": [],
+        "month02/week02/main.cpp": [],
+        "month02/week02/parser.cpp": [],
+        "month02/week02/parser.cppm": [],
+        "month02/week02/tools/README.md": [],
+        "month02/week03/.clang-format": [],
+        "month02/week03/.clangd": [],
+        "month02/week03/change_signal.cpp": [],
+        "month02/week03/dependencies.cpp": [],
+        "month02/week03/dependencies.cppm": [],
+        "month02/week03/engine.cpp": [],
+        "month02/week03/engine.cppm": [],
+        "month02/week03/evaluator.cpp": [],
+        "month02/week03/evaluator.cppm": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 12,
+      "files": [
+        {
+          "path": "month02/week03/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/main.cpp",
+          "language": "cpp",
+          "sizeLines": 141,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/property.cpp",
+          "language": "cpp",
+          "sizeLines": 167,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/property.cppm",
+          "language": "cppm",
+          "sizeLines": 192,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/rectangle.cpp",
+          "language": "cpp",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/rectangle.cppm",
+          "language": "cppm",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week03/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "month02/week04/.clang-format",
+          "language": "unknown",
+          "sizeLines": 3,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/.clangd",
+          "language": "unknown",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/change_signal.cpp",
+          "language": "cpp",
+          "sizeLines": 80,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/dependencies.cpp",
+          "language": "cpp",
+          "sizeLines": 397,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/dependencies.cppm",
+          "language": "cppm",
+          "sizeLines": 98,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/engine.cpp",
+          "language": "cpp",
+          "sizeLines": 522,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/engine.cppm",
+          "language": "cppm",
+          "sizeLines": 199,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/evaluator.cpp",
+          "language": "cpp",
+          "sizeLines": 139,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/evaluator.cppm",
+          "language": "cppm",
+          "sizeLines": 19,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/lexer.cpp",
+          "language": "cpp",
+          "sizeLines": 210,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/lexer.cppm",
+          "language": "cppm",
+          "sizeLines": 51,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/main.cpp",
+          "language": "cpp",
+          "sizeLines": 267,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/parser.cpp",
+          "language": "cpp",
+          "sizeLines": 275,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/parser.cppm",
+          "language": "cppm",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/property.cpp",
+          "language": "cpp",
+          "sizeLines": 184,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "month02/week03/lexer.cpp": [],
+        "month02/week03/lexer.cppm": [],
+        "month02/week03/main.cpp": [],
+        "month02/week03/parser.cpp": [],
+        "month02/week03/parser.cppm": [],
+        "month02/week03/property.cpp": [],
+        "month02/week03/property.cppm": [],
+        "month02/week03/rectangle.cpp": [],
+        "month02/week03/rectangle.cppm": [],
+        "month02/week03/tools/README.md": [],
+        "month02/week04/.clang-format": [],
+        "month02/week04/.clangd": [],
+        "month02/week04/change_signal.cpp": [],
+        "month02/week04/dependencies.cpp": [],
+        "month02/week04/dependencies.cppm": [],
+        "month02/week04/engine.cpp": [],
+        "month02/week04/engine.cppm": [],
+        "month02/week04/evaluator.cpp": [],
+        "month02/week04/evaluator.cppm": [],
+        "month02/week04/lexer.cpp": [],
+        "month02/week04/lexer.cppm": [],
+        "month02/week04/main.cpp": [],
+        "month02/week04/parser.cpp": [],
+        "month02/week04/parser.cppm": [],
+        "month02/week04/property.cpp": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 13,
+      "files": [
+        {
+          "path": "month02/week04/property.cppm",
+          "language": "cppm",
+          "sizeLines": 192,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/rectangle.cpp",
+          "language": "cpp",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/rectangle.cppm",
+          "language": "cppm",
+          "sizeLines": 11,
+          "fileCategory": "code"
+        },
+        {
+          "path": "month02/week04/tools/README.md",
+          "language": "markdown",
+          "sizeLines": 44,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        "month02/week04/property.cppm": [],
+        "month02/week04/rectangle.cpp": [],
+        "month02/week04/rectangle.cppm": [],
+        "month02/week04/tools/README.md": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

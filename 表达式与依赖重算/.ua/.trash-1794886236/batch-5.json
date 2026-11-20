@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {
+      "id": "config:month02/week01/CMakeLists.txt",
+      "type": "config",
+      "name": "CMakeLists.txt",
+      "filePath": "month02/week01/CMakeLists.txt",
+      "summary": "month02/week01 的构建定义：显式列出 demo 可执行文件的四个源文件（dependencies/lexer/main/parser.cpp）与三个 CXX_MODULES 接口（dependencies/lexer/parser.cppm），强制 Clang 22+ 并启用 C++23 import std 实验支持。",
+      "tags": ["配置", "构建系统", "cmake", "cxx-modules", "import-std"],
+      "complexity": "simple",
+      "languageNotes": "通过 CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 令牌启用 CMake 4.3 的 import std 实验支持，并在配置期校验编译器为 Clang 且 CMAKE_CXX_COMPILER_IMPORT_STD 包含 23，属于 C++23 标准库模块课程的典型守卫写法。"
+    },
+    {
+      "id": "config:month02/week01/CMakePresets.json",
+      "type": "config",
+      "name": "CMakePresets.json",
+      "filePath": "month02/week01/CMakePresets.json",
+      "summary": "定义本周统一的 default 预设：Ninja 生成器、clang++ 编译器、Debug 构建类型，并导出 compile_commands.json 供 clangd 使用，配套同名 build 与 test 预设。",
+      "tags": ["配置", "cmake-presets", "构建系统", "clangd", "ninja"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:month02/week01/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "month02/week01/README.md",
+      "summary": "第二月第 1 周「建立依赖关系」的课程讲义，围绕问题 41–45 讲解如何遍历 AST 提取变量、解析为对象 ID＋属性键、去重并维护前置/下游两份邻接表，附独立练习、验收标准与构建运行命令。",
+      "tags": ["文档", "课程讲义", "依赖图", "ast", "教学"],
+      "complexity": "moderate",
+      "languageNotes": "延续本仓库每周 README 的固定结构：课程核心、本周训练（承接前置/目标/独立练习/验收）与编号问题答案，正文内直接以 Markdown 链接指向 dependencies.cpp 等实现文件。"
+    },
+    {
+      "id": "file:month02/week01/run.sh",
+      "type": "file",
+      "name": "run.sh",
+      "filePath": "month02/week01/run.sh",
+      "summary": "一键构建运行脚本：切到本周目录后依次执行 cmake --preset default 配置与构建，成功后 exec 运行 build/demo 并透传命令行参数，任一步失败立即中止。",
+      "tags": ["脚本", "构建", "bash", "一键运行", "入口点"],
+      "complexity": "simple",
+      "languageNotes": "使用 set -euo pipefail 保证构建失败即退出，并通过 BASH_SOURCE 定位脚本目录后 cd，使脚本可从任意工作目录调用；exec 替换进程运行 demo。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:month02/week01/CMakePresets.json",
+      "target": "config:month02/week01/CMakeLists.txt",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:month02/week01/README.md",
+      "target": "config:month02/week01/CMakeLists.txt",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week01/README.md",
+      "target": "config:month02/week01/CMakePresets.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:month02/week01/README.md",
+      "target": "file:month02/week01/run.sh",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:month02/week01/run.sh",
+      "target": "config:month02/week01/CMakePresets.json",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:month02/week01/run.sh",
+      "target": "config:month02/week01/CMakeLists.txt",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

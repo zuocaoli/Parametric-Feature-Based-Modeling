@@ -1,0 +1,30 @@
+Found 16 batch files (13 logical batches, 3 multi-part):
+  batch-1.json: 4 nodes, 11 edges
+  batch-2.json: 4 nodes, 16 edges
+  batch-3.json: 4 nodes, 6 edges
+  batch-4.json: 4 nodes, 6 edges
+  batch-5.json: 4 nodes, 6 edges
+  batch-6.json: 4 nodes, 17 edges
+  batch-7.json: 4 nodes, 28 edges
+  batch-8.json: 4 nodes, 29 edges
+  batch-9.json: 49 nodes, 91 edges
+  batch-10-part-1.json: 29 nodes, 53 edges
+  batch-10-part-2.json: 35 nodes, 56 edges
+  batch-11-part-1.json: 32 nodes, 60 edges
+  batch-11-part-2.json: 36 nodes, 65 edges
+  batch-12-part-1.json: 29 nodes, 40 edges
+  batch-12-part-2.json: 42 nodes, 69 edges
+  batch-13.json: 8 nodes, 16 edges
+
+Input: 292 nodes, 569 edges
+
+Could not fix (2 issues — needs agent review):
+  - Edge document:month02/week02/tools/README.md → file:month02/week02/CMakeLists.txt (documents): dropped, missing target 'file:month02/week02/CMakeLists.txt'
+  - Edge function:month02/week04/engine.cpp:create_rectangle → function:month02/week04/rectangle.cpp:Rectangle (calls): dropped, missing target 'function:month02/week04/rectangle.cpp:Rectangle'
+
+Output: 292 nodes, 567 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (136 entries scanned)
+
+Written to /home/zcli/dev/Parametric-Feature-Based-Modeling/表达式与重算/.ua/intermediate/assembled-graph.json (282 KB)

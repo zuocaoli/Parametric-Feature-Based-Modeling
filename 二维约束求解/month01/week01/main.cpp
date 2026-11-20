@@ -6,9 +6,12 @@ import mini_gcs.lesson;
 #endif
 
 int main(int argc, char **argv) {
+
     try {
+
         bool headless = false;
         bool benchmark = false;
+
         for (int i = 1; i < argc; ++i) {
             std::string_view arg(argv[i]);
             if (arg == "--headless")
@@ -19,9 +22,11 @@ int main(int argc, char **argv) {
             } else
                 throw std::invalid_argument("usage: demo [--headless | --benchmark]");
         }
+
         if (benchmark)
             throw std::invalid_argument(
                 "benchmark is introduced with the solver in month01/week04");
+                
 #ifdef MINI_GCS_WITH_GUI
         if (!headless) {
             QApplication app(argc, argv);
@@ -35,6 +40,7 @@ int main(int argc, char **argv) {
         auto lesson = gcs::makeLesson();
         std::cout << gcs::runLesson(lesson) << '\n';
         return 0;
+
     } catch (const std::exception &error) {
         std::cerr << error.what() << '\n';
         return 1;
